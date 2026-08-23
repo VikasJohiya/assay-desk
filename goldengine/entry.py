@@ -63,12 +63,34 @@ def compute_entry(closes: List[float], dates: List[str]) -> Dict:
             "upside_p90_pct": round(_pctile(rets, 0.90) * 100, 2),
         }
 
+    # --- Dead-period reality: the ride "steady growth" hides ---
+    # Worst peak-to-trough fall, and the longest stretch spent below a prior high
+    # (how long you'd have had to hold underwater before reclaiming your entry).
+    # Measured on the same currency series, so INR (rupee tailwind) reads gentler.
+    max_dd = 0.0            # most negative running drawdown from the running peak
+    longest_uw = 0          # longest consecutive run of trading days below a prior peak
+    run_peak = closes[0]
+    uw_run = 0
+    for p in closes:
+        if p >= run_peak:
+            run_peak = p
+            uw_run = 0
+        else:
+            uw_run += 1
+            longest_uw = max(longest_uw, uw_run)
+            max_dd = min(max_dd, p / run_peak - 1)
+    drawdown = {
+        "max_dd_pct": round(max_dd * 100, 1),
+        "longest_underwater_months": round(longest_uw / 21),  # ~21 trading days/month
+    }
+
     return {
         "as_of_price": round(cur, 2),
         "history_years": round(n / 252, 1),
         "valuation_pct": round(valuation_pct, 3),   # percentile vs trailing 1y
         "above_ma200_pct": round(above_ma200_pct, 2),
         "horizons": horizons,
+        "drawdown": drawdown,
     }
 
 

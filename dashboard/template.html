@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <title>Assay Desk</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -221,6 +222,31 @@
   .entry-ctx{margin-top:15px; padding:12px 15px; border-radius:10px; background:var(--surface-2); border:1px solid var(--line); border-left:3px solid var(--gold-soft); font-size:12.8px; color:var(--ink); line-height:1.5}
   .yld-chip{margin-top:10px; padding-top:9px; border-top:1px solid var(--line); font:500 11.5px/1.5 "IBM Plex Mono",monospace; color:var(--muted)}
   .entry-foot{margin-top:13px; font:500 11px/1.5 "IBM Plex Mono",monospace; color:var(--faint)}
+  /* ---------- position sizer (turn % into money) ---------- */
+  .sizer{margin-top:15px; padding:15px 16px; border-radius:12px; background:var(--surface-2); border:1px solid var(--line); border-left:3px solid var(--gold)}
+  .sizer-head{font:600 10.5px/1 "IBM Plex Mono",monospace; letter-spacing:.07em; text-transform:uppercase; color:var(--faint); margin-bottom:11px; display:flex; align-items:center; gap:6px}
+  .sizer-controls{display:flex; gap:7px; flex-wrap:wrap; align-items:center; margin-bottom:11px}
+  .sizer-controls .lab{font-size:11.5px; color:var(--faint); margin-right:1px}
+  .hz-chip.mini{padding:6px 11px; font-size:11.5px}
+  .sizer-input{display:flex; align-items:center; gap:11px; flex-wrap:wrap}
+  .sizer-input .lab{font-size:12.8px; color:var(--ink)}
+  .sizer-field{display:inline-flex; align-items:center; background:var(--bg); border:1px solid var(--gold-soft); border-radius:9px; padding:0 12px; height:40px}
+  .sizer-field .cur{font:600 13px/1 "IBM Plex Mono",monospace; color:var(--gold); margin-right:7px}
+  .sizer-field input{border:0; background:transparent; outline:0; color:var(--ink); font:600 17px/1 "IBM Plex Mono",monospace; width:130px; font-variant-numeric:tabular-nums}
+  .sizer-field .u{font:500 11px/1 "IBM Plex Mono",monospace; color:var(--faint); margin-left:6px}
+  .sizer-out{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+  .sizer-cell{flex:1 1 120px; padding:11px 13px; border-radius:10px; background:var(--bg); border:1px solid var(--line)}
+  .sizer-cell.worst{border-top:2px solid color-mix(in srgb,var(--crit) 55%,var(--line))}
+  .sizer-cell.typ{border-top:2px solid var(--gold-soft)}
+  .sizer-cell.best{border-top:2px solid color-mix(in srgb,var(--good) 55%,var(--line))}
+  .sizer-cell .k{font:500 9.5px/1.3 "IBM Plex Mono",monospace; letter-spacing:.04em; text-transform:uppercase; color:var(--faint)}
+  .sizer-cell .v{font-family:"IBM Plex Mono",monospace; font-size:19px; margin-top:6px; font-variant-numeric:tabular-nums}
+  .sizer-cell.worst .v{color:var(--crit)} .sizer-cell.best .v{color:var(--good)}
+  .sizer-cell .s{font-size:10px; color:var(--muted); margin-top:3px}
+  .sizer-line{margin-top:13px; font-size:12.8px; color:var(--ink); line-height:1.55}
+  .sizer-line.empty{color:var(--faint)}
+  .sizer-dead{margin-top:12px; padding-top:11px; border-top:1px dashed var(--line); font-size:12px; color:var(--muted); line-height:1.55}
+  .sizer-dead b{color:var(--ink)}
   .info{display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border-radius:50%;
     border:1px solid var(--gold-soft); color:var(--gold); font-size:10px; font-style:normal; cursor:pointer; user-select:none; flex:none}
   .info:hover{background:var(--gold-wash)}
@@ -583,7 +609,8 @@ function boot(){
       ['posture','The posture — what each one means','The headline read for your horizon, based on historical <b>odds + where the price sits</b>. It is never an order to buy or sell — it describes conditions, you decide. There are three:<br><br><b>· Reasonable to accumulate</b> — over your horizon, most past windows ended positive; a sensible time to add, ideally averaging in. Not a promise it will rise.<br><br><b>· Accumulate gradually — don’t chase</b> — the odds still lean positive, but gold is near the top of its recent range, so drip money in rather than putting a lump sum in at the highs.<br><br><b>· Timing barely matters here</b> — at very short horizons gold is close to a coin flip; this is about whether you can stomach the swings, not about picking the right moment. Only commit money you won’t need soon.'],
       ['odds','Historically positive (% of windows)','Of all past windows of this length over ~20 years, the share that ended <i>higher</i> than they started. It describes the past, not the future. Longer horizons have had better odds — driven by gold’s long-run rise, which may not continue.'],
       ['median','Typical result (median)','The middle outcome over this horizon: half of past windows did better, half worse. A sense of the usual move — not a target or a promise.'],
-      ['downside','Downside to sit through (worst 10%)','In the worst 1-in-10 past windows of this length, gold fell <i>at least</i> this much. This is the drawdown you may have to endure — match it to how long you can leave the money and how much dip you can stomach.'],
+      ['downside','Downside to sit through (worst 10%)','The <b>10th-percentile</b> outcome: in the worst 1-in-10 past windows of this length, gold fell <i>at least</i> this much. Not the worst ever — a bad-but-not-rare case. This is the drawdown you may have to endure — match it to how long you can leave the money and how much dip you can stomach.'],
+      ['sizer','Put a number on it','Takes the same historical odds and downside for your chosen horizon and basis, and multiplies them by an amount you type in — so the risk is a <b>rupee figure you can feel</b>, not an abstract percent. The “worst 1-in-10” is the loss you’d have to sit through without selling; use it to size the position down to something you can actually hold. Historical, not a prediction — and never a buy/sell call.'],
       ['valuation','Valuation (context only)','Where today’s price sits vs. its own last year (e.g. “higher than 79% of the past year”). <span class="no">Note:</span> in our 20-year tests this did <b>not</b> reliably predict direction. Use it to avoid chasing a spike — it is not a signal.'],
       ['horizon','Horizon (you choose)','How long you can leave the money invested — set by your capital and when you’ll need it. It drives everything: odds, typical result and downside all recompute for the horizon you pick.'],
       ['basis','₹ vs USD basis','Which currency the odds are measured in. It matters: gold is priced in USD, but a rupee investor’s return also includes the rupee’s move. Over 20 years the rupee roughly halved vs. the dollar, so <b>INR gold has had higher odds and a gentler downside than USD gold</b>. ₹/10g is the India-native view; USD/oz is the global one.'],
@@ -614,9 +641,38 @@ function boot(){
     const BASES=[]; if(E.INR) BASES.push(['INR','₹ India']); if(E.USD) BASES.push(['USD','USD']);
     let basis=(E.default_basis && E[E.default_basis])?E.default_basis:(E.INR?'INR':'USD');
     let cur=E.default_horizon||'6-month';
+    let amount=null;                       // rupees/dollars the user is considering (sizer)
     const money=B=> B.unit==='INR/10g'
       ? '₹'+Number(B.as_of_price).toLocaleString('en-IN',{maximumFractionDigits:0})+'/10g'
       : 'USD '+Number(B.as_of_price).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})+'/oz';
+    // ---- position sizer: turn the % odds into felt money ----
+    const _loc=b=> b==='INR'?'en-IN':'en-US';
+    function fmtMoney(b,n){ const a=Math.round(Math.abs(n)).toLocaleString(_loc(b)); return b==='INR'?'₹'+a:'USD '+a; }
+    function signMoney(b,n){ return (n<0?'−':'+')+fmtMoney(b,n); }
+    function fmtInt(b,n){ return Math.round(n).toLocaleString(_loc(b)); }
+    function szCell(cls,k,v,s){ return '<div class="sizer-cell '+cls+'"><div class="k">'+k+'</div><div class="v">'+v+'</div><div class="s">'+s+'</div></div>'; }
+    function paintSizer(){
+      const out=$('#szOut'), line=$('#szLine'), dead=$('#szDead');
+      if(!out||!line) return;
+      const B=E[basis], s=B.horizons[cur], label=cur.replace('-',' '), sym=basis==='INR'?'₹':'USD';
+      if(dead && B.drawdown){
+        const mo=B.drawdown.longest_underwater_months;
+        const dur = mo>=18 ? '~'+(mo/12).toFixed(mo%12?1:0)+' years' : '~'+mo+' months';
+        dead.innerHTML='<b>The ride, not the average:</b> over the ~'+B.history_years+'y measured, '+sym+' gold fell as much as <b>'+Math.abs(B.drawdown.max_dd_pct).toFixed(0)+'%</b> peak-to-trough and once stayed below a prior high for as long as <b>'+dur+'</b>. “Steady growth” is the average — this is the ride you may have to sit through to get it.';
+      }
+      if(amount==null || !(amount>0)){
+        out.innerHTML=''; line.className='sizer-line empty';
+        line.innerHTML='Enter an amount to see the honest '+sym+' outcomes for a '+label+' hold — the typical result, the good 1-in-10, and the loss you’d have to sit through.';
+        return;
+      }
+      const worst=amount*s.downside_p10_pct/100, typ=amount*s.median_pct/100, best=amount*s.upside_p90_pct/100;
+      out.innerHTML=
+        szCell('worst','Worst 1-in-10', signMoney(basis,worst), 'you’d sit through this')+
+        szCell('typ','Typical (median)', signMoney(basis,typ), 'middle outcome')+
+        szCell('best','Best 1-in-10', signMoney(basis,best), 'the good tail');
+      line.className='sizer-line';
+      line.innerHTML='A <b>'+label+'</b> hold of <b>'+fmtMoney(basis,amount)+'</b>: about <b>'+(s.pos_pct*100).toFixed(0)+'%</b> of past windows ended positive. In a bad-but-not-rare case you’d be down <b>'+signMoney(basis,worst)+'</b> — the real question is whether you can hold that without selling.';
+    }
     function draw(){
       row.innerHTML='';
       const hz=el('span'); hz.style.cssText='display:flex;gap:8px;flex-wrap:wrap;align-items:center';
@@ -630,6 +686,23 @@ function boot(){
         row.append(bw);
       }
       const B=E[basis], s=B.horizons[cur], val=B.valuation_pct, label=cur.replace('-',' ');
+      const curSym=basis==='INR'?'₹':'USD', ph=basis==='INR'?'e.g. 5,00,000':'e.g. 6,000',
+            amtVal=amount!=null?fmtInt(basis,amount):'';
+      const szPills=HZ.filter(([k])=>E[basis].horizons[k]).map(([k,lab])=>
+        '<button type="button" class="hz-chip mini'+(k===cur?' active':'')+'" data-hz="'+k+'">'+lab+'</button>').join('');
+      const sizerHtml=
+        '<div class="sizer">'+
+          '<div class="sizer-head">Put a number on it <span class="info" data-term="sizer">i</span></div>'+
+          '<div class="sizer-controls"><span class="lab">Held for</span>'+szPills+'</div>'+
+          '<div class="sizer-input"><span class="lab">If I put in</span>'+
+            '<span class="sizer-field"><span class="cur">'+curSym+'</span>'+
+              '<input id="szAmt" type="text" inputmode="numeric" autocomplete="off" placeholder="'+ph+'" value="'+amtVal+'"></span>'+
+            '<span class="lab">for a <b>'+label+'</b> hold</span>'+
+          '</div>'+
+          '<div class="sizer-out" id="szOut"></div>'+
+          '<div class="sizer-line empty" id="szLine"></div>'+
+          '<div class="sizer-dead" id="szDead"></div>'+
+        '</div>';
       let tone,verb,why;
       if(s.days<=21){ tone='neutral'; verb='Timing barely matters here'; why='At about a month, gold is close to a coin flip — this is a question of volatility tolerance, not timing. Only commit money you won’t need soon.'; }
       else if(val>=0.85){ tone='warn'; verb='Accumulate gradually — don’t chase'; why='Gold is near the top of its last-year range. Over this horizon the odds have still favoured holders, but averaging in beats a lump sum at the highs.'; }
@@ -667,9 +740,18 @@ function boot(){
             '</div>'+
           '</div>'+ trust +
         '</div>'+
+        sizerHtml +
         '<div class="entry-ctx"><span class="info" data-term="valuation">i</span> &nbsp;At <b>'+money(B)+'</b>, price sits higher than <b>'+Math.round(val*100)+'%</b> of its last year ('+(B.above_ma200_pct>=0?'+':'')+B.above_ma200_pct.toFixed(1)+'% vs its 200-day average) — <i>context, not a timing signal</i>.'+yld+'</div>'+
         '<div class="entry-foot">'+(basis==='INR'?'₹/10g (India)':'USD/oz')+' basis <span class="info" data-term="basis">i</span> · historical odds, not a prediction · the decision is yours.</div>';
       wireInfo(host);
+      host.querySelectorAll('.sizer .hz-chip[data-hz]').forEach(b=>
+        b.addEventListener('click',()=>{ cur=b.dataset.hz; draw(); }));
+      const inp=$('#szAmt');
+      if(inp){
+        inp.addEventListener('input',()=>{ const raw=inp.value.replace(/[^0-9]/g,''); amount=raw?parseInt(raw,10):null; paintSizer(); });
+        inp.addEventListener('blur',()=>{ inp.value = amount!=null ? fmtInt(basis,amount) : ''; });
+      }
+      paintSizer();
     }
     draw();
   }
