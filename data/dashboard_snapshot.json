@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-08-23T07:49:45+00:00",
+    "generated_at": "2026-08-23T17:35:19+00:00",
     "window": {
       "start": "2025-08-23",
       "end": "2026-08-23"
@@ -48,13 +48,13 @@
       "source": "Yahoo:GC=F",
       "instrument": "COMEX front-month gold futures close",
       "unit": "USD/oz",
-      "fetched_at": "2026-08-23T07:49:45+00:00"
+      "fetched_at": "2026-08-23T17:35:19+00:00"
     },
     "usd_inr": {
       "source": "Yahoo:USDINR=X",
       "instrument": "USD/INR spot FX rate",
       "unit": "INR per USD",
-      "fetched_at": "2026-08-23T07:49:45+00:00"
+      "fetched_at": "2026-08-23T17:35:19+00:00"
     }
   },
   "entry": {
@@ -3923,7 +3923,7 @@
       "published_at": "2026-07-09T18:00:00+00:00",
       "published_date": "2026-07-09",
       "confidence_discount": false,
-      "fetched_at": "2026-08-23T07:49:51+00:00",
+      "fetched_at": "2026-08-23T17:35:22+00:00",
       "magnitude_usd": 2295000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -3938,7 +3938,7 @@
       "published_at": "2026-07-16T18:00:00+00:00",
       "published_date": "2026-07-16",
       "confidence_discount": false,
-      "fetched_at": "2026-08-23T07:49:51+00:00",
+      "fetched_at": "2026-08-23T17:35:22+00:00",
       "magnitude_usd": 2000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -3953,7 +3953,7 @@
       "published_at": "2026-07-22T18:00:00+00:00",
       "published_date": "2026-07-22",
       "confidence_discount": false,
-      "fetched_at": "2026-08-23T07:49:51+00:00",
+      "fetched_at": "2026-08-23T17:35:22+00:00",
       "magnitude_usd": 405000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -3968,7 +3968,7 @@
       "published_at": "2026-07-23T18:00:00+00:00",
       "published_date": "2026-07-23",
       "confidence_discount": false,
-      "fetched_at": "2026-08-23T07:49:51+00:00",
+      "fetched_at": "2026-08-23T17:35:22+00:00",
       "magnitude_usd": 2000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -3983,7 +3983,7 @@
       "published_at": "2026-07-28T18:00:00+00:00",
       "published_date": "2026-07-28",
       "confidence_discount": false,
-      "fetched_at": "2026-08-23T07:49:51+00:00",
+      "fetched_at": "2026-08-23T17:35:22+00:00",
       "magnitude_usd": 2000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -3998,7 +3998,7 @@
       "published_at": "2026-07-29T18:00:00+00:00",
       "published_date": "2026-07-29",
       "confidence_discount": false,
-      "fetched_at": "2026-08-23T07:49:46+00:00",
+      "fetched_at": "2026-08-23T17:35:19+00:00",
       "magnitude_usd": null,
       "rate_change_bps": 0.0,
       "leak_status": "input"
@@ -4013,7 +4013,7 @@
       "published_at": "2026-08-06T18:00:00+00:00",
       "published_date": "2026-08-06",
       "confidence_discount": false,
-      "fetched_at": "2026-08-23T07:49:51+00:00",
+      "fetched_at": "2026-08-23T17:35:22+00:00",
       "magnitude_usd": 4000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -4028,7 +4028,7 @@
       "published_at": "2026-08-11T18:00:00+00:00",
       "published_date": "2026-08-11",
       "confidence_discount": false,
-      "fetched_at": "2026-08-23T07:49:51+00:00",
+      "fetched_at": "2026-08-23T17:35:22+00:00",
       "magnitude_usd": 2000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -4043,7 +4043,7 @@
       "published_at": "2026-08-18T18:00:00+00:00",
       "published_date": "2026-08-18",
       "confidence_discount": false,
-      "fetched_at": "2026-08-23T07:49:51+00:00",
+      "fetched_at": "2026-08-23T17:35:22+00:00",
       "magnitude_usd": 2000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -4058,7 +4058,7 @@
       "published_at": "2026-08-19T18:00:00+00:00",
       "published_date": "2026-08-19",
       "confidence_discount": false,
-      "fetched_at": "2026-08-23T07:49:46+00:00",
+      "fetched_at": "2026-08-23T17:35:19+00:00",
       "magnitude_usd": null,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -4073,14 +4073,14 @@
       "published_at": "2026-08-20T18:00:00+00:00",
       "published_date": "2026-08-20",
       "confidence_discount": false,
-      "fetched_at": "2026-08-23T07:49:51+00:00",
+      "fetched_at": "2026-08-23T17:35:22+00:00",
       "magnitude_usd": 1860000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
     }
   ],
   "live_forecast": {
-    "as_of": "2026-08-23T07:49:45+00:00",
+    "as_of": "2026-08-23T17:35:19+00:00",
     "target_date": "2026-08-24",
     "horizon_days": 1,
     "direction": "up",
@@ -4104,7 +4104,7 @@
     "honest_confidence": 0.528
   },
   "live_forecast_week": {
-    "as_of": "2026-08-23T07:49:45+00:00",
+    "as_of": "2026-08-23T17:35:19+00:00",
     "target_date": "2026-08-28",
     "horizon_days": 5,
     "direction": "up",
@@ -10935,19 +10935,5 @@
       "reason": "separate, higher bar than calibration; requires beating market efficiency, validated by real statistical backtest",
       "warning": "never implied by calibration progress"
     }
-  },
-  "live": {
-    "gold_usd_oz": 4680.6,
-    "gold_usd_oz_prev": 4571.4,
-    "gold_usd_change_pct": 2.39,
-    "usd_inr": 95.68,
-    "gold_usd_10g": 1504.85,
-    "gold_inr_10g_est": 143984,
-    "gold_market_time": "2026-08-21T20:59:58+00:00",
-    "fx_market_time": "2026-08-23T14:14:04+00:00",
-    "fetched_at": "2026-08-23T17:12:05+00:00",
-    "source": "Yahoo:GC=F \u00d7 Yahoo:USDINR=X",
-    "is_estimate": true,
-    "note": "international gold \u00d7 USD/INR \u2014 not the MCX print (omits duty + local premium)"
   }
 }
