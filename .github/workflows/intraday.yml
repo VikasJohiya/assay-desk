@@ -1,0 +1,48 @@
+name: Intraday live refresh + deploy
+
+# Lightweight live-price refresh through Indian market hours (MCX 09:00–23:30 IST
+# = 03:30–18:00 UTC), every 30 min on weekdays. Patches only the `live` estimate
+# onto the last committed daily snapshot and deploys — it does NOT rerun the heavy
+# analysis and does NOT commit (so no 30-min commit noise).
+
+on:
+  schedule:
+    # Every 30 min, 03:30–18:00 UTC (09:00–23:30 IST), Mon–Fri.
+    - cron: "30 3-17 * * 1-5"
+    - cron: "0 4-18 * * 1-5"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages      # serialize with the daily deploy
+  cancel-in-progress: false
+
+jobs:
+  live-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Patch live estimate + rebuild dashboard (stdlib only)
+        run: python scripts/update_live_price.py
+
+      - name: Assemble Pages site
+        run: |
+          mkdir -p _site
+          cp dashboard/dashboard.html _site/index.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

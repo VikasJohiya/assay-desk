@@ -1,0 +1,56 @@
+name: Daily rebuild + deploy
+
+# Full snapshot rebuild (20y history, backtest, calibration, settled close) once
+# a day, on weekday mornings IST after a US close. Commits the fresh snapshot so
+# the intraday job has a current base, then deploys to GitHub Pages.
+
+on:
+  schedule:
+    # 01:00 UTC = 06:30 IST, Tue–Sat (mornings after a US trading day).
+    - cron: "0 1 * * 2-6"
+  workflow_dispatch: {}   # allow manual runs (also used for the first deploy)
+
+permissions:
+  contents: write   # commit the refreshed snapshot back to main
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages      # serialize with the intraday deploy
+  cancel-in-progress: false
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild snapshot + dashboard (stdlib only)
+        run: |
+          python scripts/build_dashboard_snapshot.py
+          python scripts/build_dashboard.py
+
+      - name: Commit refreshed data (if changed)
+        run: |
+          git config user.name  "assay-desk-bot"
+          git config user.email "actions@github.com"
+          git add data/ dashboard/
+          git commit -m "Daily refresh: snapshot + dashboard [skip ci]" || echo "no changes"
+          git push || echo "nothing to push"
+
+      - name: Assemble Pages site
+        run: |
+          mkdir -p _site
+          cp dashboard/dashboard.html _site/index.html
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

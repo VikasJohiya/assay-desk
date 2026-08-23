@@ -10935,5 +10935,19 @@
       "reason": "separate, higher bar than calibration; requires beating market efficiency, validated by real statistical backtest",
       "warning": "never implied by calibration progress"
     }
+  },
+  "live": {
+    "gold_usd_oz": 4680.6,
+    "gold_usd_oz_prev": 4571.4,
+    "gold_usd_change_pct": 2.39,
+    "usd_inr": 95.68,
+    "gold_usd_10g": 1504.85,
+    "gold_inr_10g_est": 143984,
+    "gold_market_time": "2026-08-21T20:59:58+00:00",
+    "fx_market_time": "2026-08-23T14:14:04+00:00",
+    "fetched_at": "2026-08-23T17:12:05+00:00",
+    "source": "Yahoo:GC=F \u00d7 Yahoo:USDINR=X",
+    "is_estimate": true,
+    "note": "international gold \u00d7 USD/INR \u2014 not the MCX print (omits duty + local premium)"
   }
 }

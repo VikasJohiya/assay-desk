@@ -85,6 +85,54 @@ def fetch_symbol(symbol: str, start: str, end: str, timeout: int = 20) -> Series
     )
 
 
+def fetch_live_quote(symbol: str, timeout: int = 20) -> dict:
+    """Latest LIVE/intraday price for `symbol` (regularMarketPrice from Yahoo's
+    chart meta), with its market time and the prior close.
+
+    This is the near-real-time quote, NOT a daily-settlement close: GC=F trades
+    ~23h/day on CME Globex, so this ticks through Indian market hours even while
+    the daily settlement is stale. Used only for the honest 'live estimate'
+    price-now strip — labeled as an estimate, never as the MCX print.
+    """
+    if symbol not in _SYMBOLS:
+        raise SourceUnavailableError("Yahoo", f"unmapped symbol {symbol!r}")
+    instrument, unit = _SYMBOLS[symbol]
+
+    url = f"{_CHART}{symbol}?interval=1m&range=1d"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 gold-engine/0.1"})
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            payload = json.loads(resp.read().decode("utf-8"))
+    except (urllib.error.URLError, TimeoutError, OSError) as exc:
+        raise SourceUnavailableError("Yahoo", f"{symbol}: {exc}") from exc
+    except json.JSONDecodeError as exc:
+        raise SourceUnavailableError("Yahoo", f"{symbol}: non-JSON response") from exc
+
+    chart = payload.get("chart") or {}
+    if chart.get("error"):
+        raise SourceUnavailableError("Yahoo", f"{symbol}: {chart['error']}")
+    results = chart.get("result")
+    if not results:
+        raise SourceUnavailableError("Yahoo", f"{symbol}: empty result set")
+    meta = (results[0].get("meta") or {})
+    price = meta.get("regularMarketPrice")
+    if price is None:
+        raise NoObservationError("Yahoo", f"{symbol}: no live regularMarketPrice")
+    ts = meta.get("regularMarketTime")
+    prev = meta.get("chartPreviousClose", meta.get("previousClose"))
+    return {
+        "source": f"Yahoo:{symbol}",
+        "instrument": instrument,
+        "unit": unit,
+        "price": float(price),
+        "previous_close": (float(prev) if prev is not None else None),
+        "market_time": (_dt.datetime.fromtimestamp(ts, _dt.timezone.utc).isoformat(timespec="seconds")
+                        if ts else None),
+        "fetched_at": _dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds"),
+        "url": url,
+    }
+
+
 def fetch_usd_gold(start: str, end: str, timeout: int = 20) -> SeriesResult:
     """USD gold daily close (COMEX front-month futures) over [start, end]."""
     return fetch_symbol("GC=F", start, end, timeout=timeout)
