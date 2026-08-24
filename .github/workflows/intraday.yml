@@ -7,9 +7,10 @@ name: Intraday live refresh + deploy
 
 on:
   schedule:
-    # Every 30 min, 03:30–18:00 UTC (09:00–23:30 IST), Mon–Fri.
-    - cron: "30 3-17 * * 1-5"
-    - cron: "0 4-18 * * 1-5"
+    # Every 15 min, 03:30–18:00 UTC (09:00–23:30 IST), Mon–Fri.
+    - cron: "*/15 4-17 * * 1-5"   # :00 :15 :30 :45 across 04:00–17:45
+    - cron: "30,45 3 * * 1-5"     # 03:30, 03:45 — market-open edge (09:00 IST)
+    - cron: "0 18 * * 1-5"        # 18:00 — market-close edge (23:30 IST)
   workflow_dispatch: {}
 
 permissions:

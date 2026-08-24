@@ -262,7 +262,9 @@
   .live-usd{font:500 13px/1 "IBM Plex Mono",monospace; color:var(--muted); font-variant-numeric:tabular-nums}
   .live-usd .up,.live-mcx .up{color:var(--good)} .live-usd .down,.live-mcx .down{color:var(--crit)}
   .live-mcx .up,.live-mcx .down{font-size:13px; font-weight:600; margin-left:2px}
-  .live-time{font:500 11px/1 "IBM Plex Mono",monospace; color:var(--faint); margin-left:auto}
+  .live-time{font:500 11px/1 "IBM Plex Mono",monospace; color:var(--faint); margin-left:auto; display:inline-flex; align-items:center}
+  .live-refresh{font:600 10.5px/1 "IBM Plex Mono",monospace; color:var(--gold); background:var(--gold-wash); border:1px solid var(--gold-soft); border-radius:6px; padding:3px 8px; margin-left:7px; cursor:pointer; white-space:nowrap}
+  .live-refresh:hover{background:color-mix(in srgb,var(--gold) 22%,transparent)}
   .live-note{font-size:10.5px; color:var(--faint); flex-basis:100%; margin-top:-2px}
   .info{display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border-radius:50%;
     border:1px solid var(--gold-soft); color:var(--gold); font-size:10px; font-style:normal; cursor:pointer; user-select:none; flex:none}
@@ -796,8 +798,10 @@ function boot(){
           :'<span class="live-inr">₹'+Number(L.gold_inr_10g_est).toLocaleString('en-IN')+'<span class="u">/10g est</span></span>')+
       '<span class="live-usd">$'+fmt(L.gold_usd_oz)+'<span class="u">/oz</span>'+
         (chg!=null?' <span class="'+(chg>=0?'up':'down')+'">'+(chg>=0?'+':'')+chg.toFixed(2)+'%</span>':'')+'</span>'+
-      '<span class="live-time">as of '+ist+' IST</span>'+
+      '<span class="live-time">as of '+ist+' IST <button class="live-refresh" title="Fetch the latest deploy (bypasses the 10-min cache)">↻ refresh</button></span>'+
       '<span class="live-note">'+(mcx?'<b>≈ MCX</b> = live international gold × USD/INR + ~'+L.india_premium_pct+'% India duty/premium'+(calD?' (calibrated '+calD+')':'')+' — modeled, not a live exchange feed. The plain $→₹ conversion (no premium) is “Gold in rupees” below.':'international gold × USD/INR — not the MCX print (omits duty + local premium).')+'</span>'));
+    const _rb=reading.querySelector('.live-refresh');
+    if(_rb) _rb.addEventListener('click',()=>location.replace(location.pathname+'?v='+Date.now()));
   }
   const pr=el('div','price-row');
   pr.append(el('div','price','<span class="cur">USD</span>'+fmt(lp.usd_gold_close)+'<span class="unit">/oz</span>'),
