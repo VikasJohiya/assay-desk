@@ -57,11 +57,16 @@ def main() -> int:
         return 2
 
     g, rate = gold["price"], fx["price"]
-    prev = gold["previous_close"]
+    prev, fxprev = gold["previous_close"], fx["previous_close"]
+    # ₹ day change = the real combined move of its two inputs (gold + USD/INR) vs
+    # their prior closes. The premium cancels, so this is also the ≈MCX day %.
+    inr_chg = (round((g * rate) / (prev * fxprev) * 100 - 100, 2)
+               if (prev and fxprev) else None)
     live = {
         "gold_usd_oz": round(g, 2),
         "gold_usd_oz_prev": prev,
         "gold_usd_change_pct": (round((g / prev - 1) * 100, 2) if prev else None),
+        "gold_inr_change_pct": inr_chg,
         "usd_inr": round(rate, 4),
         "gold_usd_10g": round(g / GRAMS_PER_OZ * 10, 2),
         "gold_inr_10g_est": round(g * rate / GRAMS_PER_OZ * 10),

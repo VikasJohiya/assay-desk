@@ -259,7 +259,8 @@
   .live-mcx{font:600 17px/1 "IBM Plex Mono",monospace; color:var(--gold); font-variant-numeric:tabular-nums}
   .live-inr .u,.live-usd .u,.live-mcx .u{font-size:10px; color:var(--faint); font-weight:500}
   .live-usd{font:500 13px/1 "IBM Plex Mono",monospace; color:var(--muted); font-variant-numeric:tabular-nums}
-  .live-usd .up{color:var(--good)} .live-usd .down{color:var(--crit)}
+  .live-usd .up,.live-mcx .up{color:var(--good)} .live-usd .down,.live-mcx .down{color:var(--crit)}
+  .live-mcx .up,.live-mcx .down{font-size:13px; font-weight:600; margin-left:2px}
   .live-time{font:500 11px/1 "IBM Plex Mono",monospace; color:var(--faint); margin-left:auto}
   .live-note{font-size:10.5px; color:var(--faint); flex-basis:100%; margin-top:-2px}
   .info{display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border-radius:50%;
@@ -788,7 +789,8 @@ function boot(){
     const calD=L.premium_calibrated_on?new Date(L.premium_calibrated_on+'T00:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'}):'';
     reading.append(el('div','live-strip',
       '<span class="live-dot"></span><span class="live-lab">LIVE</span>'+
-      (mcx?'<span class="live-mcx">≈ MCX ₹'+Number(mcx).toLocaleString('en-IN')+'<span class="u">/10g modeled</span></span>'
+      (mcx?'<span class="live-mcx">≈ MCX ₹'+Number(mcx).toLocaleString('en-IN')+'<span class="u">/10g modeled</span>'+
+            (L.gold_inr_change_pct!=null?'<span class="'+(L.gold_inr_change_pct>=0?'up':'down')+'">'+(L.gold_inr_change_pct>=0?'+':'')+L.gold_inr_change_pct.toFixed(2)+'%</span>':'')+'</span>'
           :'<span class="live-inr">₹'+Number(L.gold_inr_10g_est).toLocaleString('en-IN')+'<span class="u">/10g est</span></span>')+
       '<span class="live-usd">$'+fmt(L.gold_usd_oz)+'<span class="u">/oz</span>'+
         (chg!=null?' <span class="'+(chg>=0?'up':'down')+'">'+(chg>=0?'+':'')+chg.toFixed(2)+'%</span>':'')+'</span>'+

@@ -26,6 +26,7 @@ from goldengine.entry import compute_entry, real_yield_3m_change  # noqa: E402
 from goldengine.errors import PipelineError  # noqa: E402
 from goldengine.forecast import make_forecast  # noqa: E402
 from goldengine.leakcheck import enforce_cutoff  # noqa: E402
+from goldengine.posture_ledger import build as build_posture_ledger  # noqa: E402
 from goldengine.ledger import Ledger, Prediction  # noqa: E402
 from goldengine.prices import assemble_price_rows  # noqa: E402
 from goldengine.sources import fed_history, fred, treasury, yahoo  # noqa: E402
@@ -124,6 +125,8 @@ def main() -> int:
     # Computed in BOTH USD/oz and INR/10g, since a rupee investor's real returns
     # differ (rupee depreciation adds to INR-gold returns).
     entry = None
+    posture_ledger = None
+    inr_closes = idates = usd_closes = ldates = None  # kept for the posture ledger
     GRAMS_PER_OZ = 31.1034768
     long_start = (_dt.date.fromisoformat(end) - _dt.timedelta(days=365 * 20)).isoformat()
     lg_gold, _ = _try("gold20y", lambda: yahoo.fetch_usd_gold(long_start, end))
@@ -160,6 +163,18 @@ def main() -> int:
         # 10-year Treasury yield: macro CONTEXT only (nominal; not a timing signal)
         entry["yield_10y_3m_chg"] = real_yield_3m_change(
             _ffill(tnx_set.observations, ldates)) if tnx_set else None
+
+    # --- Posture ledger: record + grade the entry posture over its own horizon ---
+    # Deterministic recompute from the default-basis series (backfilled ~20y), so
+    # it's an out-of-sample check on the posture itself, not just a go-forward log.
+    if entry:
+        try:
+            if entry.get("default_basis") == "INR" and inr_closes and idates:
+                posture_ledger = build_posture_ledger(inr_closes, idates)
+            elif usd_closes and ldates:
+                posture_ledger = build_posture_ledger(usd_closes, ldates)
+        except Exception as exc:  # fail-visible; never crash the whole build over the ledger
+            posture_ledger = {"error": str(exc)}
 
     # --- LIVE forecasts (next session + ~1 week) + out-of-sample backtests ---
     live_forecast = None
@@ -253,6 +268,7 @@ def main() -> int:
         "latest_price": latest,
         "price_provenance": price_provenance,
         "entry": entry,
+        "posture_ledger": posture_ledger,
         "prices": price_rows,
         "signals": signals_out,
         "live_forecast": live_forecast,
@@ -305,6 +321,9 @@ def main() -> int:
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     out_path.write_text(json.dumps(snapshot, indent=2))
+    # Standalone posture ledger file (the log/learning dataset), alongside the snapshot.
+    if posture_ledger:
+        (out_path.parent / "posture_ledger.json").write_text(json.dumps(posture_ledger, indent=2))
     print(f"OK — snapshot -> {out_path}")
     print(f"  prices: {len(price_rows)} rows | US signals: {len(us_signals)} "
           f"({len(cut.included)} input / {len(cut.excluded)} withheld @ cutoff)")
