@@ -256,7 +256,8 @@
   @media(prefers-reduced-motion:reduce){.live-dot{animation:none}}
   .live-lab{font:600 10px/1 "IBM Plex Mono",monospace; letter-spacing:.09em; color:var(--good)}
   .live-inr{font:600 17px/1 "IBM Plex Mono",monospace; color:var(--ink); font-variant-numeric:tabular-nums}
-  .live-inr .u,.live-usd .u{font-size:10px; color:var(--faint); font-weight:500}
+  .live-mcx{font:600 17px/1 "IBM Plex Mono",monospace; color:var(--gold); font-variant-numeric:tabular-nums}
+  .live-inr .u,.live-usd .u,.live-mcx .u{font-size:10px; color:var(--faint); font-weight:500}
   .live-usd{font:500 13px/1 "IBM Plex Mono",monospace; color:var(--muted); font-variant-numeric:tabular-nums}
   .live-usd .up{color:var(--good)} .live-usd .down{color:var(--crit)}
   .live-time{font:500 11px/1 "IBM Plex Mono",monospace; color:var(--faint); margin-left:auto}
@@ -783,14 +784,17 @@ function boot(){
   if(D.live){
     const L=D.live, t=L.gold_market_time?new Date(L.gold_market_time):null;
     const ist=t?t.toLocaleString('en-IN',{timeZone:'Asia/Kolkata',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}):'—';
-    const chg=L.gold_usd_change_pct;
+    const chg=L.gold_usd_change_pct, mcx=L.mcx_adj_10g;
+    const calD=L.premium_calibrated_on?new Date(L.premium_calibrated_on+'T00:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'}):'';
     reading.append(el('div','live-strip',
-      '<span class="live-dot"></span><span class="live-lab">LIVE ESTIMATE</span>'+
-      '<span class="live-inr">₹'+Number(L.gold_inr_10g_est).toLocaleString('en-IN')+'<span class="u">/10g</span></span>'+
+      '<span class="live-dot"></span><span class="live-lab">LIVE</span>'+
+      '<span class="live-inr">₹'+Number(L.gold_inr_10g_est).toLocaleString('en-IN')+'<span class="u">/10g est</span></span>'+
+      (mcx?'<span class="live-mcx">≈ MCX ₹'+Number(mcx).toLocaleString('en-IN')+'<span class="u"> modeled</span></span>':'')+
       '<span class="live-usd">$'+fmt(L.gold_usd_oz)+'<span class="u">/oz</span>'+
         (chg!=null?' <span class="'+(chg>=0?'up':'down')+'">'+(chg>=0?'+':'')+chg.toFixed(2)+'%</span>':'')+'</span>'+
       '<span class="live-time">as of '+ist+' IST</span>'+
-      '<span class="live-note">international gold × USD/INR — not the MCX print (omits duty + local premium)</span>'));
+      '<span class="live-note"><b>est</b> = international gold × USD/INR.'+
+        (mcx?' <b>≈ MCX</b> = est + ~'+L.india_premium_pct+'% India duty/premium'+(calD?' (calibrated to MCX '+calD+')':'')+' — modeled, not a live exchange feed.':' Not the MCX print (omits duty + local premium).')+'</span>'));
   }
   const pr=el('div','price-row');
   pr.append(el('div','price','<span class="cur">USD</span>'+fmt(lp.usd_gold_close)+'<span class="unit">/oz</span>'),
@@ -819,12 +823,14 @@ function boot(){
   sub.append(
     metric('USD → INR', inrRate==null?'—':'₹'+fmt(inrRate), inrSub),
     metric('Gold in rupees', equiv10g==null?'—':'₹'+Number(equiv10g).toLocaleString('en-IN',{maximumFractionDigits:0})+' /10g', 'estimate · per 10 grams (India standard)'),
-    metric('MCX price', '—', 'no free India-exchange feed')
+    metric('MCX price (≈ modeled)',
+      (D.live&&D.live.mcx_adj_10g)?'≈ ₹'+Number(D.live.mcx_adj_10g).toLocaleString('en-IN')+' /10g':'—',
+      (D.live&&D.live.mcx_adj_10g)?'est + ~'+D.live.india_premium_pct+'% duty/premium · modeled, not a live feed':'no free India-exchange feed')
   );
   reading.append(sub);
   // derived flag under the rupee number
   const dtag=el('div',null,''); dtag.style.marginTop='10px';
-  dtag.append(el('span','tag derived','Rupee figure is an ESTIMATE — not a real Indian-exchange (MCX) price'));
+  dtag.append(el('span','tag derived','₹ figures are MODELED — “estimate” is international×FX; “≈ MCX” adds a calibrated India premium. Neither is a live MCX exchange price.'));
   reading.append(dtag);
   function metric(k,v,s){const m=el('div','metric'); m.append(el('div','k',k),el('div','val',v),el('div','sub',s)); return m;}
 

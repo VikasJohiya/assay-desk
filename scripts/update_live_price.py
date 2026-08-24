@@ -31,6 +31,18 @@ from goldengine.sources import yahoo  # noqa: E402
 SNAPSHOT = ROOT / "data" / "dashboard_snapshot.json"
 GRAMS_PER_OZ = 31.1034768  # 1 troy ounce
 
+# India landed-cost premium of MCX over the international × FX estimate — import
+# customs duty + cess + local dealer premium (+ minor 995-vs-999 purity and
+# contract-carry). This is MODELED, not a live MCX feed: it is calibrated once to
+# a real MCX observation so the offset is grounded and the staleness is visible.
+# Recalibrate when the gap to a real MCX quote drifts materially (duty changes).
+INDIA_PREMIUM_PCT = 13.1
+PREMIUM_CALIBRATED_ON = "2026-08-24"
+PREMIUM_ANCHOR = {  # the real MCX observation this factor was fitted to
+    "mcx_10g": 163277, "estimate_10g": 144335,
+    "ref": "MCX Gold Oct-2026 (moneycontrol), 24 Aug 2026 ~10:23 IST",
+}
+
 
 def main() -> int:
     if not SNAPSHOT.exists():
@@ -53,6 +65,11 @@ def main() -> int:
         "usd_inr": round(rate, 4),
         "gold_usd_10g": round(g / GRAMS_PER_OZ * 10, 2),
         "gold_inr_10g_est": round(g * rate / GRAMS_PER_OZ * 10),
+        # Modeled ≈ MCX: estimate + calibrated India duty/premium (see constants).
+        "mcx_adj_10g": round(g * rate / GRAMS_PER_OZ * 10 * (1 + INDIA_PREMIUM_PCT / 100)),
+        "india_premium_pct": INDIA_PREMIUM_PCT,
+        "premium_calibrated_on": PREMIUM_CALIBRATED_ON,
+        "premium_anchor": PREMIUM_ANCHOR,
         "gold_market_time": gold["market_time"],
         "fx_market_time": fx["market_time"],
         "fetched_at": _dt.datetime.now(_dt.timezone.utc).isoformat(timespec="seconds"),
@@ -70,8 +87,8 @@ def main() -> int:
     rc = build_dashboard.main()
     if rc == 0:
         print(f"OK — live estimate: ${live['gold_usd_oz']}/oz → "
-              f"₹{live['gold_inr_10g_est']:,}/10g "
-              f"(gold @ {live['gold_market_time']})")
+              f"₹{live['gold_inr_10g_est']:,}/10g  ·  ≈ MCX ₹{live['mcx_adj_10g']:,}/10g "
+              f"(+{INDIA_PREMIUM_PCT}%)  (gold @ {live['gold_market_time']})")
     return rc
 
 
