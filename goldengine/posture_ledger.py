@@ -16,9 +16,15 @@ from typing import Dict, List, Sequence
 
 _LABELS = {
     "timing": "Timing barely matters here",
-    "dont_chase": "Accumulate gradually — don't chase",
+    "dont_chase": "Near its 12-month high (context)",
     "accumulate": "Reasonable to accumulate",
 }
+
+# The date prospective recording began. Rows on/after this are our OWN go-forward
+# reads — the genuine out-of-sample test, graded against real movement as they
+# mature. Earlier rows are BACKFILL (deterministically reconstructed history).
+# Stable constant so the boundary never moves; do not reset it on later builds.
+GO_LIVE_DATE = "2026-08-24"
 
 
 def posture_tone(valuation_pct: float, horizon_days: int) -> str:
@@ -83,6 +89,7 @@ def build(closes: Sequence[float], dates: Sequence[str],
             "price": round(closes[i], 2),
             "valuation_pct": round(val, 3),
             "posture": posture_tone(val, primary),
+            "phase": "live" if dates[i] >= GO_LIVE_DATE else "backfill",
         }
         hist = [closes[j + primary] / closes[j] - 1 for j in range(0, i - primary + 1)]
         if hist:  # the band the desk would have shown that day
@@ -100,9 +107,39 @@ def build(closes: Sequence[float], dates: Sequence[str],
         rows.append(row)
     rows.reverse()
 
+    # Prospective ("live") grading — ONLY rows recorded on/after go-live, graded
+    # as they mature. This is the real out-of-sample test of our own reads; it is
+    # empty until they reach their horizon, then fills in, separate from backfill.
+    live_summary = {}
+    for H in horizons:
+        buckets: Dict[str, List[float]] = {}
+        for i in range(trailing - 1, n - H):
+            if dates[i] < GO_LIVE_DATE:
+                continue
+            tone = posture_tone(_valuation_at(closes, i, trailing), H)
+            buckets.setdefault(tone, []).append(closes[i + H] / closes[i] - 1)
+        hz = {}
+        for tone, rets in buckets.items():
+            pos = sum(1 for r in rets if r > 0)
+            hz[tone] = {
+                "label": _LABELS[tone], "n": len(rets),
+                "pct_positive": round(pos / len(rets), 3),
+                "median_fwd_pct": round(_median(rets) * 100, 2),
+            }
+        if hz:
+            live_summary[f"{H // 21}-month"] = hz
+    live_recorded = sum(1 for d in dates if d >= GO_LIVE_DATE)
+    live_matured = sum(1 for i in range(n) if dates[i] >= GO_LIVE_DATE and i + primary < n)
+
     return {
         "primary_horizon": f"{primary // 21}-month",
         "note": "ratio-based (forward returns) → basis-invariant; posture recomputed from history each build",
-        "summary": summary,
-        "recent": rows,
+        "go_live_date": GO_LIVE_DATE,
+        "summary": summary,               # full history (backfill + live)
+        "live": {                         # our OWN prospective reads, graded as they mature
+            "recorded_days": live_recorded,
+            "matured_days": live_matured,
+            "summary": live_summary,
+        },
+        "recent": rows,                   # each tagged phase: "live" | "backfill"
     }

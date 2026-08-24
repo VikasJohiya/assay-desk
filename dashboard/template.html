@@ -196,6 +196,7 @@
   .posture .verb{font-family:"Fraunces",Georgia,serif; font-weight:600; font-size:clamp(22px,3.4vw,30px); letter-spacing:-.01em; line-height:1.1}
   .posture.good .verb{color:var(--good)} .posture.warn .verb{color:var(--warn)} .posture.neutral .verb{color:var(--muted)}
   .posture .for{font:500 12px/1.3 "IBM Plex Mono",monospace; color:var(--muted)}
+  .posture-tag{font:500 11.5px/1.4 "IBM Plex Mono",monospace; color:var(--faint); background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:3px 8px; align-self:center; white-space:nowrap}
   .posture-why{font-size:13px; color:var(--muted); margin:8px 0 0; max-width:70ch; line-height:1.5}
   .entry-split{display:grid; grid-template-columns:1.2fr 1fr; gap:18px; margin:18px 0 0; align-items:stretch}
   @media(max-width:760px){.entry-split{grid-template-columns:1fr}}
@@ -622,7 +623,7 @@ function boot(){
   function defsHtml(){
     return [
       ['overview','What this desk is (and isn’t)','It estimates whether now is a <i>reasonable</i> time to accumulate gold, for a horizon you choose, using ~20 years of history. It gives <b>odds, risk and context</b> — never a buy/sell order. We tested timing signals over 20 years; none reliably beat simply buying and holding, so the trigger stays with you.'],
-      ['posture','The posture — what each one means','The headline read for your horizon, based on historical <b>odds + where the price sits</b>. It is never an order to buy or sell — it describes conditions, you decide. There are three:<br><br><b>· Reasonable to accumulate</b> — over your horizon, most past windows ended positive; a sensible time to add, ideally averaging in. Not a promise it will rise.<br><br><b>· Accumulate gradually — don’t chase</b> — the odds still lean positive, but gold is near the top of its recent range, so drip money in rather than putting a lump sum in at the highs.<br><br><b>· Timing barely matters here</b> — at very short horizons gold is close to a coin flip; this is about whether you can stomach the swings, not about picking the right moment. Only commit money you won’t need soon.'],
+      ['posture','The posture — what each one means','The headline read for your horizon, based on historical <b>odds</b>. Never an order to buy or sell — it describes conditions, you decide. Two reads:<br><br><b>· Reasonable to accumulate</b> — over your horizon, most past windows ended positive; a sensible time to add, ideally averaging in. When price is near its 12-month high we flag that as a <b>context tag</b> — but our own 20-year test found days near the highs were <b>not</b> worse entries (gold trended, it didn’t mean-revert), so it’s not a signal to wait for a dip. Averaging in still smooths near-term wobble.<br><br><b>· Timing barely matters here</b> — at very short horizons gold is close to a coin flip; this is about whether you can stomach the swings, not about picking the right moment. Only commit money you won’t need soon.'],
       ['odds','Historically positive (% of windows)','Of all past windows of this length over ~20 years, the share that ended <i>higher</i> than they started. It describes the past, not the future. Longer horizons have had better odds — driven by gold’s long-run rise, which may not continue.'],
       ['median','Typical result (median)','The middle outcome over this horizon: half of past windows did better, half worse. A sense of the usual move — not a target or a promise.'],
       ['downside','Downside to sit through (worst 10%)','The <b>10th-percentile</b> outcome: in the worst 1-in-10 past windows of this length, gold fell <i>at least</i> this much. Not the worst ever — a bad-but-not-rare case. This is the drawdown you may have to endure — match it to how long you can leave the money and how much dip you can stomach.'],
@@ -720,10 +721,13 @@ function boot(){
           '<div class="sizer-line empty" id="szLine"></div>'+
           '<div class="sizer-dead" id="szDead"></div>'+
         '</div>';
-      let tone,verb,why;
+      let tone,verb,why,tag='';
       if(s.days<=21){ tone='neutral'; verb='Timing barely matters here'; why='At about a month, gold is close to a coin flip — this is a question of volatility tolerance, not timing. Only commit money you won’t need soon.'; }
-      else if(val>=0.85){ tone='warn'; verb='Accumulate gradually — don’t chase'; why='Gold is near the top of its last-year range. Over this horizon the odds have still favoured holders, but averaging in beats a lump sum at the highs.'; }
-      else { tone='good'; verb='Reasonable to accumulate'; why='Over ~20 years, most '+label+' windows ended positive. No timing edge is claimed — this reflects gold’s long-run drift, so average in on a horizon you can hold.'; }
+      else { tone='good'; verb='Reasonable to accumulate';
+        if(val>=0.85){ tag='near its 12-month high';
+          why='Over ~20 years, most '+label+' windows ended positive — and in our own test, days near the highs were <b>not</b> worse entries (gold has trended, not mean-reverted). So “near its 12-month high” is context, not a caution. A lump sum here does carry more near-term wobble, so averaging in smooths the ride — but there’s no edge in waiting for a dip.'; }
+        else { why='Over ~20 years, most '+label+' windows ended positive. No timing edge is claimed — this reflects gold’s long-run drift, so average in on a horizon you can hold.'; }
+      }
       let yld='';
       if(E.yield_10y_3m_chg!=null){ const y=E.yield_10y_3m_chg; const dir=y>0.03?'rising':(y<-0.03?'falling':'flat');
         const eff=y>0.03?'a mild headwind':(y<-0.03?'a mild tailwind':'roughly neutral');
@@ -747,7 +751,7 @@ function boot(){
       host.innerHTML=
         '<div class="entry-split">'+
           '<div class="entry-main">'+
-            '<div class="posture '+tone+'"><span class="verb">'+verb+'</span><span class="info" data-term="posture">i</span>'+
+            '<div class="posture '+tone+'"><span class="verb">'+verb+'</span>'+(tag?'<span class="posture-tag">'+tag+'</span>':'')+'<span class="info" data-term="posture">i</span>'+
               '<span class="for">for a <b>'+label+'</b> hold · in <b>'+(basis==='INR'?'₹':'USD')+'</b></span></div>'+
             '<p class="posture-why">'+why+'</p>'+
             '<div class="entry-stats">'+
