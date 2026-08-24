@@ -788,13 +788,12 @@ function boot(){
     const calD=L.premium_calibrated_on?new Date(L.premium_calibrated_on+'T00:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'}):'';
     reading.append(el('div','live-strip',
       '<span class="live-dot"></span><span class="live-lab">LIVE</span>'+
-      '<span class="live-inr">₹'+Number(L.gold_inr_10g_est).toLocaleString('en-IN')+'<span class="u">/10g est</span></span>'+
-      (mcx?'<span class="live-mcx">≈ MCX ₹'+Number(mcx).toLocaleString('en-IN')+'<span class="u"> modeled</span></span>':'')+
+      (mcx?'<span class="live-mcx">≈ MCX ₹'+Number(mcx).toLocaleString('en-IN')+'<span class="u">/10g modeled</span></span>'
+          :'<span class="live-inr">₹'+Number(L.gold_inr_10g_est).toLocaleString('en-IN')+'<span class="u">/10g est</span></span>')+
       '<span class="live-usd">$'+fmt(L.gold_usd_oz)+'<span class="u">/oz</span>'+
         (chg!=null?' <span class="'+(chg>=0?'up':'down')+'">'+(chg>=0?'+':'')+chg.toFixed(2)+'%</span>':'')+'</span>'+
       '<span class="live-time">as of '+ist+' IST</span>'+
-      '<span class="live-note"><b>est</b> = international gold × USD/INR.'+
-        (mcx?' <b>≈ MCX</b> = est + ~'+L.india_premium_pct+'% India duty/premium'+(calD?' (calibrated to MCX '+calD+')':'')+' — modeled, not a live exchange feed.':' Not the MCX print (omits duty + local premium).')+'</span>'));
+      '<span class="live-note">'+(mcx?'<b>≈ MCX</b> = live international gold × USD/INR + ~'+L.india_premium_pct+'% India duty/premium'+(calD?' (calibrated '+calD+')':'')+' — modeled, not a live exchange feed. The plain $→₹ conversion (no premium) is “Gold in rupees” below.':'international gold × USD/INR — not the MCX print (omits duty + local premium).')+'</span>'));
   }
   const pr=el('div','price-row');
   pr.append(el('div','price','<span class="cur">USD</span>'+fmt(lp.usd_gold_close)+'<span class="unit">/oz</span>'),
@@ -822,15 +821,12 @@ function boot(){
     : (inrStale? '₹ rate as of '+dayLabel(inrDate+'T00:00:00Z') : (prov.usd_inr.source||''));
   sub.append(
     metric('USD → INR', inrRate==null?'—':'₹'+fmt(inrRate), inrSub),
-    metric('Gold in rupees', equiv10g==null?'—':'₹'+Number(equiv10g).toLocaleString('en-IN',{maximumFractionDigits:0})+' /10g', 'estimate · per 10 grams (India standard)'),
-    metric('MCX price (≈ modeled)',
-      (D.live&&D.live.mcx_adj_10g)?'≈ ₹'+Number(D.live.mcx_adj_10g).toLocaleString('en-IN')+' /10g':'—',
-      (D.live&&D.live.mcx_adj_10g)?'est + ~'+D.live.india_premium_pct+'% duty/premium · modeled, not a live feed':'no free India-exchange feed')
+    metric('Gold in rupees ($→₹)', equiv10g==null?'—':'₹'+Number(equiv10g).toLocaleString('en-IN',{maximumFractionDigits:0})+' /10g', 'estimate · last $ close × USD/INR (no India premium)')
   );
   reading.append(sub);
   // derived flag under the rupee number
   const dtag=el('div',null,''); dtag.style.marginTop='10px';
-  dtag.append(el('span','tag derived','₹ figures are MODELED — “estimate” is international×FX; “≈ MCX” adds a calibrated India premium. Neither is a live MCX exchange price.'));
+  dtag.append(el('span','tag derived','₹ figures are DERIVED, not a live MCX feed — “≈ MCX” (top) adds a modeled India premium to the live $→₹ price; “Gold in rupees” is the last $ close converted at USD/INR.'));
   reading.append(dtag);
   function metric(k,v,s){const m=el('div','metric'); m.append(el('div','k',k),el('div','val',v),el('div','sub',s)); return m;}
 
