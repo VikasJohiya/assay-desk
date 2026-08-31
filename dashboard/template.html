@@ -709,7 +709,7 @@ function boot(){
       HZ.forEach(([k,lab])=>{ if(!E[basis].horizons[k]) return; const c=el('button','hz-chip'+(k===cur?' active':'')); c.type='button'; c.textContent=lab; c.onclick=()=>{cur=k; draw();}; hz.append(c); });
       row.append(hz);
       if(BASES.length>1){
-        const bw=el('span'); bw.style.cssText='display:flex;gap:6px;margin-left:auto;align-items:center';
+        const bw=el('span'); bw.style.cssText='display:flex;gap:6px;flex-basis:100%;align-items:center';
         bw.append(el('span','hz-lead','shown in'));
         BASES.forEach(([k,lab])=>{ const c=el('button','hz-chip'+(k===basis?' active':'')); c.type='button'; c.textContent=lab; c.onclick=()=>{basis=k; draw();}; bw.append(c); });
         row.append(bw);
