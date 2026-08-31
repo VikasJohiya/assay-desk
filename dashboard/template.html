@@ -130,16 +130,20 @@
   .metric .val{font-family:"IBM Plex Mono",monospace; font-size:20px; margin-top:4px; font-variant-numeric:tabular-nums}
   .metric .sub{font-size:11.5px; color:var(--muted); margin-top:2px}
   .spark{margin-top:18px}
-  .pchart-head{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; font:500 10.5px/1 "IBM Plex Mono",monospace; color:var(--faint); letter-spacing:.05em; text-transform:uppercase; margin-bottom:10px}
+  .pchart-head{display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap; font:500 10.5px/1 "IBM Plex Mono",monospace; color:var(--faint); letter-spacing:.05em; text-transform:uppercase; margin-bottom:10px}
+  .pspans{display:flex; gap:5px; text-transform:none; letter-spacing:0}
+  .pspan{font:600 9.5px/1 "IBM Plex Mono",monospace; color:var(--faint); background:transparent; border:1px solid var(--line); border-radius:5px; padding:4px 9px; cursor:pointer}
+  .pspan:hover{color:var(--ink); border-color:var(--gold-soft)}
+  .pspan.active{color:var(--gold); border-color:var(--gold-soft); background:var(--gold-wash)}
   .pchart-plot{position:relative; height:150px; cursor:crosshair}
-  .pchart-plot svg{position:absolute; inset:0; width:100%; height:100%; display:block}
+  .pchart-plot svg{position:absolute; inset:0 66px 0 0; height:100%; display:block}   /* 66px right gutter reserved for the price pill */
   .ch-line{position:absolute; top:0; bottom:0; width:1px; background:var(--gold-soft); opacity:.6; pointer-events:none; display:none}
   .ch-dot{position:absolute; width:9px; height:9px; border-radius:50%; background:var(--gold); border:2px solid var(--surface); transform:translate(-50%,-50%); pointer-events:none; display:none}
   .ch-tip{position:absolute; transform:translate(-50%,-100%); background:var(--surface-2); border:1px solid color-mix(in srgb,var(--gold) 30%,var(--line)); border-radius:7px; padding:5px 9px; font:500 11px/1.35 "IBM Plex Mono",monospace; color:var(--ink); white-space:nowrap; pointer-events:none; display:none; z-index:6; box-shadow:var(--shadow)}
   .ch-tip b{color:var(--gold)} .ch-tip .d{color:var(--muted); font-size:10px; margin-left:5px}
   .pchart .lvl{position:absolute; left:0; transform:translateY(-50%); font:500 10px/1 "IBM Plex Mono",monospace; color:var(--muted); background:var(--surface); padding:2px 5px; border-radius:4px}
   .pchart .cur-val{position:absolute; right:0; transform:translateY(-50%); font:600 11px/1 "IBM Plex Mono",monospace; color:var(--gold); background:var(--surface); padding:3px 6px; border-radius:5px; border:1px solid color-mix(in srgb,var(--gold) 32%,var(--line)); white-space:nowrap}
-  .pchart-x{position:relative; height:14px; margin-top:8px}
+  .pchart-x{position:relative; height:14px; margin-top:8px; margin-right:66px}   /* align ticks with the gutter-inset line */
   .pchart-x span{position:absolute; transform:translateX(-50%); font:500 10px/1 "IBM Plex Mono",monospace; color:var(--faint); white-space:nowrap}
   .pchart-x span.first{transform:none} .pchart-x span.last{transform:translateX(-100%)}
 
@@ -932,9 +936,12 @@ function boot(){
   }
 
   /* ---- sparkline ---- */
+  const _sparkAll=D.prices.filter(r=>r.usd_gold_close!=null);
+  const SPANS=[['1M',21],['3M',63],['1Y',9999]];
+  let sparkDays=63;                                  // default view: last 3 months
   drawSpark();
   function drawSpark(){
-    const rows=D.prices.filter(r=>r.usd_gold_close!=null);
+    const rows = sparkDays>=9999 ? _sparkAll : _sparkAll.slice(-sparkDays);
     if(rows.length<2){ $('#spark').innerHTML=''; return; }
     const ys=rows.map(r=>r.usd_gold_close), n=rows.length;
     const mn=Math.min(...ys), mx=Math.max(...ys), rng=(mx-mn)||1;
@@ -942,17 +949,22 @@ function boot(){
     const Y=v=>6+(1-(v-mn)/rng)*88;            // 0..100 space, padded 6..94
     const fmtk=v=>Math.round(v).toLocaleString('en-US');
     const monYr=iso=>{const d=new Date(iso+'T00:00:00Z'); return d.toLocaleDateString('en-US',{month:'short',timeZone:'UTC'})+' ’'+String(d.getUTCFullYear()).slice(2);};
+    const dayMon=iso=>{const d=new Date(iso+'T00:00:00Z'); return d.getUTCDate()+' '+d.toLocaleDateString('en-US',{month:'short',timeZone:'UTC'});};
+    const short=sparkDays<=63, tickFmt=short?dayMon:monYr;
+    const label=sparkDays>=9999?'past 12 months':(sparkDays===21?'last month':'last 3 months');
+    const toggles=SPANS.map(([lab,d])=>'<button type="button" class="pspan'+(d===sparkDays?' active':'')+'" data-d="'+d+'">'+lab+'</button>').join('');
     const dLine=rows.map((r,i)=>(i?'L':'M')+X(i).toFixed(1)+' '+Y(r.usd_gold_close).toFixed(2)).join(' ');
     const dArea='M0 100 '+rows.map((r,i)=>'L'+X(i).toFixed(1)+' '+Y(r.usd_gold_close).toFixed(2)).join(' ')+' L1000 100 Z';
     const chg=(ys[n-1]-ys[0])/ys[0]*100, cy=Y(ys[n-1]);
     const tIdx=[0,.25,.5,.75,1].map(f=>Math.round(f*(n-1)));
-    const ticks=tIdx.map((idx,k)=>{const cls=k===0?'first':(k===tIdx.length-1?'last':''); return '<span class="'+cls+'" style="left:'+(idx/(n-1)*100).toFixed(1)+'%">'+monYr(rows[idx].date)+'</span>';}).join('');
+    const ticks=tIdx.map((idx,k)=>{const cls=k===0?'first':(k===tIdx.length-1?'last':''); return '<span class="'+cls+'" style="left:'+(idx/(n-1)*100).toFixed(1)+'%">'+tickFmt(rows[idx].date)+'</span>';}).join('');
     $('#spark').innerHTML=
       '<div class="pchart">'+
-        '<div class="pchart-head"><span>USD gold · past 12 months</span>'+
-          '<span>'+monYr(rows[0].date)+' – '+monYr(rows[n-1].date)+' · <b style="color:'+(chg>=0?'var(--good)':'var(--crit)')+'">'+(chg>=0?'+':'')+chg.toFixed(0)+'%</b></span></div>'+
+        '<div class="pchart-head"><span>USD gold · '+label+'</span>'+
+          '<span class="pspans">'+toggles+'</span>'+
+          '<span>'+tickFmt(rows[0].date)+' – '+tickFmt(rows[n-1].date)+' · <b style="color:'+(chg>=0?'var(--good)':'var(--crit)')+'">'+(chg>=0?'+':'')+chg.toFixed(Math.abs(chg)>=10?0:1)+'%</b></span></div>'+
         '<div class="pchart-plot">'+
-          '<svg viewBox="0 0 1000 100" preserveAspectRatio="none" role="img" aria-label="USD gold price, past 12 months">'+
+          '<svg viewBox="0 0 1000 100" preserveAspectRatio="none" role="img" aria-label="USD gold price, '+label+'">'+
             '<defs><linearGradient id="g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--gold)" stop-opacity=".26"/><stop offset="1" stop-color="var(--gold)" stop-opacity="0"/></linearGradient></defs>'+
             '<line x1="0" y1="6" x2="1000" y2="6" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke" opacity=".55"/>'+
             '<line x1="0" y1="94" x2="1000" y2="94" stroke="var(--line)" stroke-width="1" vector-effect="non-scaling-stroke" opacity=".55"/>'+
@@ -966,16 +978,17 @@ function boot(){
         '</div>'+
         '<div class="pchart-x">'+ticks+'</div>'+
       '</div>';
+    $('#spark').querySelectorAll('.pspan').forEach(b=>b.addEventListener('click',()=>{sparkDays=+b.dataset.d; drawSpark();}));
     // ---- cursor tracking ----
     const plot=$('#spark .pchart-plot');
     const line=plot.querySelector('.ch-line'), dot=plot.querySelector('.ch-dot'), tip=plot.querySelector('.ch-tip');
     const show=on=>[line,dot,tip].forEach(e=>e.style.display=on?'block':'none');
     const track=clientX=>{
-      const rect=plot.getBoundingClientRect(), w=rect.width, h=rect.height;
-      let frac=(clientX-rect.left)/w; frac=Math.max(0,Math.min(1,frac));
-      const i=Math.round(frac*(n-1)), px=(i/(n-1))*w, py=(Y(ys[i])/100)*h;
+      const rect=plot.getBoundingClientRect(), w=rect.width, h=rect.height, dw=w-66;  // 66 = right gutter (matches CSS)
+      let frac=(clientX-rect.left)/dw; frac=Math.max(0,Math.min(1,frac));
+      const i=Math.round(frac*(n-1)), px=(i/(n-1))*dw, py=(Y(ys[i])/100)*h;
       line.style.left=px+'px'; dot.style.left=px+'px'; dot.style.top=py+'px';
-      tip.style.left=Math.max(48,Math.min(w-48,px))+'px'; tip.style.top=Math.max(4,py-12)+'px';
+      tip.style.left=Math.max(48,Math.min(dw-48,px))+'px'; tip.style.top=Math.max(4,py-12)+'px';
       const d=new Date(rows[i].date+'T00:00:00Z').toLocaleDateString('en-US',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'});
       tip.innerHTML='<b>$'+fmtk(ys[i])+'</b><span class="d">'+d+'</span>'; show(true);
     };
