@@ -271,6 +271,9 @@
   .live-refresh{font:600 10.5px/1 "IBM Plex Mono",monospace; color:var(--gold); background:var(--gold-wash); border:1px solid var(--gold-soft); border-radius:6px; padding:3px 8px; margin-left:7px; cursor:pointer; white-space:nowrap}
   .live-refresh:hover{background:color-mix(in srgb,var(--gold) 22%,transparent)}
   .live-note{font-size:10.5px; color:var(--faint); flex-basis:100%; margin-top:-2px}
+  .prevclose{margin-top:12px; font:500 11.5px/1.5 "IBM Plex Mono",monospace; color:var(--faint)}
+  .prevclose .pk{color:var(--muted); text-transform:uppercase; letter-spacing:.05em; font-size:10px; margin-right:5px}
+  .prevclose b{color:var(--ink)}
   .info{display:inline-flex; align-items:center; justify-content:center; width:15px; height:15px; border-radius:50%;
     border:1px solid var(--gold-soft); color:var(--gold); font-size:10px; font-style:normal; cursor:pointer; user-select:none; flex:none}
   .info:hover{background:var(--gold-wash)}
@@ -785,61 +788,57 @@ function boot(){
 
   /* ---- reading ---- */
   const lp=D.latest_price, prov=D.price_provenance;
-  $('#asof').className='mono'; $('#asof').style.color='var(--faint)'; $('#asof').style.fontSize='11px';
-  $('#asof').textContent='as of '+m.as_of_date;
-  const up = (lp.usd_gold_change_pct||0)>=0;
   const GRAMS_PER_OZ = 31.1034768;  // 1 troy ounce
+  const L=D.live;
+  const _lt=(L&&L.gold_market_time)?new Date(L.gold_market_time):null;
+  const ist=_lt?_lt.toLocaleString('en-IN',{timeZone:'Asia/Kolkata',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}):'—';
+  $('#asof').className='mono'; $('#asof').style.color='var(--faint)'; $('#asof').style.fontSize='11px';
+  $('#asof').textContent = L ? ('live · '+ist+' IST') : ('as of '+m.as_of_date);
+  // ONE source for every "now" figure below, so they can never disagree:
+  const nowPrice = L ? L.gold_usd_oz : lp.usd_gold_close;
+  const nowChg   = L ? L.gold_usd_change_pct : lp.usd_gold_change_pct;
+  const nowFX    = L ? L.usd_inr : lp.usd_inr_rate;
+  const upNow=(nowChg||0)>=0;
   const reading=$('#reading');
-  // Live intraday ESTIMATE (int'l gold × USD/INR) — distinct from the settled close below.
-  if(D.live){
-    const L=D.live, t=L.gold_market_time?new Date(L.gold_market_time):null;
-    const ist=t?t.toLocaleString('en-IN',{timeZone:'Asia/Kolkata',day:'numeric',month:'short',hour:'numeric',minute:'2-digit',hour12:true}):'—';
-    const chg=L.gold_usd_change_pct, mcx=L.mcx_adj_10g;
+  // Live ≈MCX headline (India price). Everything below derives from this SAME live quote.
+  if(L){
     const calD=L.premium_calibrated_on?new Date(L.premium_calibrated_on+'T00:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'}):'';
     reading.append(el('div','live-strip',
       '<span class="live-dot"></span><span class="live-lab">LIVE</span>'+
-      (mcx?'<span class="live-mcx">≈ MCX ₹'+Number(mcx).toLocaleString('en-IN')+'<span class="u">/10g modeled</span>'+
-            (L.gold_inr_change_pct!=null?'<span class="'+(L.gold_inr_change_pct>=0?'up':'down')+'">'+(L.gold_inr_change_pct>=0?'+':'')+L.gold_inr_change_pct.toFixed(2)+'%</span>':'')+'</span>'
-          :'<span class="live-inr">₹'+Number(L.gold_inr_10g_est).toLocaleString('en-IN')+'<span class="u">/10g est</span></span>')+
-      '<span class="live-usd">$'+fmt(L.gold_usd_oz)+'<span class="u">/oz</span>'+
-        (chg!=null?' <span class="'+(chg>=0?'up':'down')+'">'+(chg>=0?'+':'')+chg.toFixed(2)+'%</span>':'')+'</span>'+
-      '<span class="live-time">as of '+ist+' IST <button class="live-refresh" title="Fetch the latest deploy (bypasses the 10-min cache)">↻ refresh</button></span>'+
-      '<span class="live-note">'+(mcx?'<b>≈ MCX</b> = live international gold × USD/INR + ~'+L.india_premium_pct+'% India duty/premium'+(calD?' (calibrated '+calD+')':'')+' — modeled, not a live exchange feed. The plain $→₹ conversion (no premium) is “Gold in rupees” below.':'international gold × USD/INR — not the MCX print (omits duty + local premium).')+'</span>'));
+      '<span class="live-mcx">≈ MCX ₹'+Number(L.mcx_adj_10g).toLocaleString('en-IN')+'<span class="u">/10g modeled</span>'+
+        (L.gold_inr_change_pct!=null?'<span class="'+(L.gold_inr_change_pct>=0?'up':'down')+'">'+(L.gold_inr_change_pct>=0?'+':'')+L.gold_inr_change_pct.toFixed(2)+'%</span>':'')+'</span>'+
+      '<span class="live-time">as of '+ist+' IST <button class="live-refresh" title="Fetch the latest (bypasses the 10-min cache)">↻ refresh</button></span>'+
+      '<span class="live-note"><b>≈ MCX</b> = live international gold × USD/INR + ~'+L.india_premium_pct+'% India duty/premium'+(calD?' (calibrated '+calD+')':'')+' — modeled, not a live exchange feed. Every figure below derives from this same live quote.</span>'));
     const _rb=reading.querySelector('.live-refresh');
     if(_rb) _rb.addEventListener('click',()=>location.replace(location.pathname+'?v='+Date.now()));
   }
   const pr=el('div','price-row');
-  pr.append(el('div','price','<span class="cur">USD</span>'+fmt(lp.usd_gold_close)+'<span class="unit">/oz</span>'),
-            el('div','chg '+(up?'up':'down'),pc(lp.usd_gold_change_pct)));
+  pr.append(el('div','price','<span class="cur">USD</span>'+fmt(nowPrice)+'<span class="unit">/oz</span>'),
+            el('div','chg '+(upNow?'up':'down'),pc(nowChg)));
   reading.append(pr);
-  if(lp.usd_gold_close!=null){
+  if(nowPrice!=null){
     reading.append(el('div','price-10g',
-      '<span class="v">USD '+fmt(lp.usd_gold_close/GRAMS_PER_OZ*10)+'<span class="u"> /10g</span></span>'+
+      '<span class="v">USD '+fmt(nowPrice/GRAMS_PER_OZ*10)+'<span class="u"> /10g</span></span>'+
       '<span class="l">same gold, priced India’s way</span>'));
   }
   const instr=el('div','instr');
   instr.append(el('span','tag gold','<b>'+prov.usd_gold.instrument+'</b> · per troy ounce (31.1g)'),
                el('span','tag','src '+prov.usd_gold.source),
-               el('span','tag','fetched '+dtShort(prov.usd_gold.fetched_at)));
+               el('span','tag','fetched '+dtShort(L?L.fetched_at:prov.usd_gold.fetched_at)));
   reading.append(instr);
   const sub=el('div','subrow');
-  // USD/INR: use the day's rate, else fall back to the most recent one, clearly dated.
-  let inrRate=lp.usd_inr_rate, inrDate=lp.date, inrStale=false;
-  if(inrRate==null){
-    for(let i=D.prices.length-1;i>=0;i--){ if(D.prices[i].usd_inr_rate!=null){ inrRate=D.prices[i].usd_inr_rate; inrDate=D.prices[i].date; inrStale=true; break; } }
-  }
-  // India quotes gold per 10 grams, not per troy ounce (GRAMS_PER_OZ defined above).
-  const equiv10g = (inrRate!=null && lp.usd_gold_close!=null)? lp.usd_gold_close*inrRate/GRAMS_PER_OZ*10 : null;
-  const inrSub = inrRate==null ? 'unavailable'
-    : (inrStale? '₹ rate as of '+dayLabel(inrDate+'T00:00:00Z') : (prov.usd_inr.source||''));
+  // Same live $/oz and live FX as the headline, so ₹ figures reconcile with ≈MCX.
+  const equiv10g=(nowFX!=null && nowPrice!=null)? nowPrice*nowFX/GRAMS_PER_OZ*10 : null;
   sub.append(
-    metric('USD → INR', inrRate==null?'—':'₹'+fmt(inrRate), inrSub),
-    metric('Gold in rupees ($→₹)', equiv10g==null?'—':'₹'+Number(equiv10g).toLocaleString('en-IN',{maximumFractionDigits:0})+' /10g', 'estimate · last $ close × USD/INR (no India premium)')
+    metric('USD → INR', nowFX==null?'—':'₹'+fmt(nowFX), L?'live':(prov.usd_inr.source||'')),
+    metric('Gold in rupees ($→₹)', equiv10g==null?'—':'₹'+Number(equiv10g).toLocaleString('en-IN',{maximumFractionDigits:0})+' /10g', '$/oz × USD/INR (no India premium)')
   );
   reading.append(sub);
-  // derived flag under the rupee number
+  if(L && lp.usd_gold_close!=null){
+    reading.append(el('div','prevclose','<span class="pk">Prev settled close</span> <b>$'+fmt(lp.usd_gold_close)+'</b>/oz · '+dayLabel(lp.date+'T00:00:00Z')+' — last daily settlement (used for the forecast); the price above is today’s live quote.'));
+  }
   const dtag=el('div',null,''); dtag.style.marginTop='10px';
-  dtag.append(el('span','tag derived','₹ figures are DERIVED, not a live MCX feed — “≈ MCX” (top) adds a modeled India premium to the live $→₹ price; “Gold in rupees” is the last $ close converted at USD/INR.'));
+  dtag.append(el('span','tag derived','All prices here derive from the SAME '+(L?'live quote':'settled close')+' — “≈ MCX” adds a modeled India premium, “Gold in rupees” is the plain $→₹. No mixing of live and settled.'));
   reading.append(dtag);
   function metric(k,v,s){const m=el('div','metric'); m.append(el('div','k',k),el('div','val',v),el('div','sub',s)); return m;}
 
