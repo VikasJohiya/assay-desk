@@ -135,8 +135,8 @@
   .pspan{font:600 9.5px/1 "IBM Plex Mono",monospace; color:var(--faint); background:transparent; border:1px solid var(--line); border-radius:5px; padding:4px 9px; cursor:pointer}
   .pspan:hover{color:var(--ink); border-color:var(--gold-soft)}
   .pspan.active{color:var(--gold); border-color:var(--gold-soft); background:var(--gold-wash)}
-  .pchart-plot{position:relative; height:150px; cursor:crosshair}
-  .pchart-plot svg{position:absolute; inset:0 66px 0 0; height:100%; display:block}   /* 66px right gutter reserved for the price pill */
+  .pchart-plot{position:relative; height:150px; cursor:crosshair; overflow:hidden}
+  .pchart-plot svg{position:absolute; left:0; top:0; width:calc(100% - 66px); height:100%; display:block}   /* explicit width (avoids viewBox intrinsic-size overflow) + 66px right gutter for the pill */
   .ch-line{position:absolute; top:0; bottom:0; width:1px; background:var(--gold-soft); opacity:.6; pointer-events:none; display:none}
   .ch-dot{position:absolute; width:9px; height:9px; border-radius:50%; background:var(--gold); border:2px solid var(--surface); transform:translate(-50%,-50%); pointer-events:none; display:none}
   .ch-tip{position:absolute; transform:translate(-50%,-100%); background:var(--surface-2); border:1px solid color-mix(in srgb,var(--gold) 30%,var(--line)); border-radius:7px; padding:5px 9px; font:500 11px/1.35 "IBM Plex Mono",monospace; color:var(--ink); white-space:nowrap; pointer-events:none; display:none; z-index:6; box-shadow:var(--shadow)}
