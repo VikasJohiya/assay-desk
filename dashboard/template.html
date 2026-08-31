@@ -101,6 +101,23 @@
   .price-10g .v{font:500 17px/1 "IBM Plex Mono",monospace; color:var(--gold); font-variant-numeric:tabular-nums; letter-spacing:-.01em}
   .price-10g .v .u{font-size:12px; color:color-mix(in srgb,var(--gold) 65%,var(--muted))}
   .price-10g .l{font-size:12px; color:var(--muted)}
+  /* ---- price panel · editorial IA ---- */
+  .rtop{display:flex; align-items:center; gap:9px; margin-top:16px}
+  .rlab{font:600 10.5px/1 "IBM Plex Sans"; letter-spacing:.16em; text-transform:uppercase; color:color-mix(in srgb,var(--good) 72%,#fff)}
+  .rclock{margin-left:auto; display:flex; align-items:center; gap:9px; font:500 11px/1 "Space Grotesk",monospace; color:var(--faint)}
+  .rhead{margin:15px 0 2px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
+  .rmcx{font:600 clamp(34px,6vw,46px)/1 "Space Grotesk","IBM Plex Mono",monospace; color:var(--gold); font-variant-numeric:tabular-nums; letter-spacing:-.01em; text-shadow:0 0 30px rgba(244,206,116,.4)}
+  .rmcx .u{font-size:15px; color:var(--faint); font-weight:400; margin-left:5px; text-shadow:none}
+  .rchg{font:600 15px/1 "Space Grotesk",monospace} .rchg.up{color:var(--good)} .rchg.down{color:var(--crit)}
+  .rnote{font:500 11.5px/1.5 "IBM Plex Sans"; color:var(--faint); margin:5px 0 0; max-width:70ch}
+  .rrule{height:1px; margin:18px 0; border:0; background:linear-gradient(90deg,rgba(244,206,116,.7),rgba(244,206,116,.12) 60%,transparent); box-shadow:0 0 8px rgba(244,206,116,.28)}
+  .rgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+  @media(max-width:560px){.rgrid{grid-template-columns:repeat(2,1fr); gap:18px 16px}}
+  .rcell .rk{font:500 9.5px/1.2 "IBM Plex Sans"; letter-spacing:.07em; text-transform:uppercase; color:var(--faint); margin-bottom:7px}
+  .rcell .rv{font:600 20px/1.1 "Space Grotesk","IBM Plex Mono",monospace; color:var(--ink); font-variant-numeric:tabular-nums}
+  .rcell .rv .ru{font-size:12px; color:var(--faint); font-weight:400}
+  .rcell .rsub{font:500 11px/1 "Space Grotesk",monospace; margin-top:5px; color:var(--muted)}
+  .rcell .rsub .up{color:var(--good)} .rcell .rsub .down{color:var(--crit)}
   .chg{font:500 15px/1 "IBM Plex Mono",monospace; padding:5px 9px; border-radius:7px}
   .chg.up{color:var(--good); background:var(--good-wash)}
   .chg.down{color:var(--crit); background:var(--crit-wash)}
@@ -786,47 +803,32 @@ function boot(){
   const nowFX    = L ? L.usd_inr : lp.usd_inr_rate;
   const upNow=(nowChg||0)>=0;
   const reading=$('#reading');
-  // Live ≈MCX headline (India price). Everything below derives from this SAME live quote.
-  if(L){
-    const calD=L.premium_calibrated_on?new Date(L.premium_calibrated_on+'T00:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'}):'';
-    reading.append(el('div','live-strip',
-      '<span class="live-dot"></span><span class="live-lab">LIVE</span>'+
-      '<span class="live-mcx">≈ MCX ₹'+Number(L.mcx_adj_10g).toLocaleString('en-IN')+'<span class="u">/10g modeled</span>'+
-        (L.gold_inr_change_pct!=null?'<span class="'+(L.gold_inr_change_pct>=0?'up':'down')+'">'+(L.gold_inr_change_pct>=0?'+':'')+L.gold_inr_change_pct.toFixed(2)+'%</span>':'')+'</span>'+
-      '<span class="live-time">as of '+ist+' IST <button class="live-refresh" title="Fetch the latest (bypasses the 10-min cache)">↻ refresh</button></span>'+
-      '<span class="live-note"><b>≈ MCX</b> = live international gold × USD/INR + ~'+L.india_premium_pct+'% India duty/premium'+(calD?' (calibrated '+calD+')':'')+' — modeled, not a live exchange feed. Every figure below derives from this same live quote.</span>'));
-    const _rb=reading.querySelector('.live-refresh');
-    if(_rb) _rb.addEventListener('click',()=>location.replace(location.pathname+'?v='+Date.now()));
-  }
-  const pr=el('div','price-row');
-  pr.append(el('div','price','<span class="cur">USD</span>'+fmt(nowPrice)+'<span class="unit">/oz</span>'),
-            el('div','chg '+(upNow?'up':'down'),pc(nowChg)));
-  reading.append(pr);
-  if(nowPrice!=null){
-    reading.append(el('div','price-10g',
-      '<span class="v">USD '+fmt(nowPrice/GRAMS_PER_OZ*10)+'<span class="u"> /10g</span></span>'+
-      '<span class="l">same gold, priced India’s way</span>'));
-  }
-  const instr=el('div','instr');
-  instr.append(el('span','tag gold','<b>'+prov.usd_gold.instrument+'</b> · per troy ounce (31.1g)'),
-               el('span','tag','src '+prov.usd_gold.source),
-               el('span','tag','fetched '+dtShort(L?L.fetched_at:prov.usd_gold.fetched_at)));
-  reading.append(instr);
-  const sub=el('div','subrow');
-  // Same live $/oz and live FX as the headline, so ₹ figures reconcile with ≈MCX.
+  // Editorial IA: eyebrow → single ≈MCX headline → hairline rule → even 4-cell row → footnote.
+  // Every figure derives from the SAME live quote + FX, so they reconcile.
+  const usd10g = nowPrice!=null ? nowPrice/GRAMS_PER_OZ*10 : null;
   const equiv10g=(nowFX!=null && nowPrice!=null)? nowPrice*nowFX/GRAMS_PER_OZ*10 : null;
-  sub.append(
-    metric('USD → INR', nowFX==null?'—':'₹'+fmt(nowFX), L?'live':(prov.usd_inr.source||'')),
-    metric('Gold in rupees ($→₹)', equiv10g==null?'—':'₹'+Number(equiv10g).toLocaleString('en-IN',{maximumFractionDigits:0})+' /10g', '$/oz × USD/INR (no India premium)')
-  );
-  reading.append(sub);
-  if(L && lp.usd_gold_close!=null){
-    reading.append(el('div','prevclose','<span class="pk">Prev settled close</span> <b>$'+fmt(lp.usd_gold_close)+'</b>/oz · '+dayLabel(lp.date+'T00:00:00Z')+' — last daily settlement (used for the forecast); the price above is today’s live quote.'));
-  }
-  const dtag=el('div',null,''); dtag.style.marginTop='10px';
-  dtag.append(el('span','tag derived','All prices here derive from the SAME '+(L?'live quote':'settled close')+' — “≈ MCX” adds a modeled India premium, “Gold in rupees” is the plain $→₹. No mixing of live and settled.'));
-  reading.append(dtag);
-  function metric(k,v,s){const m=el('div','metric'); m.append(el('div','k',k),el('div','val',v),el('div','sub',s)); return m;}
+  const calD=(L&&L.premium_calibrated_on)?new Date(L.premium_calibrated_on+'T00:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'}):'';
+  const inrN=n=>'₹'+Number(n).toLocaleString('en-IN',{maximumFractionDigits:0});
+  const chgSpan=(c,cls)=> c==null?'':'<span class="'+cls+' '+(c>=0?'up':'down')+'">'+(c>=0?'+':'')+c.toFixed(2)+'%</span>';
+  const mkCell=(k,v,sub)=> '<div class="rcell"><div class="rk">'+k+'</div><div class="rv">'+v+'</div>'+(sub?'<div class="rsub">'+sub+'</div>':'')+'</div>';
+  reading.innerHTML =
+    '<div class="rtop"><span class="live-dot"></span><span class="rlab">'+(L?'Live · ≈ MCX estimate':'Last settled close')+'</span>'+
+      '<span class="rclock">'+(L?('as of '+ist+' IST <button class="live-refresh" title="Fetch the latest (bypasses the 10-min cache)">↻ refresh</button>'):('as of '+m.as_of_date))+'</span></div>'+
+    '<div class="rhead">'+
+      (L ? '<span class="rmcx">'+inrN(L.mcx_adj_10g)+'<span class="u">/10g modeled</span></span>'+chgSpan(L.gold_inr_change_pct,'rchg')
+         : '<span class="rmcx">$'+fmt(nowPrice)+'<span class="u">/oz</span></span>'+chgSpan(nowChg,'rchg'))+
+    '</div>'+
+    (L ? '<p class="rnote"><b>≈ MCX</b> = live international gold × USD/INR + ~'+L.india_premium_pct+'% India duty/premium'+(calD?' (calibrated '+calD+')':'')+' — modeled, not a live exchange feed. Every figure below derives from this same live quote.</p>' : '')+
+    '<hr class="rrule">'+
+    '<div class="rgrid">'+
+      mkCell('USD / oz', '$'+fmt(nowPrice), chgSpan(nowChg,''))+
+      mkCell('Per 10g', '$'+fmt(usd10g), '')+
+      mkCell('USD → INR', nowFX==null?'—':'₹'+fmt(nowFX), L?'live':'')+
+      mkCell('Gold in ₹ ($→₹)', equiv10g==null?'—':inrN(equiv10g)+'<span class="ru"> /10g</span>', 'no India premium')+
+    '</div>'+
+    ((L && lp.usd_gold_close!=null) ? '<div class="prevclose"><span class="pk">Prev settled close</span> <b>$'+fmt(lp.usd_gold_close)+'</b>/oz · '+dayLabel(lp.date+'T00:00:00Z')+' — last daily settlement (used for the forecast); the price above is today’s live quote.</div>' : '');
+  const _rb=reading.querySelector('.live-refresh');
+  if(_rb) _rb.addEventListener('click',()=>location.replace(location.pathname+'?v='+Date.now()));
 
   /* ---- forecast card (real baseline-v1) ---- */
   renderForecast();
