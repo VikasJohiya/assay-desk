@@ -210,6 +210,7 @@
   .grade-line.ok{background:var(--good-wash); border:1px solid color-mix(in srgb,var(--good) 30%,var(--line))}
   .grade-line.no{background:var(--crit-wash); border:1px solid color-mix(in srgb,var(--crit) 30%,var(--line))}
   .grade-line.ok b{color:var(--good)} .grade-line.no b{color:var(--crit)}
+  .grade-line .gl-move{font-weight:600} .grade-line .gl-move.up{color:var(--good)} .grade-line .gl-move.down{color:var(--crit)}
   .trust-more{display:inline-block; margin-top:9px; font:500 11.5px/1 "IBM Plex Mono",monospace; color:var(--gold); text-decoration:none}
   .trust-more:hover{text-decoration:underline}
   .entry-stats{display:flex; gap:10px; flex-wrap:wrap; margin:auto 0 0; padding-top:16px}
@@ -737,7 +738,7 @@ function boot(){
       if(sb && sb.last_graded){
         const lg=sb.last_graded, ok=lg.hit;
         const dd=new Date(lg.target_date+'T00:00:00Z').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',timeZone:'UTC'});
-        trust+='<div class="grade-line '+(ok?'ok':'no')+'"><b>'+(ok?'✓':'✗')+'</b> '+dd+' — called <b>'+(lg.direction==='up'?'▲ Up':'▼ Down')+'</b>; gold '+(lg.actual_dir==='up'?'rose':'fell')+' <b>'+(lg.actual_pct>=0?'+':'')+lg.actual_pct.toFixed(2)+'%</b> → '+(ok?'Correct':'Wrong')+'</div>';
+        trust+='<div class="grade-line '+(ok?'ok':'no')+'"><b>'+(ok?'✓':'✗')+'</b> '+dd+' — called <b>'+(lg.direction==='up'?'▲ Up':'▼ Down')+'</b>; gold <span class="gl-move '+(lg.actual_dir==='up'?'up':'down')+'">'+(lg.actual_dir==='up'?'rose':'fell')+' '+(lg.actual_pct>=0?'+':'')+lg.actual_pct.toFixed(2)+'%</span> → '+(ok?'Correct':'Wrong')+'</div>';
       }
       if(sb && sb.running){
         trust+='<div class="trust-row"><span class="dot">◆</span><span><span class="tk">'+sb.running.hits+' of '+sb.running.n+' daily calls right ('+Math.round(sb.running.rate*100)+'%)</span> — a coin flip on direction, said plainly, not hidden.</span></div>';
