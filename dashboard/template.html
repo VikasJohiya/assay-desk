@@ -824,7 +824,10 @@ function boot(){
       mkCell('USD / oz', '$'+fmt(nowPrice), chgSpan(nowChg,''))+
       mkCell('Per 10g', '$'+fmt(usd10g), '')+
       mkCell('USD → INR', nowFX==null?'—':'₹'+fmt(nowFX), L?'live':'')+
-      mkCell('Gold in ₹ ($→₹)', equiv10g==null?'—':inrN(equiv10g)+'<span class="ru"> /10g</span>', 'no India premium')+
+      mkCell(L?'India premium':'Gold in ₹ ($→₹)',
+        L ? '+'+L.india_premium_pct+'%'
+          : (equiv10g==null?'—':inrN(equiv10g)+'<span class="ru"> /10g</span>'),
+        L ? ('+'+inrN(Math.round(L.mcx_adj_10g-equiv10g))+' → ≈ MCX') : 'no India premium')+
     '</div>'+
     ((L && lp.usd_gold_close!=null) ? '<div class="prevclose"><span class="pk">Prev settled close</span> <b>$'+fmt(lp.usd_gold_close)+'</b>/oz · '+dayLabel(lp.date+'T00:00:00Z')+' — last daily settlement (used for the forecast); the price above is today’s live quote.</div>' : '');
   const _rb=reading.querySelector('.live-refresh');
