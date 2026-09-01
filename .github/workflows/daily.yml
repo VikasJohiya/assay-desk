@@ -6,8 +6,12 @@ name: Daily rebuild + deploy
 
 on:
   schedule:
-    # 01:00 UTC = 06:30 IST, Tue–Sat (mornings after a US trading day).
+    # Redundant morning runs (01:00 / 02:30 / 04:00 UTC = 06:30 / 08:00 / 09:30 IST),
+    # Tue–Sat, so a dropped GitHub-cron run doesn't strand the settled close. The
+    # job is idempotent — rebuilds the same day's data and commits only if changed.
     - cron: "0 1 * * 2-6"
+    - cron: "30 2 * * 2-6"
+    - cron: "0 4 * * 2-6"
   workflow_dispatch: {}   # allow manual runs (also used for the first deploy)
 
 permissions:
