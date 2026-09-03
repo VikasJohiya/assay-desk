@@ -978,7 +978,10 @@ function boot(){
       let frac=(clientX-rect.left)/dw; frac=Math.max(0,Math.min(1,frac));
       const i=Math.round(frac*(n-1)), px=(i/(n-1))*dw, py=(Y(ys[i])/100)*h;
       line.style.left=px+'px'; dot.style.left=px+'px'; dot.style.top=py+'px';
-      tip.style.left=Math.max(48,Math.min(dw-48,px))+'px'; tip.style.top=Math.max(4,py-12)+'px';
+      const flip = py < 40;                        // point too near the top → drop the pill below it (else the plot's top edge clips it)
+      tip.style.left=Math.max(48,Math.min(dw-48,px))+'px';
+      tip.style.top=(flip? py+14 : py-12)+'px';
+      tip.style.transform='translate(-50%,'+(flip? '0' : '-100%')+')';
       const d=new Date(rows[i].date+'T00:00:00Z').toLocaleDateString('en-US',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'});
       tip.innerHTML='<b>$'+fmtk(ys[i])+'</b><span class="d">'+d+'</span>'; show(true);
     };
