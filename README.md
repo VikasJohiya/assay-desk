@@ -11,6 +11,17 @@ country scope: **US, China, India**. Built so far:
 - **Closed loop** — a prediction ledger (`ledger.py`) that locks each call and
   grades it the next session, plus confidence recalibration (`calibration.py`).
 
+## Source of record — surfaces & writers (read before adding another)
+
+To avoid the multi-source-of-truth drift this project already hit once:
+
+- **Authoritative surface:** the public GitHub Pages site — https://vikasjohiya.github.io/assay-desk/ . This is the only surface anyone should open day-to-day.
+- **Writers (exactly two, same schema):**
+  - `daily.yml` — full rebuild (`build_dashboard_snapshot.py` → `build_dashboard.py`), Tue–Sat mornings IST; commits refreshed data + deploys.
+  - `intraday.yml` — live-price patch (`update_live_price.py`), every 15 min in market hours; deploys, no data commit.
+- **Deprecated:** the private Claude artifact. It does **not** auto-update and must not be treated as "the dashboard." Retire, don't feed.
+- **Rule:** a new writer/surface must arrive with a *retirement or a reconciliation* — never additively. The price panel renders **one** layout in all states (≈MCX premium always applied); market-open glow is computed **client-side at view time**, not baked at build.
+
 ## Investor entry tool (the current lead) & the timing verdict
 
 The dashboard now **leads with a long-horizon accumulation tool**, not a predictor.

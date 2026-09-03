@@ -105,13 +105,28 @@
   .rtop{display:flex; align-items:center; gap:9px; margin-top:16px}
   .rlab{font:600 10.5px/1 "IBM Plex Sans"; letter-spacing:.16em; text-transform:uppercase; color:color-mix(in srgb,var(--good) 72%,#fff)}
   .rclock{margin-left:auto; display:flex; align-items:center; gap:9px; font:500 11px/1 "Space Grotesk",monospace; color:var(--faint)}
+  .rfresh{font:500 11px/1 "Space Grotesk",monospace; color:var(--faint); letter-spacing:.02em}
   .rhead{margin:15px 0 2px; display:flex; align-items:baseline; gap:12px; flex-wrap:wrap}
   .rmcx{font:600 clamp(34px,6vw,46px)/1 "Space Grotesk","IBM Plex Sans",system-ui,sans-serif; color:var(--gold); font-variant-numeric:tabular-nums; letter-spacing:-.01em; text-shadow:0 0 30px rgba(244,206,116,.4)}
   .rmcx .u{font-size:15px; color:var(--faint); font-weight:400; margin-left:5px; text-shadow:none}
   .rchg{font:600 15px/1 "Space Grotesk",monospace} .rchg.up{color:var(--good)} .rchg.down{color:var(--crit)}
+  /* dual-price header — $ (COMEX) + ≈MCX (₹) side by side; active market glows, closed market muted */
+  .dprow{display:grid; grid-template-columns:1fr 1fr; gap:16px 30px; margin:16px 0 2px}
+  @media(max-width:560px){.dprow{grid-template-columns:1fr; gap:20px}}
+  .dp{display:flex; flex-direction:column; gap:7px; min-width:0}
+  .dp-k{display:flex; align-items:center; gap:8px; font:600 10px/1.2 "IBM Plex Sans",system-ui,sans-serif; letter-spacing:.09em; text-transform:uppercase; color:var(--faint)}
+  .dp-state{font:600 8.5px/1 "IBM Plex Sans",system-ui,sans-serif; letter-spacing:.08em; text-transform:uppercase; padding:3px 7px; border-radius:999px; border:1px solid var(--line)}
+  .dp-v{font:600 clamp(28px,4.4vw,38px)/1 "Space Grotesk","IBM Plex Sans",system-ui,sans-serif; font-variant-numeric:tabular-nums; letter-spacing:-.01em; white-space:nowrap}
+  .dp-v .u{font-size:14px; font-weight:400; margin-left:5px; color:var(--faint)}
+  .dp-chg{font:600 14px/1 "Space Grotesk",monospace}
+  .dp.active .dp-v{color:var(--gold); text-shadow:0 0 30px rgba(244,206,116,.4)}
+  .dp.active .dp-state{color:var(--good); border-color:color-mix(in srgb,var(--good) 40%,var(--line))}
+  .dp.active .dp-chg.up{color:var(--good)} .dp.active .dp-chg.down{color:var(--crit)}
+  .dp.muted .dp-v{color:var(--muted); text-shadow:none}
+  .dp.muted .dp-v .u,.dp.muted .dp-chg,.dp.muted .dp-state{color:var(--faint)}
   .rnote{font:500 11.5px/1.5 "IBM Plex Sans"; color:var(--faint); margin:5px 0 0; max-width:70ch}
   .rrule{height:1px; margin:18px 0; border:0; background:linear-gradient(90deg,rgba(244,206,116,.7),rgba(244,206,116,.12) 60%,transparent); box-shadow:0 0 8px rgba(244,206,116,.28)}
-  .rgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+  .rgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
   @media(max-width:560px){.rgrid{grid-template-columns:repeat(2,1fr); gap:18px 16px}}
   .rcell .rk{font:500 9.5px/1.2 "IBM Plex Sans"; letter-spacing:.07em; text-transform:uppercase; color:var(--faint); margin-bottom:7px}
   .rcell .rv{font:600 20px/1.1 "Space Grotesk","IBM Plex Sans",system-ui,sans-serif; color:var(--ink); font-variant-numeric:tabular-nums}
@@ -802,34 +817,49 @@ function boot(){
   const nowChg   = L ? L.gold_usd_change_pct : lp.usd_gold_change_pct;
   const nowFX    = L ? L.usd_inr : lp.usd_inr_rate;
   const upNow=(nowChg||0)>=0;
+  // --- market-hours clock: computed at VIEW time (not build time), so the glow reflects who is trading right now ---
+  const _tzParts=tz=>{const p=new Intl.DateTimeFormat('en-US',{timeZone:tz,weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());const o={};p.forEach(x=>o[x.type]=x.value);const wd={Sun:0,Mon:1,Tue:2,Wed:3,Thu:4,Fri:5,Sat:6}[o.weekday];return {wd,min:(+o.hour%24)*60+(+o.minute)};};
+  const mcxOpen=()=>{const t=_tzParts('Asia/Kolkata');return t.wd>=1&&t.wd<=5&&t.min>=540&&t.min<=1410;};        // MCX commodities: Mon–Fri 09:00–23:30 IST
+  const comexOpen=()=>{const e=_tzParts('America/New_York'),m=e.min,wd=e.wd;                                     // Globex gold: Sun 18:00 ET → Fri 17:00 ET, with a daily 17:00–18:00 break
+    if(wd===6) return false; if(wd===0&&m<1080) return false; if(wd===5&&m>=1020) return false; if(m>=1020&&m<1080) return false; return true;};
   const reading=$('#reading');
   // Editorial IA: eyebrow → single ≈MCX headline → hairline rule → even 4-cell row → footnote.
   // Every figure derives from the SAME live quote + FX, so they reconcile.
   const usd10g = nowPrice!=null ? nowPrice/GRAMS_PER_OZ*10 : null;
   const equiv10g=(nowFX!=null && nowPrice!=null)? nowPrice*nowFX/GRAMS_PER_OZ*10 : null;
-  const calD=(L&&L.premium_calibrated_on)?new Date(L.premium_calibrated_on+'T00:00:00Z').toLocaleDateString('en-GB',{day:'numeric',month:'short',timeZone:'UTC'}):'';
+  const PREMIUM_PCT=(L&&L.india_premium_pct!=null)?L.india_premium_pct:13.1;
+  // ≈MCX = int'l × FX + India premium — always applied (never silently dropped), so the ₹ figure is continuous whichever job deployed last.
+  const mcx10g = (L&&L.mcx_adj_10g!=null) ? L.mcx_adj_10g : (equiv10g==null?null:equiv10g*(1+PREMIUM_PCT/100));
+  const premiumDelta=(mcx10g==null||equiv10g==null)?null:Math.round(mcx10g-equiv10g);
+  const usdChg=nowChg, inrChg=(L&&L.gold_inr_change_pct!=null)?L.gold_inr_change_pct:nowChg;
   const inrN=n=>'₹'+Number(n).toLocaleString('en-IN',{maximumFractionDigits:0});
   const chgSpan=(c,cls)=> c==null?'':'<span class="'+cls+' '+(c>=0?'up':'down')+'">'+(c>=0?'+':'')+c.toFixed(2)+'%</span>';
   const mkCell=(k,v,sub)=> '<div class="rcell"><div class="rk">'+k+'</div><div class="rv">'+v+'</div>'+(sub?'<div class="rsub">'+sub+'</div>':'')+'</div>';
   reading.innerHTML =
-    '<div class="rtop"><span class="live-dot"></span><span class="rlab">'+(L?'Live · ≈ MCX estimate':'Last settled close')+'</span>'+
-      '<span class="rclock">'+(L?('as of '+ist+' IST <button class="live-refresh" title="Fetch the latest (bypasses the 10-min cache)">↻ refresh</button>'):('as of '+m.as_of_date))+'</span></div>'+
-    '<div class="rhead">'+
-      (L ? '<span class="rmcx">'+inrN(L.mcx_adj_10g)+'<span class="u">/10g modeled</span></span>'+chgSpan(L.gold_inr_change_pct,'rchg')
-         : '<span class="rmcx">$'+fmt(nowPrice)+'<span class="u">/oz</span></span>'+chgSpan(nowChg,'rchg'))+
+    '<div class="rtop">'+
+      '<span class="rfresh">'+(L?('Live quote · as of '+ist+' IST'):('Settled close · '+m.as_of_date))+'</span>'+
+      '<span class="rclock"><button class="live-refresh" title="Fetch the latest (bypasses the 10-min cache)">↻ refresh</button></span>'+
     '</div>'+
-    (L ? '<p class="rnote"><b>≈ MCX</b> = live international gold × USD/INR + ~'+L.india_premium_pct+'% India duty/premium'+(calD?' (calibrated '+calD+')':'')+' — modeled, not a live exchange feed. Every figure below derives from this same live quote.</p>' : '')+
+    // Dual price: $ (COMEX) + ≈MCX (₹), each glowing when its own market is open (clock, view-time), muted when closed.
+    (function(){
+      const chgHtml=c=>c==null?'':'<span class="dp-chg '+(c>=0?'up':'down')+'">'+(c>=0?'+':'')+c.toFixed(2)+'%</span>';
+      const cO=comexOpen(), mO=mcxOpen();
+      const dp=(open,k,val,chg)=>'<div class="dp '+(open?'active':'muted')+'">'+
+        '<div class="dp-k">'+k+' <span class="dp-state">'+(open?'Open':'Closed')+'</span></div>'+
+        '<div class="dp-v">'+val+'</div>'+chg+'</div>';
+      return '<div class="dprow">'+
+        dp(cO,'International · COMEX','$'+fmt(nowPrice)+'<span class="u">/oz</span>',chgHtml(usdChg))+
+        dp(mO,'≈ MCX · India',(mcx10g==null?'—':inrN(mcx10g))+'<span class="u">/10g modeled</span>',chgHtml(inrChg))+
+      '</div>';
+    })()+
+    '<p class="rnote"><b>≈ MCX</b> is inclusive of ~'+PREMIUM_PCT+'% India duty/premium — modeled, not a live feed.</p>'+
     '<hr class="rrule">'+
     '<div class="rgrid">'+
-      mkCell('USD / oz', '$'+fmt(nowPrice), chgSpan(nowChg,''))+
       mkCell('Per 10g', '$'+fmt(usd10g), '')+
       mkCell('USD → INR', nowFX==null?'—':'₹'+fmt(nowFX), L?'live':'')+
-      mkCell(L?'India premium':'Gold in ₹ ($→₹)',
-        L ? '+'+L.india_premium_pct+'%'
-          : (equiv10g==null?'—':inrN(equiv10g)+'<span class="ru"> /10g</span>'),
-        L ? ('+'+inrN(Math.round(L.mcx_adj_10g-equiv10g))+' → ≈ MCX') : 'no India premium')+
+      mkCell('India premium', '+'+PREMIUM_PCT+'%', premiumDelta==null?'':('+'+inrN(premiumDelta)+' → ≈ MCX'))+
     '</div>'+
-    ((L && lp.usd_gold_close!=null) ? '<div class="prevclose"><span class="pk">Prev settled close</span> <b>$'+fmt(lp.usd_gold_close)+'</b>/oz · '+dayLabel(lp.date+'T00:00:00Z')+' — last daily settlement (used for the forecast); the price above is today’s live quote.</div>' : '');
+    (lp.usd_gold_close!=null ? '<div class="prevclose"><span class="pk">Prev settled close</span> <b>$'+fmt(lp.usd_gold_close)+'</b>/oz · '+dayLabel(lp.date+'T00:00:00Z')+' — the daily settlement used for the forecast.</div>' : '');
   const _rb=reading.querySelector('.live-refresh');
   if(_rb) _rb.addEventListener('click',()=>location.replace(location.pathname+'?v='+Date.now()));
 
@@ -952,7 +982,7 @@ function boot(){
       '<div class="pchart">'+
         '<div class="pchart-head"><span>USD gold · '+label+'</span>'+
           '<span class="pspans">'+toggles+'</span>'+
-          '<span>'+tickFmt(rows[0].date)+' – '+tickFmt(rows[n-1].date)+' · <b style="color:'+(chg>=0?'var(--good)':'var(--crit)')+'">'+(chg>=0?'+':'')+chg.toFixed(Math.abs(chg)>=10?0:1)+'%</b></span></div>'+
+          '<span>'+tickFmt(rows[0].date)+' – '+tickFmt(rows[n-1].date)+' (<b style="color:'+(chg>=0?'var(--good)':'var(--crit)')+'">'+(chg>=0?'+':'')+chg.toFixed(Math.abs(chg)>=10?0:1)+'%</b>)</span></div>'+
         '<div class="pchart-plot">'+
           '<svg viewBox="0 0 1000 100" preserveAspectRatio="none" role="img" aria-label="USD gold price, '+label+'">'+
             '<defs><linearGradient id="g" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="var(--gold)" stop-opacity=".26"/><stop offset="1" stop-color="var(--gold)" stop-opacity="0"/></linearGradient></defs>'+
