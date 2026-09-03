@@ -831,7 +831,19 @@ function boot(){
   // ≈MCX = int'l × FX + India premium — always applied (never silently dropped), so the ₹ figure is continuous whichever job deployed last.
   const mcx10g = (L&&L.mcx_adj_10g!=null) ? L.mcx_adj_10g : (equiv10g==null?null:equiv10g*(1+PREMIUM_PCT/100));
   const premiumDelta=(mcx10g==null||equiv10g==null)?null:Math.round(mcx10g-equiv10g);
-  const usdChg=nowChg, inrChg=(L&&L.gold_inr_change_pct!=null)?L.gold_inr_change_pct:nowChg;
+  const usdChg=nowChg;
+  // Rupee day-change = gold move + USD/INR move (premium is constant, cancels). Live block computes it; in settled
+  // mode compute the TRUE move from the last two daily closes' gold×FX — and if prev-day FX is missing, show NOTHING
+  // rather than copy the $ move (they are only equal when the rupee didn't move, which is rarely true).
+  let inrChg=(L&&L.gold_inr_change_pct!=null)?L.gold_inr_change_pct:null;
+  if(inrChg==null){
+    const g=D.prices.filter(r=>r.usd_gold_close!=null);
+    if(g.length>=2){ const t=g[g.length-1], y=g[g.length-2];
+      if(t.usd_inr_rate!=null && y.usd_inr_rate!=null){
+        const ti=t.usd_gold_close*t.usd_inr_rate, yi=y.usd_gold_close*y.usd_inr_rate;
+        if(yi) inrChg=(ti-yi)/yi*100;
+      } }
+  }
   const inrN=n=>'₹'+Number(n).toLocaleString('en-IN',{maximumFractionDigits:0});
   const chgSpan=(c,cls)=> c==null?'':'<span class="'+cls+' '+(c>=0?'up':'down')+'">'+(c>=0?'+':'')+c.toFixed(2)+'%</span>';
   const mkCell=(k,v,sub)=> '<div class="rcell"><div class="rk">'+k+'</div><div class="rv">'+v+'</div>'+(sub?'<div class="rsub">'+sub+'</div>':'')+'</div>';
