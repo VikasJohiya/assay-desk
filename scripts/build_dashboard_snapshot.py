@@ -119,6 +119,21 @@ def main() -> int:
 
     # --- Latest real close (the primary surface's factual anchor) ---
     latest = price_rows[-1] if price_rows else None
+    # Carry forward last-good USD/INR when today's FX fetch failed, so the rupee side
+    # (≈MCX, USD→INR, entry basis) never blanks. Stamped `usd_inr_carried`/`usd_inr_as_of`
+    # so the UI shows a date pill; the flag also tells the day-change logic NOT to treat
+    # this as a real datapoint (a carried FX would otherwise make the ₹ change == the $ change).
+    if latest and latest.get("usd_inr_rate") is None:
+        for prev in reversed(price_rows[:-1]):
+            if prev.get("usd_inr_rate") is not None:
+                latest["usd_inr_rate"] = prev["usd_inr_rate"]
+                latest["usd_inr_source"] = "carried-forward"
+                latest["usd_inr_carried"] = True
+                latest["usd_inr_as_of"] = prev["date"]
+                if latest.get("usd_gold_close") is not None:
+                    latest["usd_gold_inr_equiv"] = round(latest["usd_gold_close"] * prev["usd_inr_rate"], 2)
+                    latest["usd_gold_inr_equiv_is_derived"] = True
+                break
 
     # --- Investor ENTRY tool: ~20y horizon odds + downside + valuation context ---
     # Robust facts (timing disproven), so this powers the posture — never a buy/sell call.
