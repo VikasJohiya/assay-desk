@@ -7776,7 +7776,7 @@
     "graded_at": ""
   },
   {
-    "target_date": "2026-09-07",
+    "target_date": "2026-09-08",
     "horizon": 1,
     "made_at": "",
     "cutoff": "",
@@ -7786,13 +7786,13 @@
     "mag_low": null,
     "mag_high": null,
     "reasoning": [],
-    "actual_pct": 1.056,
+    "actual_pct": 0.932,
     "actual_dir": "up",
     "hit": true,
     "graded_at": ""
   },
   {
-    "target_date": "2026-09-07",
+    "target_date": "2026-09-08",
     "horizon": 5,
     "made_at": "",
     "cutoff": "",
@@ -7802,7 +7802,7 @@
     "mag_low": null,
     "mag_high": null,
     "reasoning": [],
-    "actual_pct": 1.027,
+    "actual_pct": 0.903,
     "actual_dir": "up",
     "hit": false,
     "graded_at": ""
