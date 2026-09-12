@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-09-12T07:18:44+00:00",
+    "generated_at": "2026-09-12T08:10:00+00:00",
     "window": {
       "start": "2025-09-12",
       "end": "2026-09-12"
@@ -50,13 +50,13 @@
       "source": "Yahoo:GC=F",
       "instrument": "COMEX front-month gold futures close",
       "unit": "USD/oz",
-      "fetched_at": "2026-09-12T07:18:44+00:00"
+      "fetched_at": "2026-09-12T08:10:00+00:00"
     },
     "usd_inr": {
       "source": "Yahoo:USDINR=X",
       "instrument": "USD/INR spot FX rate",
       "unit": "INR per USD",
-      "fetched_at": "2026-09-12T07:18:44+00:00"
+      "fetched_at": "2026-09-12T08:10:00+00:00"
     }
   },
   "entry": {
@@ -6014,7 +6014,7 @@
       "published_at": "2026-07-29T18:00:00+00:00",
       "published_date": "2026-07-29",
       "confidence_discount": false,
-      "fetched_at": "2026-09-12T07:18:44+00:00",
+      "fetched_at": "2026-09-12T08:10:00+00:00",
       "magnitude_usd": null,
       "rate_change_bps": 0.0,
       "leak_status": "input"
@@ -6029,7 +6029,7 @@
       "published_at": "2026-08-06T18:00:00+00:00",
       "published_date": "2026-08-06",
       "confidence_discount": false,
-      "fetched_at": "2026-09-12T07:18:46+00:00",
+      "fetched_at": "2026-09-12T08:10:01+00:00",
       "magnitude_usd": 4000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6044,7 +6044,7 @@
       "published_at": "2026-08-11T18:00:00+00:00",
       "published_date": "2026-08-11",
       "confidence_discount": false,
-      "fetched_at": "2026-09-12T07:18:46+00:00",
+      "fetched_at": "2026-09-12T08:10:01+00:00",
       "magnitude_usd": 2000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6059,7 +6059,7 @@
       "published_at": "2026-08-18T18:00:00+00:00",
       "published_date": "2026-08-18",
       "confidence_discount": false,
-      "fetched_at": "2026-09-12T07:18:46+00:00",
+      "fetched_at": "2026-09-12T08:10:01+00:00",
       "magnitude_usd": 2000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6074,7 +6074,7 @@
       "published_at": "2026-08-19T18:00:00+00:00",
       "published_date": "2026-08-19",
       "confidence_discount": false,
-      "fetched_at": "2026-09-12T07:18:44+00:00",
+      "fetched_at": "2026-09-12T08:10:00+00:00",
       "magnitude_usd": null,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6089,7 +6089,7 @@
       "published_at": "2026-08-20T18:00:00+00:00",
       "published_date": "2026-08-20",
       "confidence_discount": false,
-      "fetched_at": "2026-09-12T07:18:46+00:00",
+      "fetched_at": "2026-09-12T08:10:01+00:00",
       "magnitude_usd": 1860000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6104,7 +6104,7 @@
       "published_at": "2026-08-25T18:00:00+00:00",
       "published_date": "2026-08-25",
       "confidence_discount": false,
-      "fetched_at": "2026-09-12T07:18:46+00:00",
+      "fetched_at": "2026-09-12T08:10:01+00:00",
       "magnitude_usd": 1191000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6119,7 +6119,7 @@
       "published_at": "2026-09-03T18:00:00+00:00",
       "published_date": "2026-09-03",
       "confidence_discount": false,
-      "fetched_at": "2026-09-12T07:18:46+00:00",
+      "fetched_at": "2026-09-12T08:10:01+00:00",
       "magnitude_usd": 12500000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6134,7 +6134,7 @@
       "published_at": "2026-09-09T18:00:00+00:00",
       "published_date": "2026-09-09",
       "confidence_discount": false,
-      "fetched_at": "2026-09-12T07:18:46+00:00",
+      "fetched_at": "2026-09-12T08:10:01+00:00",
       "magnitude_usd": 12500000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6149,14 +6149,14 @@
       "published_at": "2026-09-10T18:00:00+00:00",
       "published_date": "2026-09-10",
       "confidence_discount": false,
-      "fetched_at": "2026-09-12T07:18:46+00:00",
+      "fetched_at": "2026-09-12T08:10:01+00:00",
       "magnitude_usd": 5187000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
     }
   ],
   "live_forecast": {
-    "as_of": "2026-09-12T07:18:44+00:00",
+    "as_of": "2026-09-12T08:10:00+00:00",
     "target_date": "2026-09-14",
     "horizon_days": 1,
     "direction": "down",
@@ -6179,7 +6179,7 @@
     "honest_confidence": 0.501
   },
   "live_forecast_week": {
-    "as_of": "2026-09-12T07:18:44+00:00",
+    "as_of": "2026-09-12T08:10:00+00:00",
     "target_date": "2026-09-18",
     "horizon_days": 5,
     "direction": "down",
