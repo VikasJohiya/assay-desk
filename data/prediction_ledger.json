@@ -7786,9 +7786,9 @@
     "mag_low": null,
     "mag_high": null,
     "reasoning": [],
-    "actual_pct": 0.094,
-    "actual_dir": "up",
-    "hit": false,
+    "actual_pct": -0.395,
+    "actual_dir": "down",
+    "hit": true,
     "graded_at": ""
   },
   {
@@ -7802,7 +7802,7 @@
     "mag_low": null,
     "mag_high": null,
     "reasoning": [],
-    "actual_pct": -0.16,
+    "actual_pct": -0.647,
     "actual_dir": "down",
     "hit": true,
     "graded_at": ""
