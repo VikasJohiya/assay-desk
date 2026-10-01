@@ -6,7 +6,7 @@
     "3-month": {
       "dont_chase": {
         "label": "Near its 12-month high (context)",
-        "n": 2318,
+        "n": 2317,
         "pct_positive": 0.711,
         "median_fwd_pct": 4.07
       },
@@ -21,13 +21,13 @@
       "dont_chase": {
         "label": "Near its 12-month high (context)",
         "n": 2307,
-        "pct_positive": 0.779,
+        "pct_positive": 0.778,
         "median_fwd_pct": 8.19
       },
       "accumulate": {
         "label": "Reasonable to accumulate",
-        "n": 2343,
-        "pct_positive": 0.697,
+        "n": 2342,
+        "pct_positive": 0.696,
         "median_fwd_pct": 4.31
       }
     },
@@ -40,35 +40,45 @@
       },
       "accumulate": {
         "label": "Reasonable to accumulate",
-        "n": 2334,
+        "n": 2333,
         "pct_positive": 0.743,
         "median_fwd_pct": 8.43
       }
     }
   },
   "live": {
-    "recorded_days": 27,
+    "recorded_days": 28,
     "matured_days": 0,
     "summary": {}
   },
   "recent": [
     {
-      "date": "2026-09-30",
-      "price": 129964.84,
-      "valuation_pct": 0.417,
+      "date": "2026-10-01",
+      "price": 130152.52,
+      "valuation_pct": 0.421,
       "posture": "accumulate",
       "phase": "live",
-      "band_downside_pct": -6.07,
+      "band_downside_pct": -6.08,
+      "band_median_pct": 5.77,
+      "band_upside_pct": 24.59
+    },
+    {
+      "date": "2026-09-30",
+      "price": 129289.56,
+      "valuation_pct": 0.405,
+      "posture": "accumulate",
+      "phase": "live",
+      "band_downside_pct": -6.08,
       "band_median_pct": 5.77,
       "band_upside_pct": 24.59
     },
     {
       "date": "2026-09-29",
-      "price": 128980.53,
+      "price": 129073.39,
       "valuation_pct": 0.405,
       "posture": "accumulate",
       "phase": "live",
-      "band_downside_pct": -6.06,
+      "band_downside_pct": -6.07,
       "band_median_pct": 5.77,
       "band_upside_pct": 24.59
     },
@@ -89,7 +99,7 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.07,
-      "band_median_pct": 5.78,
+      "band_median_pct": 5.77,
       "band_upside_pct": 24.59
     },
     {
@@ -99,7 +109,7 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.07,
-      "band_median_pct": 5.78,
+      "band_median_pct": 5.77,
       "band_upside_pct": 24.59
     },
     {
@@ -129,7 +139,7 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.07,
-      "band_median_pct": 5.79,
+      "band_median_pct": 5.78,
       "band_upside_pct": 24.59
     },
     {
@@ -139,7 +149,7 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.07,
-      "band_median_pct": 5.79,
+      "band_median_pct": 5.78,
       "band_upside_pct": 24.59
     },
     {
@@ -149,8 +159,8 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.07,
-      "band_median_pct": 5.8,
-      "band_upside_pct": 24.59
+      "band_median_pct": 5.79,
+      "band_upside_pct": 24.62
     },
     {
       "date": "2026-09-16",
@@ -158,9 +168,9 @@
       "valuation_pct": 0.563,
       "posture": "accumulate",
       "phase": "live",
-      "band_downside_pct": -6.05,
-      "band_median_pct": 5.8,
-      "band_upside_pct": 24.59
+      "band_downside_pct": -6.07,
+      "band_median_pct": 5.79,
+      "band_upside_pct": 24.62
     },
     {
       "date": "2026-09-15",
@@ -169,7 +179,7 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.05,
-      "band_median_pct": 5.81,
+      "band_median_pct": 5.8,
       "band_upside_pct": 24.62
     },
     {
@@ -179,7 +189,7 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.05,
-      "band_median_pct": 5.83,
+      "band_median_pct": 5.8,
       "band_upside_pct": 24.62
     },
     {
@@ -189,7 +199,7 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.04,
-      "band_median_pct": 5.83,
+      "band_median_pct": 5.81,
       "band_upside_pct": 24.62
     },
     {
@@ -199,7 +209,7 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.03,
-      "band_median_pct": 5.84,
+      "band_median_pct": 5.83,
       "band_upside_pct": 24.62
     },
     {
@@ -209,7 +219,7 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.02,
-      "band_median_pct": 5.85,
+      "band_median_pct": 5.83,
       "band_upside_pct": 24.62
     },
     {
@@ -219,7 +229,7 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.01,
-      "band_median_pct": 5.85,
+      "band_median_pct": 5.84,
       "band_upside_pct": 24.62
     },
     {
@@ -239,7 +249,7 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -5.99,
-      "band_median_pct": 5.86,
+      "band_median_pct": 5.85,
       "band_upside_pct": 24.62
     },
     {
@@ -249,8 +259,8 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -5.97,
-      "band_median_pct": 5.86,
-      "band_upside_pct": 24.62
+      "band_median_pct": 5.85,
+      "band_upside_pct": 24.63
     },
     {
       "date": "2026-09-01",
@@ -258,9 +268,9 @@
       "valuation_pct": 0.556,
       "posture": "accumulate",
       "phase": "live",
-      "band_downside_pct": -5.92,
+      "band_downside_pct": -5.97,
       "band_median_pct": 5.86,
-      "band_upside_pct": 24.62
+      "band_upside_pct": 24.63
     },
     {
       "date": "2026-08-31",
@@ -268,7 +278,7 @@
       "valuation_pct": 0.607,
       "posture": "accumulate",
       "phase": "live",
-      "band_downside_pct": -5.9,
+      "band_downside_pct": -5.92,
       "band_median_pct": 5.86,
       "band_upside_pct": 24.63
     },
@@ -309,7 +319,7 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -5.87,
-      "band_median_pct": 5.87,
+      "band_median_pct": 5.86,
       "band_upside_pct": 24.63
     },
     {
@@ -319,7 +329,7 @@
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -5.86,
-      "band_median_pct": 5.87,
+      "band_median_pct": 5.86,
       "band_upside_pct": 24.63
     },
     {
@@ -350,7 +360,7 @@
       "phase": "backfill",
       "band_downside_pct": -5.86,
       "band_median_pct": 5.87,
-      "band_upside_pct": 24.63
+      "band_upside_pct": 24.64
     },
     {
       "date": "2026-08-18",
@@ -358,9 +368,9 @@
       "valuation_pct": 0.623,
       "posture": "accumulate",
       "phase": "backfill",
-      "band_downside_pct": -5.86,
+      "band_downside_pct": -5.87,
       "band_median_pct": 5.87,
-      "band_upside_pct": 24.63
+      "band_upside_pct": 24.64
     },
     {
       "date": "2026-08-17",
@@ -368,7 +378,7 @@
       "valuation_pct": 0.655,
       "posture": "accumulate",
       "phase": "backfill",
-      "band_downside_pct": -5.86,
+      "band_downside_pct": -5.87,
       "band_median_pct": 5.87,
       "band_upside_pct": 24.64
     },
@@ -379,7 +389,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.86,
-      "band_median_pct": 5.88,
+      "band_median_pct": 5.87,
       "band_upside_pct": 24.64
     },
     {
@@ -389,7 +399,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.86,
-      "band_median_pct": 5.88,
+      "band_median_pct": 5.87,
       "band_upside_pct": 24.64
     },
     {
@@ -409,7 +419,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.85,
-      "band_median_pct": 5.89,
+      "band_median_pct": 5.88,
       "band_upside_pct": 24.64
     },
     {
@@ -419,7 +429,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.85,
-      "band_median_pct": 5.89,
+      "band_median_pct": 5.88,
       "band_upside_pct": 24.64
     },
     {
@@ -439,7 +449,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.85,
-      "band_median_pct": 5.9,
+      "band_median_pct": 5.89,
       "band_upside_pct": 24.64
     },
     {
@@ -449,7 +459,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.84,
-      "band_median_pct": 5.9,
+      "band_median_pct": 5.89,
       "band_upside_pct": 24.64
     },
     {
@@ -458,7 +468,7 @@
       "valuation_pct": 0.5,
       "posture": "accumulate",
       "phase": "backfill",
-      "band_downside_pct": -5.82,
+      "band_downside_pct": -5.84,
       "band_median_pct": 5.9,
       "band_upside_pct": 24.64
     },
@@ -479,7 +489,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.82,
-      "band_median_pct": 5.91,
+      "band_median_pct": 5.9,
       "band_upside_pct": 24.64
     },
     {
@@ -489,7 +499,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.81,
-      "band_median_pct": 5.92,
+      "band_median_pct": 5.9,
       "band_upside_pct": 24.64
     },
     {
@@ -499,7 +509,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.81,
-      "band_median_pct": 5.93,
+      "band_median_pct": 5.91,
       "band_upside_pct": 24.64
     },
     {
@@ -509,7 +519,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.8,
-      "band_median_pct": 5.94,
+      "band_median_pct": 5.92,
       "band_upside_pct": 24.64
     },
     {
@@ -519,7 +529,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.95,
+      "band_median_pct": 5.93,
       "band_upside_pct": 24.64
     },
     {
@@ -529,7 +539,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.95,
+      "band_median_pct": 5.94,
       "band_upside_pct": 24.64
     },
     {
@@ -539,7 +549,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.96,
+      "band_median_pct": 5.95,
       "band_upside_pct": 24.64
     },
     {
@@ -549,8 +559,8 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.96,
-      "band_upside_pct": 24.64
+      "band_median_pct": 5.95,
+      "band_upside_pct": 24.65
     },
     {
       "date": "2026-07-21",
@@ -559,8 +569,8 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.97,
-      "band_upside_pct": 24.64
+      "band_median_pct": 5.96,
+      "band_upside_pct": 24.65
     },
     {
       "date": "2026-07-20",
@@ -569,7 +579,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.97,
+      "band_median_pct": 5.96,
       "band_upside_pct": 24.65
     },
     {
@@ -619,7 +629,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 5.98,
+      "band_median_pct": 5.97,
       "band_upside_pct": 24.65
     },
     {
@@ -629,7 +639,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 5.98,
+      "band_median_pct": 5.97,
       "band_upside_pct": 24.65
     },
     {
@@ -650,7 +660,7 @@
       "phase": "backfill",
       "band_downside_pct": -5.74,
       "band_median_pct": 5.98,
-      "band_upside_pct": 24.65
+      "band_upside_pct": 24.66
     },
     {
       "date": "2026-07-07",
@@ -660,7 +670,7 @@
       "phase": "backfill",
       "band_downside_pct": -5.74,
       "band_median_pct": 5.98,
-      "band_upside_pct": 24.65
+      "band_upside_pct": 24.66
     },
     {
       "date": "2026-07-06",
@@ -669,7 +679,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 5.99,
+      "band_median_pct": 5.98,
       "band_upside_pct": 24.66
     },
     {
@@ -679,7 +689,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 5.99,
+      "band_median_pct": 5.98,
       "band_upside_pct": 24.66
     },
     {
@@ -689,7 +699,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 6.0,
+      "band_median_pct": 5.99,
       "band_upside_pct": 24.66
     },
     {
@@ -699,7 +709,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 6.01,
+      "band_median_pct": 5.99,
       "band_upside_pct": 24.66
     },
     {
@@ -709,7 +719,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 6.02,
+      "band_median_pct": 6.0,
       "band_upside_pct": 24.66
     },
     {
@@ -719,7 +729,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 6.02,
+      "band_median_pct": 6.01,
       "band_upside_pct": 24.66
     },
     {
@@ -729,7 +739,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 6.03,
+      "band_median_pct": 6.02,
       "band_upside_pct": 24.66
     },
     {
@@ -739,7 +749,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 6.04,
+      "band_median_pct": 6.02,
       "band_upside_pct": 24.66
     },
     {
@@ -749,8 +759,8 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 6.04,
-      "band_upside_pct": 24.66
+      "band_median_pct": 6.03,
+      "band_upside_pct": 24.69
     },
     {
       "date": "2026-06-22",
@@ -760,7 +770,7 @@
       "phase": "backfill",
       "band_downside_pct": -5.74,
       "band_median_pct": 6.04,
-      "band_upside_pct": 24.66
+      "band_upside_pct": 24.69
     },
     {
       "date": "2026-06-18",
@@ -789,7 +799,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 6.05,
+      "band_median_pct": 6.04,
       "band_upside_pct": 24.69
     },
     {
@@ -799,7 +809,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 6.06,
+      "band_median_pct": 6.04,
       "band_upside_pct": 24.69
     },
     {
@@ -809,7 +819,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 6.05,
+      "band_median_pct": 6.04,
       "band_upside_pct": 24.69
     },
     {
@@ -829,7 +839,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 6.05,
+      "band_median_pct": 6.04,
       "band_upside_pct": 24.69
     },
     {
@@ -839,7 +849,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 6.06,
+      "band_median_pct": 6.04,
       "band_upside_pct": 24.69
     },
     {
@@ -849,8 +859,8 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.74,
-      "band_median_pct": 6.05,
-      "band_upside_pct": 24.69
+      "band_median_pct": 6.04,
+      "band_upside_pct": 24.7
     },
     {
       "date": "2026-06-05",
@@ -858,9 +868,9 @@
       "valuation_pct": 0.631,
       "posture": "accumulate",
       "phase": "backfill",
-      "band_downside_pct": -5.74,
+      "band_downside_pct": -5.76,
       "band_median_pct": 6.04,
-      "band_upside_pct": 24.69
+      "band_upside_pct": 24.7
     },
     {
       "date": "2026-06-04",
@@ -868,7 +878,7 @@
       "valuation_pct": 0.679,
       "posture": "accumulate",
       "phase": "backfill",
-      "band_downside_pct": -5.74,
+      "band_downside_pct": -5.76,
       "band_median_pct": 6.04,
       "band_upside_pct": 24.7
     },
@@ -889,7 +899,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 6.04,
+      "band_median_pct": 6.03,
       "band_upside_pct": 24.7
     },
     {
@@ -899,7 +909,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 6.04,
+      "band_median_pct": 6.02,
       "band_upside_pct": 24.7
     },
     {
@@ -909,7 +919,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 6.03,
+      "band_median_pct": 6.02,
       "band_upside_pct": 24.7
     },
     {
@@ -919,7 +929,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 6.02,
+      "band_median_pct": 6.01,
       "band_upside_pct": 24.7
     },
     {
@@ -929,7 +939,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 6.02,
+      "band_median_pct": 6.0,
       "band_upside_pct": 24.7
     },
     {
@@ -939,7 +949,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 6.01,
+      "band_median_pct": 5.99,
       "band_upside_pct": 24.7
     },
     {
@@ -949,8 +959,8 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 6.0,
-      "band_upside_pct": 24.7
+      "band_median_pct": 5.99,
+      "band_upside_pct": 24.71
     },
     {
       "date": "2026-05-21",
@@ -959,8 +969,8 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.99,
-      "band_upside_pct": 24.7
+      "band_median_pct": 5.98,
+      "band_upside_pct": 24.71
     },
     {
       "date": "2026-05-20",
@@ -969,7 +979,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.99,
+      "band_median_pct": 5.98,
       "band_upside_pct": 24.71
     },
     {
@@ -1009,7 +1019,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.98,
+      "band_median_pct": 5.97,
       "band_upside_pct": 24.71
     },
     {
@@ -1019,7 +1029,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.98,
+      "band_median_pct": 5.97,
       "band_upside_pct": 24.71
     },
     {
@@ -1050,7 +1060,7 @@
       "phase": "backfill",
       "band_downside_pct": -5.76,
       "band_median_pct": 5.97,
-      "band_upside_pct": 24.69
+      "band_upside_pct": 24.7
     },
     {
       "date": "2026-05-07",
@@ -1060,7 +1070,7 @@
       "phase": "backfill",
       "band_downside_pct": -5.76,
       "band_median_pct": 5.97,
-      "band_upside_pct": 24.66
+      "band_upside_pct": 24.69
     },
     {
       "date": "2026-05-06",
@@ -1069,7 +1079,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.97,
+      "band_median_pct": 5.96,
       "band_upside_pct": 24.66
     },
     {
@@ -1079,7 +1089,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.97,
+      "band_median_pct": 5.96,
       "band_upside_pct": 24.66
     },
     {
@@ -1089,7 +1099,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.96,
+      "band_median_pct": 5.95,
       "band_upside_pct": 24.66
     },
     {
@@ -1099,7 +1109,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.96,
+      "band_median_pct": 5.95,
       "band_upside_pct": 24.66
     },
     {
@@ -1109,7 +1119,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.95,
+      "band_median_pct": 5.94,
       "band_upside_pct": 24.65
     },
     {
@@ -1119,7 +1129,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.95,
+      "band_median_pct": 5.93,
       "band_upside_pct": 24.64
     },
     {
@@ -1129,7 +1139,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.94,
+      "band_median_pct": 5.92,
       "band_upside_pct": 24.64
     },
     {
@@ -1139,7 +1149,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.93,
+      "band_median_pct": 5.91,
       "band_upside_pct": 24.64
     },
     {
@@ -1149,8 +1159,8 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.76,
-      "band_median_pct": 5.92,
-      "band_upside_pct": 24.64
+      "band_median_pct": 5.9,
+      "band_upside_pct": 24.65
     },
     {
       "date": "2026-04-23",
@@ -1158,8 +1168,8 @@
       "valuation_pct": 0.821,
       "posture": "accumulate",
       "phase": "backfill",
-      "band_downside_pct": -5.76,
-      "band_median_pct": 5.91,
+      "band_downside_pct": -5.78,
+      "band_median_pct": 5.9,
       "band_upside_pct": 24.64
     },
     {
@@ -1168,7 +1178,7 @@
       "valuation_pct": 0.837,
       "posture": "accumulate",
       "phase": "backfill",
-      "band_downside_pct": -5.76,
+      "band_downside_pct": -5.78,
       "band_median_pct": 5.9,
       "band_upside_pct": 24.64
     },
@@ -1189,7 +1199,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.9,
+      "band_median_pct": 5.89,
       "band_upside_pct": 24.64
     },
     {
@@ -1199,7 +1209,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.9,
+      "band_median_pct": 5.89,
       "band_upside_pct": 24.64
     },
     {
@@ -1219,7 +1229,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.89,
+      "band_median_pct": 5.88,
       "band_upside_pct": 24.64
     },
     {
@@ -1229,7 +1239,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.89,
+      "band_median_pct": 5.88,
       "band_upside_pct": 24.64
     },
     {
@@ -1249,8 +1259,8 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.88,
-      "band_upside_pct": 24.62
+      "band_median_pct": 5.87,
+      "band_upside_pct": 24.64
     },
     {
       "date": "2026-04-09",
@@ -1259,8 +1269,8 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.88,
-      "band_upside_pct": 24.62
+      "band_median_pct": 5.87,
+      "band_upside_pct": 24.64
     },
     {
       "date": "2026-04-08",
@@ -1310,7 +1320,11 @@
       "phase": "backfill",
       "band_downside_pct": -5.78,
       "band_median_pct": 5.87,
-      "band_upside_pct": 24.53
+      "band_upside_pct": 24.53,
+      "fwd_return_pct": -9.21,
+      "positive": false,
+      "within_band": false,
+      "vs_median": "below"
     },
     {
       "date": "2026-03-31",
@@ -1319,9 +1333,9 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.87,
+      "band_median_pct": 5.86,
       "band_upside_pct": 24.52,
-      "fwd_return_pct": -6.96,
+      "fwd_return_pct": -7.44,
       "positive": false,
       "within_band": false,
       "vs_median": "below"
@@ -1333,9 +1347,9 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.87,
+      "band_median_pct": 5.86,
       "band_upside_pct": 24.5,
-      "fwd_return_pct": -6.06,
+      "fwd_return_pct": -5.99,
       "positive": false,
       "within_band": false,
       "vs_median": "below"
@@ -1362,7 +1376,7 @@
       "phase": "backfill",
       "band_downside_pct": -5.78,
       "band_median_pct": 5.86,
-      "band_upside_pct": 24.44,
+      "band_upside_pct": 24.47,
       "fwd_return_pct": 0.27,
       "positive": true,
       "within_band": true,
@@ -1376,7 +1390,7 @@
       "phase": "backfill",
       "band_downside_pct": -5.78,
       "band_median_pct": 5.86,
-      "band_upside_pct": 24.44,
+      "band_upside_pct": 24.47,
       "fwd_return_pct": -3.72,
       "positive": false,
       "within_band": true,
@@ -1417,7 +1431,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.86,
+      "band_median_pct": 5.85,
       "band_upside_pct": 24.43,
       "fwd_return_pct": -1.47,
       "positive": false,
@@ -1431,7 +1445,7 @@
       "posture": "accumulate",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.86,
+      "band_median_pct": 5.85,
       "band_upside_pct": 24.34,
       "fwd_return_pct": -1.3,
       "positive": false,
@@ -1445,7 +1459,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.85,
+      "band_median_pct": 5.84,
       "band_upside_pct": 24.34,
       "fwd_return_pct": -6.83,
       "positive": false,
@@ -1459,7 +1473,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.85,
+      "band_median_pct": 5.83,
       "band_upside_pct": 24.34,
       "fwd_return_pct": -8.74,
       "positive": false,
@@ -1473,7 +1487,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.84,
+      "band_median_pct": 5.81,
       "band_upside_pct": 24.29,
       "fwd_return_pct": -10.17,
       "positive": false,
@@ -1487,7 +1501,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.83,
+      "band_median_pct": 5.8,
       "band_upside_pct": 24.21,
       "fwd_return_pct": -10.82,
       "positive": false,
@@ -1501,8 +1515,8 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.78,
-      "band_median_pct": 5.81,
-      "band_upside_pct": 24.16,
+      "band_median_pct": 5.8,
+      "band_upside_pct": 24.21,
       "fwd_return_pct": -10.75,
       "positive": false,
       "within_band": false,
@@ -1514,9 +1528,9 @@
       "valuation_pct": 0.98,
       "posture": "dont_chase",
       "phase": "backfill",
-      "band_downside_pct": -5.78,
-      "band_median_pct": 5.8,
-      "band_upside_pct": 24.15,
+      "band_downside_pct": -5.8,
+      "band_median_pct": 5.79,
+      "band_upside_pct": 24.16,
       "fwd_return_pct": -11.64,
       "positive": false,
       "within_band": false,
@@ -1528,8 +1542,8 @@
       "valuation_pct": 0.988,
       "posture": "dont_chase",
       "phase": "backfill",
-      "band_downside_pct": -5.78,
-      "band_median_pct": 5.8,
+      "band_downside_pct": -5.8,
+      "band_median_pct": 5.79,
       "band_upside_pct": 24.15,
       "fwd_return_pct": -11.28,
       "positive": false,
@@ -1543,7 +1557,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.8,
-      "band_median_pct": 5.79,
+      "band_median_pct": 5.78,
       "band_upside_pct": 24.13,
       "fwd_return_pct": -10.29,
       "positive": false,
@@ -1557,7 +1571,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.8,
-      "band_median_pct": 5.79,
+      "band_median_pct": 5.78,
       "band_upside_pct": 24.13,
       "fwd_return_pct": -10.66,
       "positive": false,
@@ -1599,7 +1613,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.8,
-      "band_median_pct": 5.78,
+      "band_median_pct": 5.77,
       "band_upside_pct": 24.06,
       "fwd_return_pct": -11.02,
       "positive": false,
@@ -1613,7 +1627,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.8,
-      "band_median_pct": 5.78,
+      "band_median_pct": 5.77,
       "band_upside_pct": 24.06,
       "fwd_return_pct": -11.89,
       "positive": false,
@@ -1654,9 +1668,9 @@
       "valuation_pct": 0.992,
       "posture": "dont_chase",
       "phase": "backfill",
-      "band_downside_pct": -5.8,
+      "band_downside_pct": -5.81,
       "band_median_pct": 5.77,
-      "band_upside_pct": 24.04,
+      "band_upside_pct": 24.05,
       "fwd_return_pct": -6.54,
       "positive": false,
       "within_band": false,
@@ -1668,7 +1682,7 @@
       "valuation_pct": 0.988,
       "posture": "dont_chase",
       "phase": "backfill",
-      "band_downside_pct": -5.8,
+      "band_downside_pct": -5.81,
       "band_median_pct": 5.77,
       "band_upside_pct": 24.04,
       "fwd_return_pct": -6.79,
@@ -1683,7 +1697,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.81,
-      "band_median_pct": 5.77,
+      "band_median_pct": 5.76,
       "band_upside_pct": 24.02,
       "fwd_return_pct": -5.15,
       "positive": false,
@@ -1697,7 +1711,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.81,
-      "band_median_pct": 5.77,
+      "band_median_pct": 5.76,
       "band_upside_pct": 23.99,
       "fwd_return_pct": -3.09,
       "positive": false,
@@ -1739,7 +1753,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.81,
-      "band_median_pct": 5.76,
+      "band_median_pct": 5.75,
       "band_upside_pct": 23.94,
       "fwd_return_pct": -4.9,
       "positive": false,
@@ -1753,7 +1767,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.81,
-      "band_median_pct": 5.76,
+      "band_median_pct": 5.75,
       "band_upside_pct": 23.94,
       "fwd_return_pct": -6.33,
       "positive": false,
@@ -1782,7 +1796,7 @@
       "phase": "backfill",
       "band_downside_pct": -5.81,
       "band_median_pct": 5.75,
-      "band_upside_pct": 23.89,
+      "band_upside_pct": 23.92,
       "fwd_return_pct": -8.69,
       "positive": false,
       "within_band": false,
@@ -1796,7 +1810,7 @@
       "phase": "backfill",
       "band_downside_pct": -5.81,
       "band_median_pct": 5.75,
-      "band_upside_pct": 23.88,
+      "band_upside_pct": 23.89,
       "fwd_return_pct": -6.78,
       "positive": false,
       "within_band": false,
@@ -1837,7 +1851,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.81,
-      "band_median_pct": 5.75,
+      "band_median_pct": 5.74,
       "band_upside_pct": 23.86,
       "fwd_return_pct": -4.84,
       "positive": false,
@@ -1851,7 +1865,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.81,
-      "band_median_pct": 5.75,
+      "band_median_pct": 5.74,
       "band_upside_pct": 23.84,
       "fwd_return_pct": -8.46,
       "positive": false,
@@ -1921,8 +1935,8 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.81,
-      "band_median_pct": 5.74,
-      "band_upside_pct": 23.74,
+      "band_median_pct": 5.73,
+      "band_upside_pct": 23.76,
       "fwd_return_pct": -19.19,
       "positive": false,
       "within_band": false,
@@ -1934,9 +1948,9 @@
       "valuation_pct": 1.0,
       "posture": "dont_chase",
       "phase": "backfill",
-      "band_downside_pct": -5.81,
-      "band_median_pct": 5.74,
-      "band_upside_pct": 23.68,
+      "band_downside_pct": -5.82,
+      "band_median_pct": 5.73,
+      "band_upside_pct": 23.74,
       "fwd_return_pct": -17.11,
       "positive": false,
       "within_band": false,
@@ -1948,7 +1962,7 @@
       "valuation_pct": 1.0,
       "posture": "dont_chase",
       "phase": "backfill",
-      "band_downside_pct": -5.81,
+      "band_downside_pct": -5.82,
       "band_median_pct": 5.73,
       "band_upside_pct": 23.68,
       "fwd_return_pct": -16.98,
@@ -1977,7 +1991,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.82,
-      "band_median_pct": 5.73,
+      "band_median_pct": 5.72,
       "band_upside_pct": 23.67,
       "fwd_return_pct": -12.32,
       "positive": false,
@@ -1991,7 +2005,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.82,
-      "band_median_pct": 5.73,
+      "band_median_pct": 5.72,
       "band_upside_pct": 23.62,
       "fwd_return_pct": -10.98,
       "positive": false,
@@ -2033,7 +2047,7 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.82,
-      "band_median_pct": 5.72,
+      "band_median_pct": 5.71,
       "band_upside_pct": 23.53,
       "fwd_return_pct": -7.07,
       "positive": false,
@@ -2047,23 +2061,9 @@
       "posture": "dont_chase",
       "phase": "backfill",
       "band_downside_pct": -5.82,
-      "band_median_pct": 5.72,
+      "band_median_pct": 5.71,
       "band_upside_pct": 23.51,
       "fwd_return_pct": -7.18,
-      "positive": false,
-      "within_band": false,
-      "vs_median": "below"
-    },
-    {
-      "date": "2026-01-13",
-      "price": 133274.26,
-      "valuation_pct": 0.996,
-      "posture": "dont_chase",
-      "phase": "backfill",
-      "band_downside_pct": -5.82,
-      "band_median_pct": 5.71,
-      "band_upside_pct": 23.5,
-      "fwd_return_pct": -6.92,
       "positive": false,
       "within_band": false,
       "vs_median": "below"
