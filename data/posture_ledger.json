@@ -12,7 +12,7 @@
       },
       "accumulate": {
         "label": "Reasonable to accumulate",
-        "n": 2395,
+        "n": 2396,
         "pct_positive": 0.642,
         "median_fwd_pct": 2.15
       }
@@ -26,15 +26,15 @@
       },
       "accumulate": {
         "label": "Reasonable to accumulate",
-        "n": 2342,
+        "n": 2343,
         "pct_positive": 0.696,
-        "median_fwd_pct": 4.31
+        "median_fwd_pct": 4.3
       }
     },
     "12-month": {
       "dont_chase": {
         "label": "Near its 12-month high (context)",
-        "n": 2190,
+        "n": 2191,
         "pct_positive": 0.851,
         "median_fwd_pct": 20.24
       },
@@ -47,15 +47,25 @@
     }
   },
   "live": {
-    "recorded_days": 28,
+    "recorded_days": 29,
     "matured_days": 0,
     "summary": {}
   },
   "recent": [
     {
+      "date": "2026-10-02",
+      "price": 130696.38,
+      "valuation_pct": 0.429,
+      "posture": "accumulate",
+      "phase": "live",
+      "band_downside_pct": -6.08,
+      "band_median_pct": 5.77,
+      "band_upside_pct": 24.59
+    },
+    {
       "date": "2026-10-01",
-      "price": 129852.79,
-      "valuation_pct": 0.417,
+      "price": 129604.3,
+      "valuation_pct": 0.413,
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.08,
@@ -64,7 +74,7 @@
     },
     {
       "date": "2026-09-30",
-      "price": 129289.56,
+      "price": 129123.19,
       "valuation_pct": 0.405,
       "posture": "accumulate",
       "phase": "live",
@@ -1310,7 +1320,11 @@
       "phase": "backfill",
       "band_downside_pct": -5.78,
       "band_median_pct": 5.87,
-      "band_upside_pct": 24.55
+      "band_upside_pct": 24.55,
+      "fwd_return_pct": -6.57,
+      "positive": false,
+      "within_band": false,
+      "vs_median": "below"
     },
     {
       "date": "2026-04-01",
@@ -1321,7 +1335,7 @@
       "band_downside_pct": -5.78,
       "band_median_pct": 5.87,
       "band_upside_pct": 24.53,
-      "fwd_return_pct": -9.42,
+      "fwd_return_pct": -9.59,
       "positive": false,
       "within_band": false,
       "vs_median": "below"
@@ -1335,7 +1349,7 @@
       "band_downside_pct": -5.78,
       "band_median_pct": 5.86,
       "band_upside_pct": 24.52,
-      "fwd_return_pct": -7.44,
+      "fwd_return_pct": -7.56,
       "positive": false,
       "within_band": false,
       "vs_median": "below"
@@ -2050,20 +2064,6 @@
       "band_median_pct": 5.71,
       "band_upside_pct": 23.53,
       "fwd_return_pct": -7.07,
-      "positive": false,
-      "within_band": false,
-      "vs_median": "below"
-    },
-    {
-      "date": "2026-01-14",
-      "price": 134543.99,
-      "valuation_pct": 1.0,
-      "posture": "dont_chase",
-      "phase": "backfill",
-      "band_downside_pct": -5.82,
-      "band_median_pct": 5.71,
-      "band_upside_pct": 23.51,
-      "fwd_return_pct": -7.18,
       "positive": false,
       "within_band": false,
       "vs_median": "below"
