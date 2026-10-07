@@ -1,21 +1,5 @@
 [
   {
-    "target_date": "2025-10-13",
-    "horizon": 1,
-    "made_at": "",
-    "cutoff": "",
-    "direction": "down",
-    "confidence": 0.53,
-    "prob_up": 0.47,
-    "mag_low": null,
-    "mag_high": null,
-    "reasoning": [],
-    "actual_pct": 3.315,
-    "actual_dir": "up",
-    "hit": false,
-    "graded_at": ""
-  },
-  {
     "target_date": "2025-10-14",
     "horizon": 1,
     "made_at": "",
@@ -107,22 +91,6 @@
     "mag_high": null,
     "reasoning": [],
     "actual_pct": -5.742,
-    "actual_dir": "down",
-    "hit": false,
-    "graded_at": ""
-  },
-  {
-    "target_date": "2025-10-21",
-    "horizon": 5,
-    "made_at": "",
-    "cutoff": "",
-    "direction": "up",
-    "confidence": 0.57,
-    "prob_up": 0.57,
-    "mag_low": null,
-    "mag_high": null,
-    "reasoning": [],
-    "actual_pct": -1.304,
     "actual_dir": "down",
     "hit": false,
     "graded_at": ""
@@ -7786,7 +7754,7 @@
     "mag_low": null,
     "mag_high": null,
     "reasoning": [],
-    "actual_pct": 0.7,
+    "actual_pct": 0.729,
     "actual_dir": "up",
     "hit": false,
     "graded_at": ""
@@ -7802,9 +7770,41 @@
     "mag_low": null,
     "mag_high": null,
     "reasoning": [],
-    "actual_pct": 0.148,
+    "actual_pct": 0.177,
     "actual_dir": "up",
     "hit": false,
+    "graded_at": ""
+  },
+  {
+    "target_date": "2026-10-07",
+    "horizon": 1,
+    "made_at": "",
+    "cutoff": "",
+    "direction": "down",
+    "confidence": 0.54,
+    "prob_up": 0.46,
+    "mag_low": null,
+    "mag_high": null,
+    "reasoning": [],
+    "actual_pct": -0.688,
+    "actual_dir": "down",
+    "hit": true,
+    "graded_at": ""
+  },
+  {
+    "target_date": "2026-10-07",
+    "horizon": 5,
+    "made_at": "",
+    "cutoff": "",
+    "direction": "down",
+    "confidence": 0.55,
+    "prob_up": 0.45,
+    "mag_low": null,
+    "mag_high": null,
+    "reasoning": [],
+    "actual_pct": -0.678,
+    "actual_dir": "down",
+    "hit": true,
     "graded_at": ""
   }
 ]
