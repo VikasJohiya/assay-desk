@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-10-13T09:40:41+00:00",
+    "generated_at": "2026-10-13T11:13:01+00:00",
     "window": {
       "start": "2025-10-13",
       "end": "2026-10-13"
@@ -30,16 +30,16 @@
   },
   "latest_price": {
     "date": "2026-10-13",
-    "usd_gold_close": 4205.4,
-    "usd_gold_change_pct": 0.3532,
+    "usd_gold_close": 4205.9,
+    "usd_gold_change_pct": 0.3651,
     "usd_gold_instrument": "COMEX front-month gold futures close",
     "usd_gold_source": "Yahoo:GC=F",
     "mcx_inr_gold_close": null,
     "mcx_inr_gold_change_pct": null,
     "mcx_inr_gold_null_reason": "no-free-MCX-feed",
-    "usd_inr_rate": 95.3025,
+    "usd_inr_rate": 95.28,
     "usd_inr_source": "Yahoo:USDINR=X",
-    "usd_gold_inr_equiv": 400785.12,
+    "usd_gold_inr_equiv": 400738.14,
     "usd_gold_inr_equiv_is_derived": true,
     "usd_gold_inr_equiv_note": "DERIVED = COMEX front-month gold futures close x USD/INR spot FX rate; not a real MCX/exchange close"
   },
@@ -48,23 +48,23 @@
       "source": "Yahoo:GC=F",
       "instrument": "COMEX front-month gold futures close",
       "unit": "USD/oz",
-      "fetched_at": "2026-10-13T09:40:41+00:00"
+      "fetched_at": "2026-10-13T11:13:01+00:00"
     },
     "usd_inr": {
       "source": "Yahoo:USDINR=X",
       "instrument": "USD/INR spot FX rate",
       "unit": "INR per USD",
-      "fetched_at": "2026-10-13T09:40:41+00:00"
+      "fetched_at": "2026-10-13T11:13:01+00:00"
     }
   },
   "entry": {
     "default_basis": "INR",
     "default_horizon": "6-month",
     "USD": {
-      "as_of_price": 4205.3,
+      "as_of_price": 4205.9,
       "history_years": 19.9,
       "valuation_pct": 0.29,
-      "above_ma200_pct": -7.47,
+      "above_ma200_pct": -7.46,
       "horizons": {
         "1-month": {
           "days": 21,
@@ -110,10 +110,10 @@
       "unit": "USD/oz"
     },
     "INR": {
-      "as_of_price": 128852.34,
+      "as_of_price": 128840.3,
       "history_years": 19.9,
       "valuation_pct": 0.369,
-      "above_ma200_pct": -6.1,
+      "above_ma200_pct": -6.11,
       "horizons": {
         "1-month": {
           "days": 21,
@@ -216,7 +216,7 @@
     "recent": [
       {
         "date": "2026-10-13",
-        "price": 128852.34,
+        "price": 128840.3,
         "valuation_pct": 0.369,
         "posture": "accumulate",
         "phase": "live",
@@ -6000,16 +6000,16 @@
     },
     {
       "date": "2026-10-13",
-      "usd_gold_close": 4205.4,
-      "usd_gold_change_pct": 0.3532,
+      "usd_gold_close": 4205.9,
+      "usd_gold_change_pct": 0.3651,
       "usd_gold_instrument": "COMEX front-month gold futures close",
       "usd_gold_source": "Yahoo:GC=F",
       "mcx_inr_gold_close": null,
       "mcx_inr_gold_change_pct": null,
       "mcx_inr_gold_null_reason": "no-free-MCX-feed",
-      "usd_inr_rate": 95.3025,
+      "usd_inr_rate": 95.28,
       "usd_inr_source": "Yahoo:USDINR=X",
-      "usd_gold_inr_equiv": 400785.12,
+      "usd_gold_inr_equiv": 400738.14,
       "usd_gold_inr_equiv_is_derived": true,
       "usd_gold_inr_equiv_note": "DERIVED = COMEX front-month gold futures close x USD/INR spot FX rate; not a real MCX/exchange close"
     }
@@ -6025,7 +6025,7 @@
       "published_at": "2026-09-03T18:00:00+00:00",
       "published_date": "2026-09-03",
       "confidence_discount": false,
-      "fetched_at": "2026-10-13T09:40:43+00:00",
+      "fetched_at": "2026-10-13T11:13:03+00:00",
       "magnitude_usd": 12500000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6040,7 +6040,7 @@
       "published_at": "2026-09-09T18:00:00+00:00",
       "published_date": "2026-09-09",
       "confidence_discount": false,
-      "fetched_at": "2026-10-13T09:40:43+00:00",
+      "fetched_at": "2026-10-13T11:13:03+00:00",
       "magnitude_usd": 12500000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6055,7 +6055,7 @@
       "published_at": "2026-09-10T18:00:00+00:00",
       "published_date": "2026-09-10",
       "confidence_discount": false,
-      "fetched_at": "2026-10-13T09:40:43+00:00",
+      "fetched_at": "2026-10-13T11:13:03+00:00",
       "magnitude_usd": 5187000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6070,7 +6070,7 @@
       "published_at": "2026-09-15T18:00:00+00:00",
       "published_date": "2026-09-15",
       "confidence_discount": false,
-      "fetched_at": "2026-10-13T09:40:43+00:00",
+      "fetched_at": "2026-10-13T11:13:03+00:00",
       "magnitude_usd": 500000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6085,7 +6085,7 @@
       "published_at": "2026-09-16T18:00:00+00:00",
       "published_date": "2026-09-16",
       "confidence_discount": false,
-      "fetched_at": "2026-10-13T09:40:41+00:00",
+      "fetched_at": "2026-10-13T11:13:01+00:00",
       "magnitude_usd": null,
       "rate_change_bps": 25.0,
       "leak_status": "input"
@@ -6100,7 +6100,7 @@
       "published_at": "2026-09-17T18:00:00+00:00",
       "published_date": "2026-09-17",
       "confidence_discount": false,
-      "fetched_at": "2026-10-13T09:40:43+00:00",
+      "fetched_at": "2026-10-13T11:13:03+00:00",
       "magnitude_usd": 2385000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6115,7 +6115,7 @@
       "published_at": "2026-09-24T18:00:00+00:00",
       "published_date": "2026-09-24",
       "confidence_discount": false,
-      "fetched_at": "2026-10-13T09:40:43+00:00",
+      "fetched_at": "2026-10-13T11:13:03+00:00",
       "magnitude_usd": 4078000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6130,7 +6130,7 @@
       "published_at": "2026-09-29T18:00:00+00:00",
       "published_date": "2026-09-29",
       "confidence_discount": false,
-      "fetched_at": "2026-10-13T09:40:43+00:00",
+      "fetched_at": "2026-10-13T11:13:03+00:00",
       "magnitude_usd": 605000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6145,7 +6145,7 @@
       "published_at": "2026-10-01T18:00:00+00:00",
       "published_date": "2026-10-01",
       "confidence_discount": false,
-      "fetched_at": "2026-10-13T09:40:43+00:00",
+      "fetched_at": "2026-10-13T11:13:03+00:00",
       "magnitude_usd": 6000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6160,7 +6160,7 @@
       "published_at": "2026-10-06T18:00:00+00:00",
       "published_date": "2026-10-06",
       "confidence_discount": false,
-      "fetched_at": "2026-10-13T09:40:43+00:00",
+      "fetched_at": "2026-10-13T11:13:03+00:00",
       "magnitude_usd": 1327000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6175,7 +6175,7 @@
       "published_at": "2026-10-07T18:00:00+00:00",
       "published_date": "2026-10-07",
       "confidence_discount": false,
-      "fetched_at": "2026-10-13T09:40:41+00:00",
+      "fetched_at": "2026-10-13T11:13:01+00:00",
       "magnitude_usd": null,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6190,27 +6190,27 @@
       "published_at": "2026-10-08T18:00:00+00:00",
       "published_date": "2026-10-08",
       "confidence_discount": false,
-      "fetched_at": "2026-10-13T09:40:43+00:00",
+      "fetched_at": "2026-10-13T11:13:03+00:00",
       "magnitude_usd": 6000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
     }
   ],
   "live_forecast": {
-    "as_of": "2026-10-13T09:40:41+00:00",
+    "as_of": "2026-10-13T11:13:01+00:00",
     "target_date": "2026-10-14",
     "horizon_days": 1,
     "direction": "up",
     "prob_up": 0.57,
     "confidence": 0.57,
-    "magnitude_low_pct": 0.31,
+    "magnitude_low_pct": 0.32,
     "magnitude_high_pct": 0.99,
     "reasoning": [
-      "Gold has been rising over the last 3 days (+1.16%), and trends often continue",
-      "Lately gold has typically moved about 0.31\u20130.99% in a day (based on its recent ups and downs)"
+      "Gold has been rising over the last 3 days (+1.18%), and trends often continue",
+      "Lately gold has typically moved about 0.32\u20130.99% in a day (based on its recent ups and downs)"
     ],
     "factors": {
-      "momentum_pct": 1.164,
+      "momentum_pct": 1.176,
       "recent_buyback": false,
       "recent_fomc": false,
       "score": 1.0
@@ -6218,20 +6218,20 @@
     "honest_confidence": 0.5
   },
   "live_forecast_week": {
-    "as_of": "2026-10-13T09:40:41+00:00",
+    "as_of": "2026-10-13T11:13:01+00:00",
     "target_date": "2026-10-20",
     "horizon_days": 5,
     "direction": "up",
     "prob_up": 0.57,
     "confidence": 0.57,
-    "magnitude_low_pct": 0.69,
+    "magnitude_low_pct": 0.71,
     "magnitude_high_pct": 2.22,
     "reasoning": [
-      "Gold has been rising over the last 5 days (+0.44%), and trends often continue",
-      "Lately gold has typically moved about 0.69\u20132.22% in a week (based on its recent ups and downs)"
+      "Gold has been rising over the last 5 days (+0.45%), and trends often continue",
+      "Lately gold has typically moved about 0.71\u20132.22% in a week (based on its recent ups and downs)"
     ],
     "factors": {
-      "momentum_pct": 0.437,
+      "momentum_pct": 0.449,
       "recent_buyback": false,
       "recent_fomc": false,
       "score": 1.0
@@ -8535,7 +8535,7 @@
         "direction": "up",
         "confidence": 0.57,
         "prob_up": 0.57,
-        "actual_pct": 0.353,
+        "actual_pct": 0.365,
         "actual_dir": "up",
         "hit": true
       }
@@ -10764,7 +10764,7 @@
         "direction": "up",
         "confidence": 0.59,
         "prob_up": 0.59,
-        "actual_pct": 0.437,
+        "actual_pct": 0.449,
         "actual_dir": "up",
         "hit": true
       }
@@ -13017,7 +13017,7 @@
         "direction": "up",
         "confidence": 0.57,
         "prob_up": 0.57,
-        "actual_pct": 0.353,
+        "actual_pct": 0.365,
         "actual_dir": "up",
         "hit": true
       }
@@ -13030,7 +13030,7 @@
       "confidence": 0.57,
       "honest_confidence": 0.5,
       "actual_dir": "up",
-      "actual_pct": 0.353,
+      "actual_pct": 0.365,
       "hit": true
     },
     "running": {
