@@ -14,7 +14,7 @@
         "label": "Reasonable to accumulate",
         "n": 2406,
         "pct_positive": 0.643,
-        "median_fwd_pct": 2.15
+        "median_fwd_pct": 2.14
       }
     },
     "6-month": {
@@ -54,8 +54,8 @@
   "recent": [
     {
       "date": "2026-10-16",
-      "price": 128395.92,
-      "valuation_pct": 0.341,
+      "price": 127065.43,
+      "valuation_pct": 0.313,
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.18,
@@ -64,8 +64,8 @@
     },
     {
       "date": "2026-10-15",
-      "price": 127571.09,
-      "valuation_pct": 0.321,
+      "price": 126731.13,
+      "valuation_pct": 0.29,
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.16,
@@ -1321,7 +1321,7 @@
       "band_downside_pct": -5.78,
       "band_median_pct": 5.88,
       "band_upside_pct": 24.65,
-      "fwd_return_pct": -12.04,
+      "fwd_return_pct": -12.95,
       "positive": false,
       "within_band": false,
       "vs_median": "below"
@@ -1335,7 +1335,7 @@
       "band_downside_pct": -5.78,
       "band_median_pct": 5.87,
       "band_upside_pct": 24.65,
-      "fwd_return_pct": -11.31,
+      "fwd_return_pct": -11.9,
       "positive": false,
       "within_band": false,
       "vs_median": "below"
