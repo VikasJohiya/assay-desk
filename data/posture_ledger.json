@@ -54,8 +54,8 @@
   "recent": [
     {
       "date": "2026-10-23",
-      "price": 123075.3,
-      "valuation_pct": 0.147,
+      "price": 122042.12,
+      "valuation_pct": 0.115,
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.23,
@@ -64,8 +64,8 @@
     },
     {
       "date": "2026-10-22",
-      "price": 123119.89,
-      "valuation_pct": 0.155,
+      "price": 123640.77,
+      "valuation_pct": 0.159,
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.23,
@@ -1321,7 +1321,7 @@
       "band_downside_pct": -5.78,
       "band_median_pct": 5.91,
       "band_upside_pct": 24.66,
-      "fwd_return_pct": -14.2,
+      "fwd_return_pct": -14.92,
       "positive": false,
       "within_band": false,
       "vs_median": "below"
@@ -1335,7 +1335,7 @@
       "band_downside_pct": -5.78,
       "band_median_pct": 5.9,
       "band_upside_pct": 24.65,
-      "fwd_return_pct": -13.87,
+      "fwd_return_pct": -13.5,
       "positive": false,
       "within_band": false,
       "vs_median": "below"
