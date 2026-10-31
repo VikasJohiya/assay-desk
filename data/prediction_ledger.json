@@ -1,21 +1,5 @@
 [
   {
-    "target_date": "2025-11-06",
-    "horizon": 1,
-    "made_at": "",
-    "cutoff": "",
-    "direction": "down",
-    "confidence": 0.53,
-    "prob_up": 0.47,
-    "mag_low": null,
-    "mag_high": null,
-    "reasoning": [],
-    "actual_pct": -0.048,
-    "actual_dir": "down",
-    "hit": true,
-    "graded_at": ""
-  },
-  {
     "target_date": "2025-11-07",
     "horizon": 1,
     "made_at": "",
@@ -109,22 +93,6 @@
     "actual_pct": -2.391,
     "actual_dir": "down",
     "hit": false,
-    "graded_at": ""
-  },
-  {
-    "target_date": "2025-11-14",
-    "horizon": 5,
-    "made_at": "",
-    "cutoff": "",
-    "direction": "up",
-    "confidence": 0.6,
-    "prob_up": 0.6,
-    "mag_low": null,
-    "mag_high": null,
-    "reasoning": [],
-    "actual_pct": 2.105,
-    "actual_dir": "up",
-    "hit": true,
     "graded_at": ""
   },
   {
@@ -7786,7 +7754,7 @@
     "mag_low": null,
     "mag_high": null,
     "reasoning": [],
-    "actual_pct": -0.853,
+    "actual_pct": -3.287,
     "actual_dir": "down",
     "hit": true,
     "graded_at": ""
@@ -7802,7 +7770,7 @@
     "mag_low": null,
     "mag_high": null,
     "reasoning": [],
-    "actual_pct": -0.272,
+    "actual_pct": -2.72,
     "actual_dir": "down",
     "hit": true,
     "graded_at": ""

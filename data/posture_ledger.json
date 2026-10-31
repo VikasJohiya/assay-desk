@@ -54,8 +54,8 @@
   "recent": [
     {
       "date": "2026-10-30",
-      "price": 122016.95,
-      "valuation_pct": 0.095,
+      "price": 119275.95,
+      "valuation_pct": 0.071,
       "posture": "accumulate",
       "phase": "live",
       "band_downside_pct": -6.27,
@@ -1321,7 +1321,7 @@
       "band_downside_pct": -5.78,
       "band_median_pct": 5.97,
       "band_upside_pct": 24.7,
-      "fwd_return_pct": -13.77,
+      "fwd_return_pct": -15.7,
       "positive": false,
       "within_band": false,
       "vs_median": "below"
