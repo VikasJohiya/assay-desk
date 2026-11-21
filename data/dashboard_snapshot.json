@@ -1,16 +1,16 @@
 {
   "meta": {
-    "generated_at": "2026-11-20T12:16:15+00:00",
+    "generated_at": "2026-11-21T07:56:42+00:00",
     "window": {
-      "start": "2025-11-20",
-      "end": "2026-11-20"
+      "start": "2025-11-21",
+      "end": "2026-11-21"
     },
     "leak_window": {
-      "start": "2026-10-06",
-      "end": "2026-11-20"
+      "start": "2026-10-07",
+      "end": "2026-11-21"
     },
     "as_of_date": "2026-11-20",
-    "forecast_cutoff": "2026-11-20T00:00:00Z",
+    "forecast_cutoff": "2026-11-21T00:00:00Z",
     "phase": "Phase 1 \u2014 ingestion pipeline (prices + US signals)",
     "disclaimer": "Decision-support tool, not financial advice. Forecasts come from a transparent model (content-v2) with prior-specified weights, not fitted, evaluated out-of-sample over a full year \u2014 every number is computed and measured, never invented. Reading signal content (FOMC rate decisions, buyback size) barely moved accuracy and still does NOT beat a naive always-up baseline on either horizon: public policy is priced in. The value here is transparent reasoning, not a validated market-beating edge. Do not act on it as a trading signal."
   },
@@ -30,16 +30,16 @@
   },
   "latest_price": {
     "date": "2026-11-20",
-    "usd_gold_close": 3570.0,
-    "usd_gold_change_pct": -3.1339,
+    "usd_gold_close": 3515.4,
+    "usd_gold_change_pct": -4.6154,
     "usd_gold_instrument": "COMEX front-month gold futures close",
     "usd_gold_source": "Yahoo:GC=F",
     "mcx_inr_gold_close": null,
     "mcx_inr_gold_change_pct": null,
     "mcx_inr_gold_null_reason": "no-free-MCX-feed",
-    "usd_inr_rate": 92.69,
+    "usd_inr_rate": 93.295,
     "usd_inr_source": "Yahoo:USDINR=X",
-    "usd_gold_inr_equiv": 330903.31,
+    "usd_gold_inr_equiv": 327969.23,
     "usd_gold_inr_equiv_is_derived": true,
     "usd_gold_inr_equiv_note": "DERIVED = COMEX front-month gold futures close x USD/INR spot FX rate; not a real MCX/exchange close"
   },
@@ -48,23 +48,23 @@
       "source": "Yahoo:GC=F",
       "instrument": "COMEX front-month gold futures close",
       "unit": "USD/oz",
-      "fetched_at": "2026-11-20T12:16:15+00:00"
+      "fetched_at": "2026-11-21T07:56:42+00:00"
     },
     "usd_inr": {
       "source": "Yahoo:USDINR=X",
       "instrument": "USD/INR spot FX rate",
       "unit": "INR per USD",
-      "fetched_at": "2026-11-20T12:16:15+00:00"
+      "fetched_at": "2026-11-21T07:56:42+00:00"
     }
   },
   "entry": {
     "default_basis": "INR",
     "default_horizon": "6-month",
     "USD": {
-      "as_of_price": 3570.6,
+      "as_of_price": 3515.4,
       "history_years": 20.0,
       "valuation_pct": 0.004,
-      "above_ma200_pct": -19.67,
+      "above_ma200_pct": -20.91,
       "horizons": {
         "1-month": {
           "days": 21,
@@ -110,10 +110,10 @@
       "unit": "USD/oz"
     },
     "INR": {
-      "as_of_price": 106405.77,
+      "as_of_price": 105444.56,
       "history_years": 20.0,
       "valuation_pct": 0.004,
-      "above_ma200_pct": -21.17,
+      "above_ma200_pct": -21.88,
       "horizons": {
         "1-month": {
           "days": 21,
@@ -153,12 +153,12 @@
         }
       },
       "drawdown": {
-        "max_dd_pct": -32.4,
+        "max_dd_pct": -33.0,
         "longest_underwater_months": 81
       },
       "unit": "INR/10g"
     },
-    "yield_10y_3m_chg": 0.35
+    "yield_10y_3m_chg": 0.21
   },
   "posture_ledger": {
     "primary_horizon": "6-month",
@@ -217,7 +217,7 @@
             "label": "Reasonable to accumulate",
             "n": 1,
             "pct_positive": 0.0,
-            "median_fwd_pct": -26.4
+            "median_fwd_pct": -27.07
           }
         }
       }
@@ -225,7 +225,7 @@
     "recent": [
       {
         "date": "2026-11-20",
-        "price": 106405.77,
+        "price": 105444.56,
         "valuation_pct": 0.004,
         "posture": "accumulate",
         "phase": "live",
@@ -1492,7 +1492,7 @@
         "band_downside_pct": -5.76,
         "band_median_pct": 6.07,
         "band_upside_pct": 24.74,
-        "fwd_return_pct": -23.92,
+        "fwd_return_pct": -24.61,
         "positive": false,
         "within_band": false,
         "vs_median": "below"
@@ -2243,24 +2243,9 @@
   },
   "prices": [
     {
-      "date": "2025-11-20",
-      "usd_gold_close": 4060.0,
-      "usd_gold_change_pct": null,
-      "usd_gold_instrument": "COMEX front-month gold futures close",
-      "usd_gold_source": "Yahoo:GC=F",
-      "mcx_inr_gold_close": null,
-      "mcx_inr_gold_change_pct": null,
-      "mcx_inr_gold_null_reason": "no-free-MCX-feed",
-      "usd_inr_rate": 88.4872,
-      "usd_inr_source": "Yahoo:USDINR=X",
-      "usd_gold_inr_equiv": 359258.02,
-      "usd_gold_inr_equiv_is_derived": true,
-      "usd_gold_inr_equiv_note": "DERIVED = COMEX front-month gold futures close x USD/INR spot FX rate; not a real MCX/exchange close"
-    },
-    {
       "date": "2025-11-21",
       "usd_gold_close": 4079.5,
-      "usd_gold_change_pct": 0.4803,
+      "usd_gold_change_pct": null,
       "usd_gold_instrument": "COMEX front-month gold futures close",
       "usd_gold_source": "Yahoo:GC=F",
       "mcx_inr_gold_close": null,
@@ -6009,36 +5994,21 @@
     },
     {
       "date": "2026-11-20",
-      "usd_gold_close": 3570.0,
-      "usd_gold_change_pct": -3.1339,
+      "usd_gold_close": 3515.4,
+      "usd_gold_change_pct": -4.6154,
       "usd_gold_instrument": "COMEX front-month gold futures close",
       "usd_gold_source": "Yahoo:GC=F",
       "mcx_inr_gold_close": null,
       "mcx_inr_gold_change_pct": null,
       "mcx_inr_gold_null_reason": "no-free-MCX-feed",
-      "usd_inr_rate": 92.69,
+      "usd_inr_rate": 93.295,
       "usd_inr_source": "Yahoo:USDINR=X",
-      "usd_gold_inr_equiv": 330903.31,
+      "usd_gold_inr_equiv": 327969.23,
       "usd_gold_inr_equiv_is_derived": true,
       "usd_gold_inr_equiv_note": "DERIVED = COMEX front-month gold futures close x USD/INR spot FX rate; not a real MCX/exchange close"
     }
   ],
   "signals": [
-    {
-      "country": "US",
-      "source": "Treasury:buybacks",
-      "category": "Debt Management",
-      "tag": "treasury_buyback",
-      "title": "Treasury Liquidity Support buyback (2Y to 3Y) \u2014 $1.33B accepted, $4.0B cap",
-      "url": "https://www.treasurydirect.gov/GA-FI/FedInvest/buybacks [op 2026-10-06]",
-      "published_at": "2026-10-06T18:00:00+00:00",
-      "published_date": "2026-10-06",
-      "confidence_discount": false,
-      "fetched_at": "2026-11-20T12:16:16+00:00",
-      "magnitude_usd": 1327000000.0,
-      "rate_change_bps": null,
-      "leak_status": "input"
-    },
     {
       "country": "US",
       "source": "Fed:fomc_calendar",
@@ -6049,7 +6019,7 @@
       "published_at": "2026-10-07T18:00:00+00:00",
       "published_date": "2026-10-07",
       "confidence_discount": false,
-      "fetched_at": "2026-11-20T12:16:15+00:00",
+      "fetched_at": "2026-11-21T07:56:43+00:00",
       "magnitude_usd": null,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6064,7 +6034,7 @@
       "published_at": "2026-10-08T18:00:00+00:00",
       "published_date": "2026-10-08",
       "confidence_discount": false,
-      "fetched_at": "2026-11-20T12:16:16+00:00",
+      "fetched_at": "2026-11-21T07:56:44+00:00",
       "magnitude_usd": 6000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6079,7 +6049,7 @@
       "published_at": "2026-10-15T18:00:00+00:00",
       "published_date": "2026-10-15",
       "confidence_discount": false,
-      "fetched_at": "2026-11-20T12:16:16+00:00",
+      "fetched_at": "2026-11-21T07:56:44+00:00",
       "magnitude_usd": 6000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6094,7 +6064,7 @@
       "published_at": "2026-10-21T18:00:00+00:00",
       "published_date": "2026-10-21",
       "confidence_discount": false,
-      "fetched_at": "2026-11-20T12:16:16+00:00",
+      "fetched_at": "2026-11-21T07:56:44+00:00",
       "magnitude_usd": 750000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6109,7 +6079,7 @@
       "published_at": "2026-10-27T18:00:00+00:00",
       "published_date": "2026-10-27",
       "confidence_discount": false,
-      "fetched_at": "2026-11-20T12:16:16+00:00",
+      "fetched_at": "2026-11-21T07:56:44+00:00",
       "magnitude_usd": 6000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6124,7 +6094,7 @@
       "published_at": "2026-10-28T18:00:00+00:00",
       "published_date": "2026-10-28",
       "confidence_discount": false,
-      "fetched_at": "2026-11-20T12:16:15+00:00",
+      "fetched_at": "2026-11-21T07:56:43+00:00",
       "magnitude_usd": null,
       "rate_change_bps": 0.0,
       "leak_status": "input"
@@ -6139,7 +6109,7 @@
       "published_at": "2026-11-04T19:00:00+00:00",
       "published_date": "2026-11-04",
       "confidence_discount": false,
-      "fetched_at": "2026-11-20T12:16:16+00:00",
+      "fetched_at": "2026-11-21T07:56:44+00:00",
       "magnitude_usd": 6000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6154,7 +6124,7 @@
       "published_at": "2026-11-05T19:00:00+00:00",
       "published_date": "2026-11-05",
       "confidence_discount": false,
-      "fetched_at": "2026-11-20T12:16:16+00:00",
+      "fetched_at": "2026-11-21T07:56:44+00:00",
       "magnitude_usd": 4000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6169,7 +6139,7 @@
       "published_at": "2026-11-12T19:00:00+00:00",
       "published_date": "2026-11-12",
       "confidence_discount": false,
-      "fetched_at": "2026-11-20T12:16:16+00:00",
+      "fetched_at": "2026-11-21T07:56:44+00:00",
       "magnitude_usd": 556000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6184,7 +6154,7 @@
       "published_at": "2026-11-17T19:00:00+00:00",
       "published_date": "2026-11-17",
       "confidence_discount": false,
-      "fetched_at": "2026-11-20T12:16:16+00:00",
+      "fetched_at": "2026-11-21T07:56:44+00:00",
       "magnitude_usd": 1183000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6199,7 +6169,7 @@
       "published_at": "2026-11-18T19:00:00+00:00",
       "published_date": "2026-11-18",
       "confidence_discount": false,
-      "fetched_at": "2026-11-20T12:16:15+00:00",
+      "fetched_at": "2026-11-21T07:56:43+00:00",
       "magnitude_usd": null,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6214,29 +6184,29 @@
       "published_at": "2026-11-19T19:00:00+00:00",
       "published_date": "2026-11-19",
       "confidence_discount": false,
-      "fetched_at": "2026-11-20T12:16:16+00:00",
+      "fetched_at": "2026-11-21T07:56:44+00:00",
       "magnitude_usd": 254000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
     }
   ],
   "live_forecast": {
-    "as_of": "2026-11-20T12:16:15+00:00",
+    "as_of": "2026-11-21T07:56:42+00:00",
     "target_date": "2026-11-23",
     "horizon_days": 1,
     "direction": "down",
     "prob_up": 0.45,
     "confidence": 0.55,
     "magnitude_low_pct": 0.63,
-    "magnitude_high_pct": 2.94,
+    "magnitude_high_pct": 2.95,
     "reasoning": [
-      "Gold has been falling over the last 3 days (-7.61%), and trends often continue",
+      "Gold has been falling over the last 3 days (-9.03%), and trends often continue",
       "The U.S. Treasury bought back bonds last session (Treasury Liquidity Support buyback (7Y to 10Y) \u2014 $0.25B accepted, $4.0B cap), a smaller-than-usual-sized one \u2014 this tends to push long-term interest rates down, which usually lifts gold",
       "The Fed recently released meeting notes (Minutes of the FOMC, meeting Oct 28, 2026) \u2014 a source of uncertainty",
-      "Lately gold has typically moved about 0.63\u20132.94% in a day (based on its recent ups and downs)"
+      "Lately gold has typically moved about 0.63\u20132.95% in a day (based on its recent ups and downs)"
     ],
     "factors": {
-      "momentum_pct": -7.613,
+      "momentum_pct": -9.026,
       "recent_buyback": true,
       "buyback_size_factor": 0.5,
       "recent_fomc": true,
@@ -6245,22 +6215,22 @@
     "honest_confidence": 0.5
   },
   "live_forecast_week": {
-    "as_of": "2026-11-20T12:16:15+00:00",
+    "as_of": "2026-11-21T07:56:42+00:00",
     "target_date": "2026-11-27",
     "horizon_days": 5,
     "direction": "down",
     "prob_up": 0.45,
     "confidence": 0.55,
     "magnitude_low_pct": 1.4,
-    "magnitude_high_pct": 6.58,
+    "magnitude_high_pct": 6.6,
     "reasoning": [
-      "Gold has been falling over the last 5 days (-8.14%), and trends often continue",
+      "Gold has been falling over the last 5 days (-9.54%), and trends often continue",
       "The U.S. Treasury bought back bonds last session (Treasury Liquidity Support buyback (7Y to 10Y) \u2014 $0.25B accepted, $4.0B cap), a smaller-than-usual-sized one \u2014 this tends to push long-term interest rates down, which usually lifts gold",
       "The Fed recently released meeting notes (Minutes of the FOMC, meeting Oct 28, 2026) \u2014 a source of uncertainty",
-      "Lately gold has typically moved about 1.40\u20136.58% in a week (based on its recent ups and downs)"
+      "Lately gold has typically moved about 1.40\u20136.60% in a week (based on its recent ups and downs)"
     ],
     "factors": {
-      "momentum_pct": -8.139,
+      "momentum_pct": -9.544,
       "recent_buyback": true,
       "buyback_size_factor": 0.5,
       "recent_fomc": true,
@@ -6269,18 +6239,18 @@
     "honest_confidence": 0.5
   },
   "backtest": {
-    "n": 247,
-    "hits": 117,
-    "hit_rate": 0.4737,
-    "brier": 0.2597,
+    "n": 246,
+    "hits": 116,
+    "hit_rate": 0.4715,
+    "brier": 0.2603,
     "majority_class": "up",
-    "majority_rate": 0.5101,
-    "edge_vs_majority": -0.0364,
+    "majority_rate": 0.5081,
+    "edge_vs_majority": -0.0366,
     "calibration": [
       {
         "stated_confidence": 0.51,
-        "n": 19,
-        "realized_hit_rate": 0.5263
+        "n": 18,
+        "realized_hit_rate": 0.5556
       },
       {
         "stated_confidence": 0.52,
@@ -6289,8 +6259,8 @@
       },
       {
         "stated_confidence": 0.53,
-        "n": 20,
-        "realized_hit_rate": 0.3
+        "n": 21,
+        "realized_hit_rate": 0.2857
       },
       {
         "stated_confidence": 0.54,
@@ -6314,8 +6284,8 @@
       },
       {
         "stated_confidence": 0.59,
-        "n": 17,
-        "realized_hit_rate": 0.2941
+        "n": 19,
+        "realized_hit_rate": 0.3684
       },
       {
         "stated_confidence": 0.6,
@@ -6324,13 +6294,13 @@
       },
       {
         "stated_confidence": 0.61,
-        "n": 32,
-        "realized_hit_rate": 0.6562
+        "n": 31,
+        "realized_hit_rate": 0.5806
       },
       {
         "stated_confidence": 0.62,
-        "n": 3,
-        "realized_hit_rate": 0.3333
+        "n": 1,
+        "realized_hit_rate": 1.0
       },
       {
         "stated_confidence": 0.63,
@@ -6344,17 +6314,8 @@
       }
     ],
     "horizon_days": 1,
-    "n_effective": 247,
+    "n_effective": 246,
     "days": [
-      {
-        "target_date": "2025-11-28",
-        "direction": "up",
-        "confidence": 0.61,
-        "prob_up": 0.61,
-        "actual_pct": 2.154,
-        "actual_dir": "up",
-        "hit": true
-      },
       {
         "target_date": "2025-12-01",
         "direction": "up",
@@ -6394,8 +6355,8 @@
       {
         "target_date": "2025-12-05",
         "direction": "down",
-        "confidence": 0.51,
-        "prob_up": 0.49,
+        "confidence": 0.53,
+        "prob_up": 0.47,
         "actual_pct": 0.0,
         "actual_dir": "up",
         "hit": false
@@ -6403,8 +6364,8 @@
       {
         "target_date": "2025-12-08",
         "direction": "up",
-        "confidence": 0.62,
-        "prob_up": 0.62,
+        "confidence": 0.61,
+        "prob_up": 0.61,
         "actual_pct": -0.596,
         "actual_dir": "down",
         "hit": false
@@ -6475,8 +6436,8 @@
       {
         "target_date": "2025-12-18",
         "direction": "up",
-        "confidence": 0.62,
-        "prob_up": 0.62,
+        "confidence": 0.61,
+        "prob_up": 0.61,
         "actual_pct": -0.215,
         "actual_dir": "down",
         "hit": false
@@ -6484,8 +6445,8 @@
       {
         "target_date": "2025-12-19",
         "direction": "up",
-        "confidence": 0.61,
-        "prob_up": 0.61,
+        "confidence": 0.59,
+        "prob_up": 0.59,
         "actual_pct": 0.522,
         "actual_dir": "up",
         "hit": true
@@ -6493,8 +6454,8 @@
       {
         "target_date": "2025-12-22",
         "direction": "up",
-        "confidence": 0.61,
-        "prob_up": 0.61,
+        "confidence": 0.59,
+        "prob_up": 0.59,
         "actual_pct": 1.871,
         "actual_dir": "up",
         "hit": true
@@ -8565,25 +8526,25 @@
         "direction": "down",
         "confidence": 0.55,
         "prob_up": 0.45,
-        "actual_pct": -3.134,
+        "actual_pct": -4.615,
         "actual_dir": "down",
         "hit": true
       }
     ]
   },
   "backtest_week": {
-    "n": 241,
+    "n": 240,
     "hits": 111,
-    "hit_rate": 0.4606,
-    "brier": 0.2612,
+    "hit_rate": 0.4625,
+    "brier": 0.261,
     "majority_class": "down",
-    "majority_rate": 0.5104,
-    "edge_vs_majority": -0.0498,
+    "majority_rate": 0.5083,
+    "edge_vs_majority": -0.0458,
     "calibration": [
       {
         "stated_confidence": 0.51,
-        "n": 24,
-        "realized_hit_rate": 0.5833
+        "n": 23,
+        "realized_hit_rate": 0.6087
       },
       {
         "stated_confidence": 0.52,
@@ -8592,8 +8553,8 @@
       },
       {
         "stated_confidence": 0.53,
-        "n": 20,
-        "realized_hit_rate": 0.2
+        "n": 21,
+        "realized_hit_rate": 0.1905
       },
       {
         "stated_confidence": 0.54,
@@ -8612,32 +8573,23 @@
       },
       {
         "stated_confidence": 0.57,
-        "n": 90,
-        "realized_hit_rate": 0.4889
+        "n": 89,
+        "realized_hit_rate": 0.4944
       },
       {
         "stated_confidence": 0.59,
-        "n": 23,
-        "realized_hit_rate": 0.0435
+        "n": 25,
+        "realized_hit_rate": 0.08
       },
       {
         "stated_confidence": 0.6,
-        "n": 57,
-        "realized_hit_rate": 0.5614
+        "n": 55,
+        "realized_hit_rate": 0.5636
       }
     ],
     "horizon_days": 5,
     "n_effective": 48,
     "days": [
-      {
-        "target_date": "2025-12-08",
-        "direction": "up",
-        "confidence": 0.57,
-        "prob_up": 0.57,
-        "actual_pct": -1.336,
-        "actual_dir": "down",
-        "hit": false
-      },
       {
         "target_date": "2025-12-09",
         "direction": "up",
@@ -8668,8 +8620,8 @@
       {
         "target_date": "2025-12-12",
         "direction": "down",
-        "confidence": 0.51,
-        "prob_up": 0.49,
+        "confidence": 0.53,
+        "prob_up": 0.47,
         "actual_pct": 2.01,
         "actual_dir": "up",
         "hit": false
@@ -8749,8 +8701,8 @@
       {
         "target_date": "2025-12-26",
         "direction": "up",
-        "confidence": 0.6,
-        "prob_up": 0.6,
+        "confidence": 0.59,
+        "prob_up": 0.59,
         "actual_pct": 4.312,
         "actual_dir": "up",
         "hit": true
@@ -8758,8 +8710,8 @@
       {
         "target_date": "2025-12-29",
         "direction": "up",
-        "confidence": 0.6,
-        "prob_up": 0.6,
+        "confidence": 0.59,
+        "prob_up": 0.59,
         "actual_pct": -0.996,
         "actual_dir": "down",
         "hit": false
@@ -10794,20 +10746,20 @@
         "direction": "down",
         "confidence": 0.55,
         "prob_up": 0.45,
-        "actual_pct": -8.139,
+        "actual_pct": -9.544,
         "actual_dir": "down",
         "hit": true
       }
     ]
   },
   "backtest_v1": {
-    "n": 247,
-    "hits": 117,
-    "hit_rate": 0.4737,
-    "brier": 0.2597,
+    "n": 246,
+    "hits": 116,
+    "hit_rate": 0.4715,
+    "brier": 0.2602,
     "majority_class": "up",
-    "majority_rate": 0.5101,
-    "edge_vs_majority": -0.0364,
+    "majority_rate": 0.5081,
+    "edge_vs_majority": -0.0366,
     "calibration": [
       {
         "stated_confidence": 0.53,
@@ -10821,22 +10773,13 @@
       },
       {
         "stated_confidence": 0.61,
-        "n": 81,
-        "realized_hit_rate": 0.5062
+        "n": 80,
+        "realized_hit_rate": 0.5
       }
     ],
     "horizon_days": 1,
-    "n_effective": 247,
+    "n_effective": 246,
     "days": [
-      {
-        "target_date": "2025-11-28",
-        "direction": "up",
-        "confidence": 0.61,
-        "prob_up": 0.61,
-        "actual_pct": 2.154,
-        "actual_dir": "up",
-        "hit": true
-      },
       {
         "target_date": "2025-12-01",
         "direction": "up",
@@ -13047,7 +12990,7 @@
         "direction": "down",
         "confidence": 0.53,
         "prob_up": 0.47,
-        "actual_pct": -3.134,
+        "actual_pct": -4.615,
         "actual_dir": "down",
         "hit": true
       }
@@ -13060,18 +13003,18 @@
       "confidence": 0.55,
       "honest_confidence": 0.5,
       "actual_dir": "down",
-      "actual_pct": -3.134,
+      "actual_pct": -4.615,
       "hit": true
     },
     "running": {
-      "hits": 117,
-      "n": 247,
-      "rate": 0.4737
+      "hits": 116,
+      "n": 246,
+      "rate": 0.4715
     }
   },
   "calibration": {
     "k": 0.0,
-    "n": 247,
+    "n": 246,
     "examples": [
       {
         "raw": 0.54,
@@ -13098,8 +13041,8 @@
     "caveat": "v2 reads what signals SAY (rate decision, buyback size), not just that they fired. Weights are prior-specified, not fitted, so the backtest is out-of-sample. Reading content barely moved accuracy and still does not beat a naive baseline \u2014 public policy is priced in. The value is transparent reasoning, not a market-beating edge."
   },
   "leak_demo": {
-    "cutoff": "2026-11-20T00:00:00Z",
-    "included": 13,
+    "cutoff": "2026-11-21T00:00:00Z",
+    "included": 12,
     "withheld": 0,
     "rule": "a signal informs the forecast only if published strictly before the cutoff"
   },
