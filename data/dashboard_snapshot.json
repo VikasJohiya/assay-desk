@@ -1,16 +1,16 @@
 {
   "meta": {
-    "generated_at": "2026-11-21T11:51:26+00:00",
+    "generated_at": "2026-11-24T10:39:11+00:00",
     "window": {
-      "start": "2025-11-21",
-      "end": "2026-11-21"
+      "start": "2025-11-24",
+      "end": "2026-11-24"
     },
     "leak_window": {
-      "start": "2026-10-07",
-      "end": "2026-11-21"
+      "start": "2026-10-10",
+      "end": "2026-11-24"
     },
-    "as_of_date": "2026-11-20",
-    "forecast_cutoff": "2026-11-21T00:00:00Z",
+    "as_of_date": "2026-11-24",
+    "forecast_cutoff": "2026-11-24T00:00:00Z",
     "phase": "Phase 1 \u2014 ingestion pipeline (prices + US signals)",
     "disclaimer": "Decision-support tool, not financial advice. Forecasts come from a transparent model (content-v2) with prior-specified weights, not fitted, evaluated out-of-sample over a full year \u2014 every number is computed and measured, never invented. Reading signal content (FOMC rate decisions, buyback size) barely moved accuracy and still does NOT beat a naive always-up baseline on either horizon: public policy is priced in. The value here is transparent reasoning, not a validated market-beating edge. Do not act on it as a trading signal."
   },
@@ -29,17 +29,17 @@
     }
   },
   "latest_price": {
-    "date": "2026-11-20",
-    "usd_gold_close": 3515.4,
-    "usd_gold_change_pct": -4.6154,
+    "date": "2026-11-24",
+    "usd_gold_close": 3621.3,
+    "usd_gold_change_pct": -0.8243,
     "usd_gold_instrument": "COMEX front-month gold futures close",
     "usd_gold_source": "Yahoo:GC=F",
     "mcx_inr_gold_close": null,
     "mcx_inr_gold_change_pct": null,
     "mcx_inr_gold_null_reason": "no-free-MCX-feed",
-    "usd_inr_rate": 93.295,
+    "usd_inr_rate": 92.9,
     "usd_inr_source": "Yahoo:USDINR=X",
-    "usd_gold_inr_equiv": 327969.23,
+    "usd_gold_inr_equiv": 336418.78,
     "usd_gold_inr_equiv_is_derived": true,
     "usd_gold_inr_equiv_note": "DERIVED = COMEX front-month gold futures close x USD/INR spot FX rate; not a real MCX/exchange close"
   },
@@ -48,58 +48,58 @@
       "source": "Yahoo:GC=F",
       "instrument": "COMEX front-month gold futures close",
       "unit": "USD/oz",
-      "fetched_at": "2026-11-21T11:51:26+00:00"
+      "fetched_at": "2026-11-24T10:39:11+00:00"
     },
     "usd_inr": {
       "source": "Yahoo:USDINR=X",
       "instrument": "USD/INR spot FX rate",
       "unit": "INR per USD",
-      "fetched_at": "2026-11-21T11:51:26+00:00"
+      "fetched_at": "2026-11-24T10:39:11+00:00"
     }
   },
   "entry": {
     "default_basis": "INR",
     "default_horizon": "6-month",
     "USD": {
-      "as_of_price": 3515.4,
+      "as_of_price": 3621.4,
       "history_years": 20.0,
-      "valuation_pct": 0.004,
-      "above_ma200_pct": -20.91,
+      "valuation_pct": 0.008,
+      "above_ma200_pct": -18.27,
       "horizons": {
         "1-month": {
           "days": 21,
-          "n": 5007,
+          "n": 5008,
           "independent": 239,
-          "pos_pct": 0.5564,
-          "median_pct": 0.64,
-          "downside_p10_pct": -5.06,
+          "pos_pct": 0.5563,
+          "median_pct": 0.63,
+          "downside_p10_pct": -5.07,
           "upside_p90_pct": 7.04
         },
         "3-month": {
           "days": 63,
-          "n": 4965,
+          "n": 4966,
           "independent": 79,
-          "pos_pct": 0.6143,
+          "pos_pct": 0.614,
           "median_pct": 2.45,
-          "downside_p10_pct": -7.22,
+          "downside_p10_pct": -7.23,
           "upside_p90_pct": 13.82
         },
         "6-month": {
           "days": 126,
-          "n": 4902,
+          "n": 4903,
           "independent": 39,
-          "pos_pct": 0.6685,
+          "pos_pct": 0.6682,
           "median_pct": 5.19,
-          "downside_p10_pct": -9.97,
+          "downside_p10_pct": -9.98,
           "upside_p90_pct": 21.03
         },
         "12-month": {
           "days": 252,
-          "n": 4776,
+          "n": 4777,
           "independent": 19,
-          "pos_pct": 0.6757,
-          "median_pct": 8.47,
-          "downside_p10_pct": -9.34,
+          "pos_pct": 0.6753,
+          "median_pct": 8.46,
+          "downside_p10_pct": -9.35,
           "upside_p90_pct": 37.62
         }
       },
@@ -110,45 +110,45 @@
       "unit": "USD/oz"
     },
     "INR": {
-      "as_of_price": 105444.56,
+      "as_of_price": 108164.13,
       "history_years": 20.0,
-      "valuation_pct": 0.004,
-      "above_ma200_pct": -21.88,
+      "valuation_pct": 0.008,
+      "above_ma200_pct": -19.64,
       "horizons": {
         "1-month": {
           "days": 21,
-          "n": 5007,
+          "n": 5008,
           "independent": 239,
-          "pos_pct": 0.5842,
+          "pos_pct": 0.5841,
           "median_pct": 0.88,
-          "downside_p10_pct": -4.61,
+          "downside_p10_pct": -4.63,
           "upside_p90_pct": 7.6
         },
         "3-month": {
           "days": 63,
-          "n": 4965,
+          "n": 4966,
           "independent": 79,
-          "pos_pct": 0.6711,
+          "pos_pct": 0.6708,
           "median_pct": 2.96,
-          "downside_p10_pct": -5.89,
+          "downside_p10_pct": -5.92,
           "upside_p90_pct": 14.89
         },
         "6-month": {
           "days": 126,
-          "n": 4902,
+          "n": 4903,
           "independent": 39,
-          "pos_pct": 0.7277,
+          "pos_pct": 0.7275,
           "median_pct": 5.74,
           "downside_p10_pct": -6.44,
           "upside_p90_pct": 24.59
         },
         "12-month": {
           "days": 252,
-          "n": 4776,
+          "n": 4777,
           "independent": 19,
-          "pos_pct": 0.8044,
+          "pos_pct": 0.8041,
           "median_pct": 14.42,
-          "downside_p10_pct": -5.98,
+          "downside_p10_pct": -6.0,
           "upside_p90_pct": 42.43
         }
       },
@@ -158,7 +158,7 @@
       },
       "unit": "INR/10g"
     },
-    "yield_10y_3m_chg": 0.21
+    "yield_10y_3m_chg": 0.25
   },
   "posture_ledger": {
     "primary_horizon": "6-month",
@@ -168,37 +168,37 @@
       "3-month": {
         "dont_chase": {
           "label": "Near its 12-month high (context)",
-          "n": 2283,
+          "n": 2282,
           "pct_positive": 0.707,
           "median_fwd_pct": 3.94
         },
         "accumulate": {
           "label": "Reasonable to accumulate",
-          "n": 2431,
-          "pct_positive": 0.638,
-          "median_fwd_pct": 2.08
+          "n": 2433,
+          "pct_positive": 0.637,
+          "median_fwd_pct": 2.07
         }
       },
       "6-month": {
         "dont_chase": {
           "label": "Near its 12-month high (context)",
-          "n": 2283,
+          "n": 2282,
           "pct_positive": 0.771,
           "median_fwd_pct": 7.83
         },
         "accumulate": {
           "label": "Reasonable to accumulate",
-          "n": 2368,
-          "pct_positive": 0.689,
-          "median_fwd_pct": 4.06
+          "n": 2370,
+          "pct_positive": 0.688,
+          "median_fwd_pct": 4.05
         }
       },
       "12-month": {
         "dont_chase": {
           "label": "Near its 12-month high (context)",
-          "n": 2192,
-          "pct_positive": 0.848,
-          "median_fwd_pct": 19.87
+          "n": 2193,
+          "pct_positive": 0.847,
+          "median_fwd_pct": 19.84
         },
         "accumulate": {
           "label": "Reasonable to accumulate",
@@ -209,20 +209,40 @@
       }
     },
     "live": {
-      "recorded_days": 64,
+      "recorded_days": 66,
       "matured_days": 0,
       "summary": {
         "3-month": {
           "accumulate": {
             "label": "Reasonable to accumulate",
-            "n": 1,
+            "n": 3,
             "pct_positive": 0.0,
-            "median_fwd_pct": -27.07
+            "median_fwd_pct": -24.24
           }
         }
       }
     },
     "recent": [
+      {
+        "date": "2026-11-24",
+        "price": 108164.13,
+        "valuation_pct": 0.008,
+        "posture": "accumulate",
+        "phase": "live",
+        "band_downside_pct": -6.44,
+        "band_median_pct": 5.74,
+        "band_upside_pct": 24.59
+      },
+      {
+        "date": "2026-11-23",
+        "price": 108793.68,
+        "valuation_pct": 0.008,
+        "posture": "accumulate",
+        "phase": "live",
+        "band_downside_pct": -6.44,
+        "band_median_pct": 5.74,
+        "band_upside_pct": 24.59
+      },
       {
         "date": "2026-11-20",
         "price": 105444.56,
@@ -259,7 +279,7 @@
         "valuation_pct": 0.024,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.44,
+        "band_downside_pct": -6.41,
         "band_median_pct": 5.74,
         "band_upside_pct": 24.59
       },
@@ -269,8 +289,8 @@
         "valuation_pct": 0.024,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.41,
-        "band_median_pct": 5.74,
+        "band_downside_pct": -6.4,
+        "band_median_pct": 5.75,
         "band_upside_pct": 24.59
       },
       {
@@ -279,7 +299,7 @@
         "valuation_pct": 0.032,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.4,
+        "band_downside_pct": -6.37,
         "band_median_pct": 5.75,
         "band_upside_pct": 24.59
       },
@@ -289,7 +309,7 @@
         "valuation_pct": 0.028,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.37,
+        "band_downside_pct": -6.36,
         "band_median_pct": 5.75,
         "band_upside_pct": 24.59
       },
@@ -309,7 +329,7 @@
         "valuation_pct": 0.075,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.36,
+        "band_downside_pct": -6.34,
         "band_median_pct": 5.75,
         "band_upside_pct": 24.59
       },
@@ -319,7 +339,7 @@
         "valuation_pct": 0.163,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.34,
+        "band_downside_pct": -6.33,
         "band_median_pct": 5.75,
         "band_upside_pct": 24.59
       },
@@ -329,7 +349,7 @@
         "valuation_pct": 0.143,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.33,
+        "band_downside_pct": -6.3,
         "band_median_pct": 5.75,
         "band_upside_pct": 24.59
       },
@@ -340,8 +360,8 @@
         "posture": "accumulate",
         "phase": "live",
         "band_downside_pct": -6.3,
-        "band_median_pct": 5.75,
-        "band_upside_pct": 24.59
+        "band_median_pct": 5.76,
+        "band_upside_pct": 24.62
       },
       {
         "date": "2026-11-04",
@@ -369,7 +389,7 @@
         "valuation_pct": 0.083,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.3,
+        "band_downside_pct": -6.29,
         "band_median_pct": 5.76,
         "band_upside_pct": 24.62
       },
@@ -379,8 +399,8 @@
         "valuation_pct": 0.071,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.29,
-        "band_median_pct": 5.76,
+        "band_downside_pct": -6.27,
+        "band_median_pct": 5.77,
         "band_upside_pct": 24.62
       },
       {
@@ -399,7 +419,7 @@
         "valuation_pct": 0.155,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.27,
+        "band_downside_pct": -6.26,
         "band_median_pct": 5.77,
         "band_upside_pct": 24.62
       },
@@ -409,7 +429,7 @@
         "valuation_pct": 0.187,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.26,
+        "band_downside_pct": -6.25,
         "band_median_pct": 5.77,
         "band_upside_pct": 24.62
       },
@@ -419,7 +439,7 @@
         "valuation_pct": 0.155,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.25,
+        "band_downside_pct": -6.24,
         "band_median_pct": 5.77,
         "band_upside_pct": 24.62
       },
@@ -429,7 +449,7 @@
         "valuation_pct": 0.115,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.24,
+        "band_downside_pct": -6.23,
         "band_median_pct": 5.77,
         "band_upside_pct": 24.62
       },
@@ -441,7 +461,7 @@
         "phase": "live",
         "band_downside_pct": -6.23,
         "band_median_pct": 5.77,
-        "band_upside_pct": 24.62
+        "band_upside_pct": 24.63
       },
       {
         "date": "2026-10-21",
@@ -459,8 +479,8 @@
         "valuation_pct": 0.246,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.23,
-        "band_median_pct": 5.77,
+        "band_downside_pct": -6.21,
+        "band_median_pct": 5.78,
         "band_upside_pct": 24.63
       },
       {
@@ -469,7 +489,7 @@
         "valuation_pct": 0.31,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.21,
+        "band_downside_pct": -6.2,
         "band_median_pct": 5.78,
         "band_upside_pct": 24.63
       },
@@ -479,7 +499,7 @@
         "valuation_pct": 0.313,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.2,
+        "band_downside_pct": -6.19,
         "band_median_pct": 5.78,
         "band_upside_pct": 24.63
       },
@@ -489,7 +509,7 @@
         "valuation_pct": 0.29,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.19,
+        "band_downside_pct": -6.18,
         "band_median_pct": 5.78,
         "band_upside_pct": 24.63
       },
@@ -499,8 +519,8 @@
         "valuation_pct": 0.242,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.18,
-        "band_median_pct": 5.78,
+        "band_downside_pct": -6.16,
+        "band_median_pct": 5.79,
         "band_upside_pct": 24.63
       },
       {
@@ -509,7 +529,7 @@
         "valuation_pct": 0.337,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.16,
+        "band_downside_pct": -6.15,
         "band_median_pct": 5.79,
         "band_upside_pct": 24.63
       },
@@ -519,8 +539,8 @@
         "valuation_pct": 0.381,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.15,
-        "band_median_pct": 5.79,
+        "band_downside_pct": -6.14,
+        "band_median_pct": 5.8,
         "band_upside_pct": 24.63
       },
       {
@@ -529,7 +549,7 @@
         "valuation_pct": 0.429,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.14,
+        "band_downside_pct": -6.13,
         "band_median_pct": 5.8,
         "band_upside_pct": 24.63
       },
@@ -540,8 +560,8 @@
         "posture": "accumulate",
         "phase": "live",
         "band_downside_pct": -6.13,
-        "band_median_pct": 5.8,
-        "band_upside_pct": 24.63
+        "band_median_pct": 5.81,
+        "band_upside_pct": 24.64
       },
       {
         "date": "2026-10-07",
@@ -550,7 +570,7 @@
         "posture": "accumulate",
         "phase": "live",
         "band_downside_pct": -6.13,
-        "band_median_pct": 5.81,
+        "band_median_pct": 5.83,
         "band_upside_pct": 24.64
       },
       {
@@ -559,7 +579,7 @@
         "valuation_pct": 0.409,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.13,
+        "band_downside_pct": -6.11,
         "band_median_pct": 5.83,
         "band_upside_pct": 24.64
       },
@@ -569,8 +589,8 @@
         "valuation_pct": 0.373,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.11,
-        "band_median_pct": 5.83,
+        "band_downside_pct": -6.1,
+        "band_median_pct": 5.84,
         "band_upside_pct": 24.64
       },
       {
@@ -580,7 +600,7 @@
         "posture": "accumulate",
         "phase": "live",
         "band_downside_pct": -6.1,
-        "band_median_pct": 5.84,
+        "band_median_pct": 5.85,
         "band_upside_pct": 24.64
       },
       {
@@ -589,7 +609,7 @@
         "valuation_pct": 0.417,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.1,
+        "band_downside_pct": -6.09,
         "band_median_pct": 5.85,
         "band_upside_pct": 24.64
       },
@@ -599,7 +619,7 @@
         "valuation_pct": 0.405,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.09,
+        "band_downside_pct": -6.08,
         "band_median_pct": 5.85,
         "band_upside_pct": 24.64
       },
@@ -610,7 +630,7 @@
         "posture": "accumulate",
         "phase": "live",
         "band_downside_pct": -6.08,
-        "band_median_pct": 5.85,
+        "band_median_pct": 5.86,
         "band_upside_pct": 24.64
       },
       {
@@ -659,8 +679,8 @@
         "valuation_pct": 0.528,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.09,
-        "band_median_pct": 5.86,
+        "band_downside_pct": -6.08,
+        "band_median_pct": 5.87,
         "band_upside_pct": 24.64
       },
       {
@@ -669,7 +689,7 @@
         "valuation_pct": 0.536,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.09,
+        "band_downside_pct": -6.08,
         "band_median_pct": 5.87,
         "band_upside_pct": 24.64
       },
@@ -679,7 +699,7 @@
         "valuation_pct": 0.587,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.09,
+        "band_downside_pct": -6.08,
         "band_median_pct": 5.87,
         "band_upside_pct": 24.64
       },
@@ -689,7 +709,7 @@
         "valuation_pct": 0.548,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.09,
+        "band_downside_pct": -6.08,
         "band_median_pct": 5.87,
         "band_upside_pct": 24.64
       },
@@ -709,7 +729,7 @@
         "valuation_pct": 0.512,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.08,
+        "band_downside_pct": -6.07,
         "band_median_pct": 5.87,
         "band_upside_pct": 24.64
       },
@@ -719,7 +739,7 @@
         "valuation_pct": 0.524,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.07,
+        "band_downside_pct": -6.05,
         "band_median_pct": 5.87,
         "band_upside_pct": 24.64
       },
@@ -730,7 +750,7 @@
         "posture": "accumulate",
         "phase": "live",
         "band_downside_pct": -6.05,
-        "band_median_pct": 5.87,
+        "band_median_pct": 5.88,
         "band_upside_pct": 24.64
       },
       {
@@ -739,9 +759,9 @@
         "valuation_pct": 0.567,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.05,
+        "band_downside_pct": -6.04,
         "band_median_pct": 5.88,
-        "band_upside_pct": 24.64
+        "band_upside_pct": 24.65
       },
       {
         "date": "2026-09-09",
@@ -759,8 +779,8 @@
         "valuation_pct": 0.563,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.04,
-        "band_median_pct": 5.88,
+        "band_downside_pct": -6.03,
+        "band_median_pct": 5.89,
         "band_upside_pct": 24.65
       },
       {
@@ -769,7 +789,7 @@
         "valuation_pct": 0.575,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.03,
+        "band_downside_pct": -6.02,
         "band_median_pct": 5.89,
         "band_upside_pct": 24.65
       },
@@ -779,7 +799,7 @@
         "valuation_pct": 0.623,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.02,
+        "band_downside_pct": -6.01,
         "band_median_pct": 5.89,
         "band_upside_pct": 24.65
       },
@@ -789,8 +809,8 @@
         "valuation_pct": 0.552,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.01,
-        "band_median_pct": 5.89,
+        "band_downside_pct": -6.0,
+        "band_median_pct": 5.9,
         "band_upside_pct": 24.65
       },
       {
@@ -799,7 +819,7 @@
         "valuation_pct": 0.556,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -6.0,
+        "band_downside_pct": -5.99,
         "band_median_pct": 5.9,
         "band_upside_pct": 24.65
       },
@@ -809,7 +829,7 @@
         "valuation_pct": 0.607,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -5.99,
+        "band_downside_pct": -5.97,
         "band_median_pct": 5.9,
         "band_upside_pct": 24.65
       },
@@ -819,7 +839,7 @@
         "valuation_pct": 0.663,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -5.97,
+        "band_downside_pct": -5.9,
         "band_median_pct": 5.9,
         "band_upside_pct": 24.65
       },
@@ -830,7 +850,7 @@
         "posture": "accumulate",
         "phase": "live",
         "band_downside_pct": -5.9,
-        "band_median_pct": 5.9,
+        "band_median_pct": 5.91,
         "band_upside_pct": 24.65
       },
       {
@@ -840,8 +860,8 @@
         "posture": "accumulate",
         "phase": "live",
         "band_downside_pct": -5.9,
-        "band_median_pct": 5.91,
-        "band_upside_pct": 24.65
+        "band_median_pct": 5.92,
+        "band_upside_pct": 24.66
       },
       {
         "date": "2026-08-25",
@@ -850,7 +870,7 @@
         "posture": "accumulate",
         "phase": "live",
         "band_downside_pct": -5.9,
-        "band_median_pct": 5.92,
+        "band_median_pct": 5.93,
         "band_upside_pct": 24.66
       },
       {
@@ -859,8 +879,8 @@
         "valuation_pct": 0.849,
         "posture": "accumulate",
         "phase": "live",
-        "band_downside_pct": -5.9,
-        "band_median_pct": 5.93,
+        "band_downside_pct": -5.87,
+        "band_median_pct": 5.94,
         "band_upside_pct": 24.66
       },
       {
@@ -869,8 +889,8 @@
         "valuation_pct": 0.837,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.9,
-        "band_median_pct": 5.94,
+        "band_downside_pct": -5.87,
+        "band_median_pct": 5.95,
         "band_upside_pct": 24.66
       },
       {
@@ -879,7 +899,7 @@
         "valuation_pct": 0.746,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.9,
+        "band_downside_pct": -5.87,
         "band_median_pct": 5.95,
         "band_upside_pct": 24.66
       },
@@ -889,8 +909,8 @@
         "valuation_pct": 0.698,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.9,
-        "band_median_pct": 5.95,
+        "band_downside_pct": -5.87,
+        "band_median_pct": 5.96,
         "band_upside_pct": 24.66
       },
       {
@@ -899,7 +919,7 @@
         "valuation_pct": 0.623,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.9,
+        "band_downside_pct": -5.87,
         "band_median_pct": 5.96,
         "band_upside_pct": 24.66
       },
@@ -909,8 +929,8 @@
         "valuation_pct": 0.655,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.9,
-        "band_median_pct": 5.96,
+        "band_downside_pct": -5.87,
+        "band_median_pct": 5.97,
         "band_upside_pct": 24.66
       },
       {
@@ -919,7 +939,7 @@
         "valuation_pct": 0.627,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.87,
+        "band_downside_pct": -5.86,
         "band_median_pct": 5.97,
         "band_upside_pct": 24.66
       },
@@ -929,7 +949,7 @@
         "valuation_pct": 0.627,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.87,
+        "band_downside_pct": -5.86,
         "band_median_pct": 5.97,
         "band_upside_pct": 24.66
       },
@@ -941,7 +961,7 @@
         "phase": "backfill",
         "band_downside_pct": -5.86,
         "band_median_pct": 5.97,
-        "band_upside_pct": 24.66
+        "band_upside_pct": 24.69
       },
       {
         "date": "2026-08-11",
@@ -959,7 +979,7 @@
         "valuation_pct": 0.635,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.86,
+        "band_downside_pct": -5.85,
         "band_median_pct": 5.97,
         "band_upside_pct": 24.69
       },
@@ -970,7 +990,7 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.85,
-        "band_median_pct": 5.97,
+        "band_median_pct": 5.98,
         "band_upside_pct": 24.69
       },
       {
@@ -999,7 +1019,7 @@
         "valuation_pct": 0.5,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.85,
+        "band_downside_pct": -5.84,
         "band_median_pct": 5.98,
         "band_upside_pct": 24.69
       },
@@ -1009,7 +1029,7 @@
         "valuation_pct": 0.429,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.84,
+        "band_downside_pct": -5.82,
         "band_median_pct": 5.98,
         "band_upside_pct": 24.69
       },
@@ -1020,7 +1040,7 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.82,
-        "band_median_pct": 5.98,
+        "band_median_pct": 5.99,
         "band_upside_pct": 24.69
       },
       {
@@ -1029,7 +1049,7 @@
         "valuation_pct": 0.456,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.82,
+        "band_downside_pct": -5.81,
         "band_median_pct": 5.99,
         "band_upside_pct": 24.69
       },
@@ -1040,8 +1060,8 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.81,
-        "band_median_pct": 5.99,
-        "band_upside_pct": 24.69
+        "band_median_pct": 6.0,
+        "band_upside_pct": 24.7
       },
       {
         "date": "2026-07-28",
@@ -1050,7 +1070,7 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.81,
-        "band_median_pct": 6.0,
+        "band_median_pct": 6.01,
         "band_upside_pct": 24.7
       },
       {
@@ -1059,8 +1079,8 @@
         "valuation_pct": 0.444,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.81,
-        "band_median_pct": 6.01,
+        "band_downside_pct": -5.8,
+        "band_median_pct": 6.02,
         "band_upside_pct": 24.7
       },
       {
@@ -1069,7 +1089,7 @@
         "valuation_pct": 0.496,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.8,
+        "band_downside_pct": -5.78,
         "band_median_pct": 6.02,
         "band_upside_pct": 24.7
       },
@@ -1080,7 +1100,7 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.78,
-        "band_median_pct": 6.02,
+        "band_median_pct": 6.03,
         "band_upside_pct": 24.7
       },
       {
@@ -1090,7 +1110,7 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.78,
-        "band_median_pct": 6.03,
+        "band_median_pct": 6.04,
         "band_upside_pct": 24.7
       },
       {
@@ -1099,7 +1119,7 @@
         "valuation_pct": 0.484,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.78,
+        "band_downside_pct": -5.76,
         "band_median_pct": 6.04,
         "band_upside_pct": 24.7
       },
@@ -1109,7 +1129,7 @@
         "valuation_pct": 0.44,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.78,
+        "band_downside_pct": -5.76,
         "band_median_pct": 6.04,
         "band_upside_pct": 24.7
       },
@@ -1139,9 +1159,9 @@
         "valuation_pct": 0.468,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
-        "band_median_pct": 6.04,
-        "band_upside_pct": 24.7
+        "band_downside_pct": -5.74,
+        "band_median_pct": 6.05,
+        "band_upside_pct": 24.71
       },
       {
         "date": "2026-07-14",
@@ -1150,7 +1170,7 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.74,
-        "band_median_pct": 6.05,
+        "band_median_pct": 6.06,
         "band_upside_pct": 24.71
       },
       {
@@ -1159,7 +1179,7 @@
         "valuation_pct": 0.444,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.06,
         "band_upside_pct": 24.71
       },
@@ -1169,7 +1189,7 @@
         "valuation_pct": 0.48,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.06,
         "band_upside_pct": 24.71
       },
@@ -1179,7 +1199,7 @@
         "valuation_pct": 0.512,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.06,
         "band_upside_pct": 24.71
       },
@@ -1189,8 +1209,8 @@
         "valuation_pct": 0.484,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
-        "band_median_pct": 6.06,
+        "band_downside_pct": -5.74,
+        "band_median_pct": 6.07,
         "band_upside_pct": 24.71
       },
       {
@@ -1199,7 +1219,7 @@
         "valuation_pct": 0.524,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.07,
         "band_upside_pct": 24.71
       },
@@ -1209,7 +1229,7 @@
         "valuation_pct": 0.536,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.07,
         "band_upside_pct": 24.71
       },
@@ -1219,7 +1239,7 @@
         "valuation_pct": 0.508,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.07,
         "band_upside_pct": 24.71
       },
@@ -1229,7 +1249,7 @@
         "valuation_pct": 0.484,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.07,
         "band_upside_pct": 24.71
       },
@@ -1239,9 +1259,9 @@
         "valuation_pct": 0.472,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
-        "band_median_pct": 6.07,
-        "band_upside_pct": 24.71
+        "band_downside_pct": -5.74,
+        "band_median_pct": 6.08,
+        "band_upside_pct": 24.72
       },
       {
         "date": "2026-06-29",
@@ -1259,7 +1279,7 @@
         "valuation_pct": 0.476,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.08,
         "band_upside_pct": 24.72
       },
@@ -1269,7 +1289,7 @@
         "valuation_pct": 0.468,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.08,
         "band_upside_pct": 24.72
       },
@@ -1279,8 +1299,8 @@
         "valuation_pct": 0.437,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
-        "band_median_pct": 6.08,
+        "band_downside_pct": -5.74,
+        "band_median_pct": 6.09,
         "band_upside_pct": 24.72
       },
       {
@@ -1289,7 +1309,7 @@
         "valuation_pct": 0.52,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.09,
         "band_upside_pct": 24.72
       },
@@ -1299,8 +1319,8 @@
         "valuation_pct": 0.536,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
-        "band_median_pct": 6.09,
+        "band_downside_pct": -5.74,
+        "band_median_pct": 6.1,
         "band_upside_pct": 24.72
       },
       {
@@ -1309,7 +1329,7 @@
         "valuation_pct": 0.544,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.1,
         "band_upside_pct": 24.72
       },
@@ -1319,7 +1339,7 @@
         "valuation_pct": 0.615,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.1,
         "band_upside_pct": 24.72
       },
@@ -1329,7 +1349,7 @@
         "valuation_pct": 0.599,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.1,
         "band_upside_pct": 24.72
       },
@@ -1339,7 +1359,7 @@
         "valuation_pct": 0.599,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.76,
+        "band_downside_pct": -5.74,
         "band_median_pct": 6.1,
         "band_upside_pct": 24.72
       },
@@ -1420,7 +1440,7 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.76,
-        "band_median_pct": 6.09,
+        "band_median_pct": 6.1,
         "band_upside_pct": 24.72
       },
       {
@@ -1440,8 +1460,8 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.76,
-        "band_median_pct": 6.08,
-        "band_upside_pct": 24.72
+        "band_median_pct": 6.09,
+        "band_upside_pct": 24.74
       },
       {
         "date": "2026-05-29",
@@ -1471,7 +1491,11 @@
         "phase": "backfill",
         "band_downside_pct": -5.76,
         "band_median_pct": 6.08,
-        "band_upside_pct": 24.74
+        "band_upside_pct": 24.74,
+        "fwd_return_pct": -21.26,
+        "positive": false,
+        "within_band": false,
+        "vs_median": "below"
       },
       {
         "date": "2026-05-26",
@@ -1480,8 +1504,12 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.76,
-        "band_median_pct": 6.07,
-        "band_upside_pct": 24.74
+        "band_median_pct": 6.08,
+        "band_upside_pct": 24.74,
+        "fwd_return_pct": -21.63,
+        "positive": false,
+        "within_band": false,
+        "vs_median": "below"
       },
       {
         "date": "2026-05-22",
@@ -1546,7 +1574,7 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.76,
-        "band_median_pct": 6.06,
+        "band_median_pct": 6.07,
         "band_upside_pct": 24.74,
         "fwd_return_pct": -17.25,
         "positive": false,
@@ -1587,7 +1615,7 @@
         "valuation_pct": 0.861,
         "posture": "dont_chase",
         "phase": "backfill",
-        "band_downside_pct": -5.78,
+        "band_downside_pct": -5.76,
         "band_median_pct": 6.06,
         "band_upside_pct": 24.74,
         "fwd_return_pct": -16.58,
@@ -1601,8 +1629,8 @@
         "valuation_pct": 0.845,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.78,
-        "band_median_pct": 6.05,
+        "band_downside_pct": -5.76,
+        "band_median_pct": 6.06,
         "band_upside_pct": 24.74,
         "fwd_return_pct": -15.52,
         "positive": false,
@@ -1615,8 +1643,8 @@
         "valuation_pct": 0.869,
         "posture": "dont_chase",
         "phase": "backfill",
-        "band_downside_pct": -5.78,
-        "band_median_pct": 6.04,
+        "band_downside_pct": -5.76,
+        "band_median_pct": 6.05,
         "band_upside_pct": 24.74,
         "fwd_return_pct": -14.35,
         "positive": false,
@@ -1629,7 +1657,7 @@
         "valuation_pct": 0.833,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.78,
+        "band_downside_pct": -5.76,
         "band_median_pct": 6.04,
         "band_upside_pct": 24.72,
         "fwd_return_pct": -13.67,
@@ -1643,7 +1671,7 @@
         "valuation_pct": 0.81,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.78,
+        "band_downside_pct": -5.76,
         "band_median_pct": 6.04,
         "band_upside_pct": 24.72,
         "fwd_return_pct": -12.44,
@@ -1657,7 +1685,7 @@
         "valuation_pct": 0.813,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.78,
+        "band_downside_pct": -5.76,
         "band_median_pct": 6.04,
         "band_upside_pct": 24.71,
         "fwd_return_pct": -13.11,
@@ -1671,7 +1699,7 @@
         "valuation_pct": 0.766,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.78,
+        "band_downside_pct": -5.76,
         "band_median_pct": 6.04,
         "band_upside_pct": 24.71,
         "fwd_return_pct": -14.16,
@@ -1685,8 +1713,8 @@
         "valuation_pct": 0.75,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.78,
-        "band_median_pct": 6.03,
+        "band_downside_pct": -5.76,
+        "band_median_pct": 6.04,
         "band_upside_pct": 24.71,
         "fwd_return_pct": -12.76,
         "positive": false,
@@ -1699,9 +1727,9 @@
         "valuation_pct": 0.79,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.78,
-        "band_median_pct": 6.02,
-        "band_upside_pct": 24.71,
+        "band_downside_pct": -5.76,
+        "band_median_pct": 6.03,
+        "band_upside_pct": 24.72,
         "fwd_return_pct": -15.7,
         "positive": false,
         "within_band": false,
@@ -1728,7 +1756,7 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.78,
-        "band_median_pct": 6.01,
+        "band_median_pct": 6.02,
         "band_upside_pct": 24.71,
         "fwd_return_pct": -10.93,
         "positive": false,
@@ -1742,7 +1770,7 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.78,
-        "band_median_pct": 6.0,
+        "band_median_pct": 6.01,
         "band_upside_pct": 24.71,
         "fwd_return_pct": -11.08,
         "positive": false,
@@ -1756,7 +1784,7 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.78,
-        "band_median_pct": 5.99,
+        "band_median_pct": 6.0,
         "band_upside_pct": 24.71,
         "fwd_return_pct": -13.34,
         "positive": false,
@@ -1784,7 +1812,7 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.78,
-        "band_median_pct": 5.98,
+        "band_median_pct": 5.99,
         "band_upside_pct": 24.7,
         "fwd_return_pct": -13.5,
         "positive": false,
@@ -1841,7 +1869,7 @@
         "phase": "backfill",
         "band_downside_pct": -5.78,
         "band_median_pct": 5.98,
-        "band_upside_pct": 24.7,
+        "band_upside_pct": 24.71,
         "fwd_return_pct": -12.95,
         "positive": false,
         "within_band": false,
@@ -1854,7 +1882,7 @@
         "posture": "dont_chase",
         "phase": "backfill",
         "band_downside_pct": -5.78,
-        "band_median_pct": 5.97,
+        "band_median_pct": 5.98,
         "band_upside_pct": 24.71,
         "fwd_return_pct": -11.9,
         "positive": false,
@@ -1938,7 +1966,7 @@
         "posture": "dont_chase",
         "phase": "backfill",
         "band_downside_pct": -5.78,
-        "band_median_pct": 5.96,
+        "band_median_pct": 5.97,
         "band_upside_pct": 24.65,
         "fwd_return_pct": -9.11,
         "positive": false,
@@ -1966,7 +1994,7 @@
         "posture": "accumulate",
         "phase": "backfill",
         "band_downside_pct": -5.78,
-        "band_median_pct": 5.95,
+        "band_median_pct": 5.96,
         "band_upside_pct": 24.64,
         "fwd_return_pct": -7.9,
         "positive": false,
@@ -1981,7 +2009,7 @@
         "phase": "backfill",
         "band_downside_pct": -5.78,
         "band_median_pct": 5.95,
-        "band_upside_pct": 24.62,
+        "band_upside_pct": 24.64,
         "fwd_return_pct": -7.95,
         "positive": false,
         "within_band": false,
@@ -1994,7 +2022,7 @@
         "posture": "dont_chase",
         "phase": "backfill",
         "band_downside_pct": -5.78,
-        "band_median_pct": 5.94,
+        "band_median_pct": 5.95,
         "band_upside_pct": 24.62,
         "fwd_return_pct": -9.31,
         "positive": false,
@@ -2007,8 +2035,8 @@
         "valuation_pct": 0.845,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.8,
-        "band_median_pct": 5.93,
+        "band_downside_pct": -5.78,
+        "band_median_pct": 5.94,
         "band_upside_pct": 24.59,
         "fwd_return_pct": -7.56,
         "positive": false,
@@ -2021,8 +2049,8 @@
         "valuation_pct": 0.833,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.8,
-        "band_median_pct": 5.92,
+        "band_downside_pct": -5.78,
+        "band_median_pct": 5.93,
         "band_upside_pct": 24.59,
         "fwd_return_pct": -5.99,
         "positive": false,
@@ -2035,8 +2063,8 @@
         "valuation_pct": 0.825,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.8,
-        "band_median_pct": 5.91,
+        "band_downside_pct": -5.78,
+        "band_median_pct": 5.92,
         "band_upside_pct": 24.55,
         "fwd_return_pct": -5.57,
         "positive": false,
@@ -2049,8 +2077,8 @@
         "valuation_pct": 0.806,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.8,
-        "band_median_pct": 5.9,
+        "band_downside_pct": -5.78,
+        "band_median_pct": 5.91,
         "band_upside_pct": 24.53,
         "fwd_return_pct": 0.27,
         "positive": true,
@@ -2063,7 +2091,7 @@
         "valuation_pct": 0.837,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.8,
+        "band_downside_pct": -5.78,
         "band_median_pct": 5.9,
         "band_upside_pct": 24.53,
         "fwd_return_pct": -3.72,
@@ -2077,7 +2105,7 @@
         "valuation_pct": 0.806,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.8,
+        "band_downside_pct": -5.78,
         "band_median_pct": 5.9,
         "band_upside_pct": 24.52,
         "fwd_return_pct": 0.73,
@@ -2091,7 +2119,7 @@
         "valuation_pct": 0.81,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.8,
+        "band_downside_pct": -5.78,
         "band_median_pct": 5.9,
         "band_upside_pct": 24.52,
         "fwd_return_pct": 1.2,
@@ -2105,8 +2133,8 @@
         "valuation_pct": 0.833,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.8,
-        "band_median_pct": 5.89,
+        "band_downside_pct": -5.78,
+        "band_median_pct": 5.9,
         "band_upside_pct": 24.5,
         "fwd_return_pct": -1.47,
         "positive": false,
@@ -2119,9 +2147,9 @@
         "valuation_pct": 0.841,
         "posture": "accumulate",
         "phase": "backfill",
-        "band_downside_pct": -5.8,
+        "band_downside_pct": -5.78,
         "band_median_pct": 5.89,
-        "band_upside_pct": 24.47,
+        "band_upside_pct": 24.5,
         "fwd_return_pct": -1.3,
         "positive": false,
         "within_band": true,
@@ -2147,8 +2175,8 @@
         "valuation_pct": 0.917,
         "posture": "dont_chase",
         "phase": "backfill",
-        "band_downside_pct": -5.81,
-        "band_median_pct": 5.88,
+        "band_downside_pct": -5.8,
+        "band_median_pct": 5.89,
         "band_upside_pct": 24.44,
         "fwd_return_pct": -8.74,
         "positive": false,
@@ -2161,7 +2189,7 @@
         "valuation_pct": 0.925,
         "posture": "dont_chase",
         "phase": "backfill",
-        "band_downside_pct": -5.81,
+        "band_downside_pct": -5.8,
         "band_median_pct": 5.88,
         "band_upside_pct": 24.43,
         "fwd_return_pct": -10.17,
@@ -2175,7 +2203,7 @@
         "valuation_pct": 0.937,
         "posture": "dont_chase",
         "phase": "backfill",
-        "band_downside_pct": -5.81,
+        "band_downside_pct": -5.8,
         "band_median_pct": 5.88,
         "band_upside_pct": 24.34,
         "fwd_return_pct": -10.82,
@@ -2189,8 +2217,8 @@
         "valuation_pct": 0.964,
         "posture": "dont_chase",
         "phase": "backfill",
-        "band_downside_pct": -5.81,
-        "band_median_pct": 5.87,
+        "band_downside_pct": -5.8,
+        "band_median_pct": 5.88,
         "band_upside_pct": 24.34,
         "fwd_return_pct": -10.75,
         "positive": false,
@@ -2203,38 +2231,10 @@
         "valuation_pct": 0.98,
         "posture": "dont_chase",
         "phase": "backfill",
-        "band_downside_pct": -5.81,
+        "band_downside_pct": -5.8,
         "band_median_pct": 5.87,
         "band_upside_pct": 24.34,
         "fwd_return_pct": -11.64,
-        "positive": false,
-        "within_band": false,
-        "vs_median": "below"
-      },
-      {
-        "date": "2026-03-10",
-        "price": 153741.03,
-        "valuation_pct": 0.988,
-        "posture": "dont_chase",
-        "phase": "backfill",
-        "band_downside_pct": -5.81,
-        "band_median_pct": 5.87,
-        "band_upside_pct": 24.29,
-        "fwd_return_pct": -11.28,
-        "positive": false,
-        "within_band": false,
-        "vs_median": "below"
-      },
-      {
-        "date": "2026-03-09",
-        "price": 150856.07,
-        "valuation_pct": 0.96,
-        "posture": "dont_chase",
-        "phase": "backfill",
-        "band_downside_pct": -5.81,
-        "band_median_pct": 5.87,
-        "band_upside_pct": 24.21,
-        "fwd_return_pct": -10.29,
         "positive": false,
         "within_band": false,
         "vs_median": "below"
@@ -2243,24 +2243,9 @@
   },
   "prices": [
     {
-      "date": "2025-11-21",
-      "usd_gold_close": 4079.5,
-      "usd_gold_change_pct": null,
-      "usd_gold_instrument": "COMEX front-month gold futures close",
-      "usd_gold_source": "Yahoo:GC=F",
-      "mcx_inr_gold_close": null,
-      "mcx_inr_gold_change_pct": null,
-      "mcx_inr_gold_null_reason": "no-free-MCX-feed",
-      "usd_inr_rate": 88.6922,
-      "usd_inr_source": "Yahoo:USDINR=X",
-      "usd_gold_inr_equiv": 361819.83,
-      "usd_gold_inr_equiv_is_derived": true,
-      "usd_gold_inr_equiv_note": "DERIVED = COMEX front-month gold futures close x USD/INR spot FX rate; not a real MCX/exchange close"
-    },
-    {
       "date": "2025-11-24",
       "usd_gold_close": 4094.2,
-      "usd_gold_change_pct": 0.3603,
+      "usd_gold_change_pct": null,
       "usd_gold_instrument": "COMEX front-month gold futures close",
       "usd_gold_source": "Yahoo:GC=F",
       "mcx_inr_gold_close": null,
@@ -6006,39 +5991,39 @@
       "usd_gold_inr_equiv": 327969.23,
       "usd_gold_inr_equiv_is_derived": true,
       "usd_gold_inr_equiv_note": "DERIVED = COMEX front-month gold futures close x USD/INR spot FX rate; not a real MCX/exchange close"
+    },
+    {
+      "date": "2026-11-23",
+      "usd_gold_close": 3651.4,
+      "usd_gold_change_pct": 3.8687,
+      "usd_gold_instrument": "COMEX front-month gold futures close",
+      "usd_gold_source": "Yahoo:GC=F",
+      "mcx_inr_gold_close": null,
+      "mcx_inr_gold_change_pct": null,
+      "mcx_inr_gold_null_reason": "no-free-MCX-feed",
+      "usd_inr_rate": 92.673,
+      "usd_inr_source": "Yahoo:USDINR=X",
+      "usd_gold_inr_equiv": 338386.17,
+      "usd_gold_inr_equiv_is_derived": true,
+      "usd_gold_inr_equiv_note": "DERIVED = COMEX front-month gold futures close x USD/INR spot FX rate; not a real MCX/exchange close"
+    },
+    {
+      "date": "2026-11-24",
+      "usd_gold_close": 3621.3,
+      "usd_gold_change_pct": -0.8243,
+      "usd_gold_instrument": "COMEX front-month gold futures close",
+      "usd_gold_source": "Yahoo:GC=F",
+      "mcx_inr_gold_close": null,
+      "mcx_inr_gold_change_pct": null,
+      "mcx_inr_gold_null_reason": "no-free-MCX-feed",
+      "usd_inr_rate": 92.9,
+      "usd_inr_source": "Yahoo:USDINR=X",
+      "usd_gold_inr_equiv": 336418.78,
+      "usd_gold_inr_equiv_is_derived": true,
+      "usd_gold_inr_equiv_note": "DERIVED = COMEX front-month gold futures close x USD/INR spot FX rate; not a real MCX/exchange close"
     }
   ],
   "signals": [
-    {
-      "country": "US",
-      "source": "Fed:fomc_calendar",
-      "category": "Monetary Policy",
-      "tag": "fomc_minutes",
-      "title": "Minutes of the FOMC, meeting Sep 16, 2026",
-      "url": "https://www.federalreserve.gov/monetarypolicy/fomcminutes20260916.htm",
-      "published_at": "2026-10-07T18:00:00+00:00",
-      "published_date": "2026-10-07",
-      "confidence_discount": false,
-      "fetched_at": "2026-11-21T11:51:26+00:00",
-      "magnitude_usd": null,
-      "rate_change_bps": null,
-      "leak_status": "input"
-    },
-    {
-      "country": "US",
-      "source": "Treasury:buybacks",
-      "category": "Debt Management",
-      "tag": "treasury_buyback",
-      "title": "Treasury Liquidity Support buyback (20Y to 30Y) \u2014 $6.00B accepted, $6.0B cap",
-      "url": "https://www.treasurydirect.gov/GA-FI/FedInvest/buybacks [op 2026-10-08]",
-      "published_at": "2026-10-08T18:00:00+00:00",
-      "published_date": "2026-10-08",
-      "confidence_discount": false,
-      "fetched_at": "2026-11-21T11:51:27+00:00",
-      "magnitude_usd": 6000000000.0,
-      "rate_change_bps": null,
-      "leak_status": "input"
-    },
     {
       "country": "US",
       "source": "Treasury:buybacks",
@@ -6049,7 +6034,7 @@
       "published_at": "2026-10-15T18:00:00+00:00",
       "published_date": "2026-10-15",
       "confidence_discount": false,
-      "fetched_at": "2026-11-21T11:51:27+00:00",
+      "fetched_at": "2026-11-24T10:39:12+00:00",
       "magnitude_usd": 6000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6064,7 +6049,7 @@
       "published_at": "2026-10-21T18:00:00+00:00",
       "published_date": "2026-10-21",
       "confidence_discount": false,
-      "fetched_at": "2026-11-21T11:51:27+00:00",
+      "fetched_at": "2026-11-24T10:39:12+00:00",
       "magnitude_usd": 750000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6079,7 +6064,7 @@
       "published_at": "2026-10-27T18:00:00+00:00",
       "published_date": "2026-10-27",
       "confidence_discount": false,
-      "fetched_at": "2026-11-21T11:51:27+00:00",
+      "fetched_at": "2026-11-24T10:39:12+00:00",
       "magnitude_usd": 6000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6094,7 +6079,7 @@
       "published_at": "2026-10-28T18:00:00+00:00",
       "published_date": "2026-10-28",
       "confidence_discount": false,
-      "fetched_at": "2026-11-21T11:51:26+00:00",
+      "fetched_at": "2026-11-24T10:39:11+00:00",
       "magnitude_usd": null,
       "rate_change_bps": 0.0,
       "leak_status": "input"
@@ -6109,7 +6094,7 @@
       "published_at": "2026-11-04T19:00:00+00:00",
       "published_date": "2026-11-04",
       "confidence_discount": false,
-      "fetched_at": "2026-11-21T11:51:27+00:00",
+      "fetched_at": "2026-11-24T10:39:12+00:00",
       "magnitude_usd": 6000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6124,7 +6109,7 @@
       "published_at": "2026-11-05T19:00:00+00:00",
       "published_date": "2026-11-05",
       "confidence_discount": false,
-      "fetched_at": "2026-11-21T11:51:27+00:00",
+      "fetched_at": "2026-11-24T10:39:12+00:00",
       "magnitude_usd": 4000000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6139,7 +6124,7 @@
       "published_at": "2026-11-12T19:00:00+00:00",
       "published_date": "2026-11-12",
       "confidence_discount": false,
-      "fetched_at": "2026-11-21T11:51:27+00:00",
+      "fetched_at": "2026-11-24T10:39:12+00:00",
       "magnitude_usd": 556000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6154,7 +6139,7 @@
       "published_at": "2026-11-17T19:00:00+00:00",
       "published_date": "2026-11-17",
       "confidence_discount": false,
-      "fetched_at": "2026-11-21T11:51:27+00:00",
+      "fetched_at": "2026-11-24T10:39:12+00:00",
       "magnitude_usd": 1183000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6169,7 +6154,7 @@
       "published_at": "2026-11-18T19:00:00+00:00",
       "published_date": "2026-11-18",
       "confidence_discount": false,
-      "fetched_at": "2026-11-21T11:51:26+00:00",
+      "fetched_at": "2026-11-24T10:39:11+00:00",
       "magnitude_usd": null,
       "rate_change_bps": null,
       "leak_status": "input"
@@ -6184,68 +6169,62 @@
       "published_at": "2026-11-19T19:00:00+00:00",
       "published_date": "2026-11-19",
       "confidence_discount": false,
-      "fetched_at": "2026-11-21T11:51:27+00:00",
+      "fetched_at": "2026-11-24T10:39:12+00:00",
       "magnitude_usd": 254000000.0,
       "rate_change_bps": null,
       "leak_status": "input"
     }
   ],
   "live_forecast": {
-    "as_of": "2026-11-21T11:51:26+00:00",
-    "target_date": "2026-11-23",
+    "as_of": "2026-11-24T10:39:11+00:00",
+    "target_date": "2026-11-25",
     "horizon_days": 1,
     "direction": "down",
-    "prob_up": 0.45,
-    "confidence": 0.55,
+    "prob_up": 0.43,
+    "confidence": 0.57,
     "magnitude_low_pct": 0.63,
-    "magnitude_high_pct": 2.95,
+    "magnitude_high_pct": 3.34,
     "reasoning": [
-      "Gold has been falling over the last 3 days (-9.03%), and trends often continue",
-      "The U.S. Treasury bought back bonds last session (Treasury Liquidity Support buyback (7Y to 10Y) \u2014 $0.25B accepted, $4.0B cap), a smaller-than-usual-sized one \u2014 this tends to push long-term interest rates down, which usually lifts gold",
-      "The Fed recently released meeting notes (Minutes of the FOMC, meeting Oct 28, 2026) \u2014 a source of uncertainty",
-      "Lately gold has typically moved about 0.63\u20132.95% in a day (based on its recent ups and downs)"
+      "Gold has been falling over the last 3 days (-1.74%), and trends often continue",
+      "Lately gold has typically moved about 0.63\u20133.34% in a day (based on its recent ups and downs)"
     ],
     "factors": {
-      "momentum_pct": -9.026,
-      "recent_buyback": true,
-      "buyback_size_factor": 0.5,
-      "recent_fomc": true,
-      "score": -0.7
+      "momentum_pct": -1.742,
+      "recent_buyback": false,
+      "recent_fomc": false,
+      "score": -1.0
     },
     "honest_confidence": 0.5
   },
   "live_forecast_week": {
-    "as_of": "2026-11-21T11:51:26+00:00",
-    "target_date": "2026-11-27",
+    "as_of": "2026-11-24T10:39:11+00:00",
+    "target_date": "2026-12-01",
     "horizon_days": 5,
     "direction": "down",
-    "prob_up": 0.45,
-    "confidence": 0.55,
+    "prob_up": 0.43,
+    "confidence": 0.57,
     "magnitude_low_pct": 1.4,
-    "magnitude_high_pct": 6.6,
+    "magnitude_high_pct": 7.47,
     "reasoning": [
-      "Gold has been falling over the last 5 days (-9.54%), and trends often continue",
-      "The U.S. Treasury bought back bonds last session (Treasury Liquidity Support buyback (7Y to 10Y) \u2014 $0.25B accepted, $4.0B cap), a smaller-than-usual-sized one \u2014 this tends to push long-term interest rates down, which usually lifts gold",
-      "The Fed recently released meeting notes (Minutes of the FOMC, meeting Oct 28, 2026) \u2014 a source of uncertainty",
-      "Lately gold has typically moved about 1.40\u20136.60% in a week (based on its recent ups and downs)"
+      "Gold has been falling over the last 5 days (-6.29%), and trends often continue",
+      "Lately gold has typically moved about 1.40\u20137.47% in a week (based on its recent ups and downs)"
     ],
     "factors": {
-      "momentum_pct": -9.544,
-      "recent_buyback": true,
-      "buyback_size_factor": 0.5,
-      "recent_fomc": true,
-      "score": -0.7
+      "momentum_pct": -6.286,
+      "recent_buyback": false,
+      "recent_fomc": false,
+      "score": -1.0
     },
     "honest_confidence": 0.5
   },
   "backtest": {
-    "n": 246,
+    "n": 247,
     "hits": 116,
-    "hit_rate": 0.4715,
-    "brier": 0.2603,
+    "hit_rate": 0.4696,
+    "brier": 0.2606,
     "majority_class": "up",
-    "majority_rate": 0.5081,
-    "edge_vs_majority": -0.0366,
+    "majority_rate": 0.5061,
+    "edge_vs_majority": -0.0365,
     "calibration": [
       {
         "stated_confidence": 0.51,
@@ -6269,8 +6248,8 @@
       },
       {
         "stated_confidence": 0.55,
-        "n": 25,
-        "realized_hit_rate": 0.56
+        "n": 26,
+        "realized_hit_rate": 0.5385
       },
       {
         "stated_confidence": 0.56,
@@ -6279,8 +6258,8 @@
       },
       {
         "stated_confidence": 0.57,
-        "n": 90,
-        "realized_hit_rate": 0.4222
+        "n": 91,
+        "realized_hit_rate": 0.4286
       },
       {
         "stated_confidence": 0.59,
@@ -6294,8 +6273,8 @@
       },
       {
         "stated_confidence": 0.61,
-        "n": 31,
-        "realized_hit_rate": 0.5806
+        "n": 30,
+        "realized_hit_rate": 0.5667
       },
       {
         "stated_confidence": 0.62,
@@ -6314,17 +6293,8 @@
       }
     ],
     "horizon_days": 1,
-    "n_effective": 246,
+    "n_effective": 247,
     "days": [
-      {
-        "target_date": "2025-12-01",
-        "direction": "up",
-        "confidence": 0.61,
-        "prob_up": 0.61,
-        "actual_pct": 0.468,
-        "actual_dir": "up",
-        "hit": true
-      },
       {
         "target_date": "2025-12-02",
         "direction": "up",
@@ -8529,17 +8499,35 @@
         "actual_pct": -4.615,
         "actual_dir": "down",
         "hit": true
+      },
+      {
+        "target_date": "2026-11-23",
+        "direction": "down",
+        "confidence": 0.55,
+        "prob_up": 0.45,
+        "actual_pct": 3.869,
+        "actual_dir": "up",
+        "hit": false
+      },
+      {
+        "target_date": "2026-11-24",
+        "direction": "down",
+        "confidence": 0.57,
+        "prob_up": 0.43,
+        "actual_pct": -0.824,
+        "actual_dir": "down",
+        "hit": true
       }
     ]
   },
   "backtest_week": {
-    "n": 240,
-    "hits": 111,
-    "hit_rate": 0.4625,
-    "brier": 0.261,
+    "n": 241,
+    "hits": 112,
+    "hit_rate": 0.4647,
+    "brier": 0.2608,
     "majority_class": "down",
-    "majority_rate": 0.5083,
-    "edge_vs_majority": -0.0458,
+    "majority_rate": 0.5145,
+    "edge_vs_majority": -0.0498,
     "calibration": [
       {
         "stated_confidence": 0.51,
@@ -8558,8 +8546,8 @@
       },
       {
         "stated_confidence": 0.54,
-        "n": 3,
-        "realized_hit_rate": 0.6667
+        "n": 4,
+        "realized_hit_rate": 0.75
       },
       {
         "stated_confidence": 0.55,
@@ -8590,15 +8578,6 @@
     "horizon_days": 5,
     "n_effective": 48,
     "days": [
-      {
-        "target_date": "2025-12-09",
-        "direction": "up",
-        "confidence": 0.57,
-        "prob_up": 0.57,
-        "actual_pct": 0.365,
-        "actual_dir": "up",
-        "hit": true
-      },
       {
         "target_date": "2025-12-10",
         "direction": "up",
@@ -10749,46 +10728,55 @@
         "actual_pct": -9.544,
         "actual_dir": "down",
         "hit": true
+      },
+      {
+        "target_date": "2026-11-23",
+        "direction": "down",
+        "confidence": 0.57,
+        "prob_up": 0.43,
+        "actual_pct": -5.232,
+        "actual_dir": "down",
+        "hit": true
+      },
+      {
+        "target_date": "2026-11-24",
+        "direction": "down",
+        "confidence": 0.54,
+        "prob_up": 0.46,
+        "actual_pct": -6.286,
+        "actual_dir": "down",
+        "hit": true
       }
     ]
   },
   "backtest_v1": {
-    "n": 246,
+    "n": 247,
     "hits": 116,
-    "hit_rate": 0.4715,
-    "brier": 0.2602,
+    "hit_rate": 0.4696,
+    "brier": 0.2604,
     "majority_class": "up",
-    "majority_rate": 0.5081,
-    "edge_vs_majority": -0.0366,
+    "majority_rate": 0.5061,
+    "edge_vs_majority": -0.0365,
     "calibration": [
       {
         "stated_confidence": 0.53,
-        "n": 75,
-        "realized_hit_rate": 0.5067
+        "n": 76,
+        "realized_hit_rate": 0.5
       },
       {
         "stated_confidence": 0.57,
-        "n": 91,
-        "realized_hit_rate": 0.4176
+        "n": 92,
+        "realized_hit_rate": 0.4239
       },
       {
         "stated_confidence": 0.61,
-        "n": 80,
-        "realized_hit_rate": 0.5
+        "n": 79,
+        "realized_hit_rate": 0.4937
       }
     ],
     "horizon_days": 1,
-    "n_effective": 246,
+    "n_effective": 247,
     "days": [
-      {
-        "target_date": "2025-12-01",
-        "direction": "up",
-        "confidence": 0.61,
-        "prob_up": 0.61,
-        "actual_pct": 0.468,
-        "actual_dir": "up",
-        "hit": true
-      },
       {
         "target_date": "2025-12-02",
         "direction": "up",
@@ -12993,28 +12981,46 @@
         "actual_pct": -4.615,
         "actual_dir": "down",
         "hit": true
+      },
+      {
+        "target_date": "2026-11-23",
+        "direction": "down",
+        "confidence": 0.53,
+        "prob_up": 0.47,
+        "actual_pct": 3.869,
+        "actual_dir": "up",
+        "hit": false
+      },
+      {
+        "target_date": "2026-11-24",
+        "direction": "down",
+        "confidence": 0.57,
+        "prob_up": 0.43,
+        "actual_pct": -0.824,
+        "actual_dir": "down",
+        "hit": true
       }
     ]
   },
   "scoreboard": {
     "last_graded": {
-      "target_date": "2026-11-20",
+      "target_date": "2026-11-24",
       "direction": "down",
-      "confidence": 0.55,
+      "confidence": 0.57,
       "honest_confidence": 0.5,
       "actual_dir": "down",
-      "actual_pct": -4.615,
+      "actual_pct": -0.824,
       "hit": true
     },
     "running": {
       "hits": 116,
-      "n": 246,
-      "rate": 0.4715
+      "n": 247,
+      "rate": 0.4696
     }
   },
   "calibration": {
     "k": 0.0,
-    "n": 246,
+    "n": 247,
     "examples": [
       {
         "raw": 0.54,
@@ -13041,8 +13047,8 @@
     "caveat": "v2 reads what signals SAY (rate decision, buyback size), not just that they fired. Weights are prior-specified, not fitted, so the backtest is out-of-sample. Reading content barely moved accuracy and still does not beat a naive baseline \u2014 public policy is priced in. The value is transparent reasoning, not a market-beating edge."
   },
   "leak_demo": {
-    "cutoff": "2026-11-21T00:00:00Z",
-    "included": 12,
+    "cutoff": "2026-11-24T00:00:00Z",
+    "included": 10,
     "withheld": 0,
     "rule": "a signal informs the forecast only if published strictly before the cutoff"
   },
