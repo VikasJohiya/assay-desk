@@ -55,7 +55,7 @@
           "label": "Reasonable to accumulate",
           "n": 3,
           "pct_positive": 0.0,
-          "median_fwd_pct": -24.24
+          "median_fwd_pct": -24.01
         }
       }
     }
@@ -63,7 +63,7 @@
   "recent": [
     {
       "date": "2026-11-24",
-      "price": 108164.13,
+      "price": 108486.71,
       "valuation_pct": 0.008,
       "posture": "accumulate",
       "phase": "live",
@@ -1330,7 +1330,7 @@
       "band_downside_pct": -5.76,
       "band_median_pct": 6.08,
       "band_upside_pct": 24.74,
-      "fwd_return_pct": -21.26,
+      "fwd_return_pct": -21.03,
       "positive": false,
       "within_band": false,
       "vs_median": "below"
